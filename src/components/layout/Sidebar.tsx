@@ -300,9 +300,9 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
         {project?.category ?? "Industry"}
       </p>
 
-      {project?.intro && (
+      {project?.description && (
         <p className="mt-6 max-w-[36ch] text-[15px] leading-[1.75] text-cream/60">
-          {project.intro}
+          {project.des}
         </p>
       )}
 

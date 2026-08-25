@@ -27,7 +27,13 @@ export type Site = {
 };
 
 export async function getProjects(): Promise<Project[]> {
-  const all = await reader.collections.projects.all();
+  let all: Awaited<ReturnType<typeof reader.collections.projects.all>> = [];
+  try {
+    all = await reader.collections.projects.all();
+  } catch (err) {
+    console.warn("[cms] failed to read projects:", err);
+    return [];
+  }
   return all
     .map(({ slug, entry: project }) => ({
       slug,
@@ -57,13 +63,19 @@ export async function getNextProject(slug: string): Promise<Project> {
 }
 
 export async function getSite(): Promise<Site> {
-  const site = (await reader.singletons.site.read()) as Partial<Site> | null ?? {};
+  let site: Partial<Site> | null = null;
+  try {
+    site = (await reader.singletons.site.read()) as Partial<Site> | null;
+  } catch (err) {
+    console.warn("[cms] failed to read site settings:", err);
+  }
+  const s = site ?? {};
   return {
-    email: site.email ?? "hello@oreenza.com",
-    calLink: site.calLink ?? "https://cal.com/oreenza/discovery-call",
-    calEmbedPath: site.calEmbedPath ?? "oreenza/discovery-call",
-    socials: site.socials ? site.socials.map((x) => ({ label: x.label, href: x.href })) : [],
-    clients: (site.clients ?? []).map((c) => ({ name: c?.name ?? "", logo: c?.logo ?? undefined })),
-    services: site.services ? site.services.map((x) => ({ title: x.title, items: [...x.items] })) : [],
+    email: s.email ?? "hello@oreenza.com",
+    calLink: s.calLink ?? "https://cal.com/oreenza/discovery-call",
+    calEmbedPath: s.calEmbedPath ?? "oreenza/discovery-call",
+    socials: s.socials ? s.socials.map((x) => ({ label: x.label, href: x.href })) : [],
+    clients: (s.clients ?? []).map((c) => ({ name: c?.name ?? "", logo: c?.logo ?? undefined })),
+    services: s.services ? s.services.map((x) => ({ title: x.title, items: [...x.items] })) : [],
   };
 }
