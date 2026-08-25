@@ -11,12 +11,22 @@ socials:
   - label: X / Twitter
     href: https://x.com/oreenza
 clients:
-  - NOVA
-  - KINDL
-  - ARC
-  - MÖBIUS
-  - FORM
-  - VESPER
+  - name: Google
+    logo: /logos/google.svg
+  - name: Meta
+    logo: /logos/meta.svg
+  - name: Shopify
+    logo: /logos/shopify.svg
+  - name: Stripe
+    logo: /logos/stripe.svg
+  - name: Notion
+    logo: /logos/notion.svg
+  - name: Figma
+    logo: /logos/figma.svg
+  - name: Spotify
+    logo: /logos/spotify.svg
+  - name: Airbnb
+    logo: /logos/airbnb.svg
 services:
   - title: Brand Identity
     items:

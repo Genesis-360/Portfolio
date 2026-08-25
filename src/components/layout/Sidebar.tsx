@@ -23,7 +23,7 @@ type SidebarProject = {
 
 export type SidebarData = {
   serviceTitles: string[];
-  clients: string[];
+  clients: { name: string; logo?: string }[];
   email: string;
   socials: { label: string; href: string }[];
 };
@@ -121,9 +121,15 @@ function SideRail() {
 
 function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
   const clientLogos: LogoItem[] = data.clients.map((client) => ({
-    node: (
+    node: client.logo ? (
+      <img
+        src={client.logo}
+        alt={client.name}
+        className="h-5 w-auto opacity-70 transition-opacity duration-300 hover:opacity-100"
+      />
+    ) : (
       <span className="font-medium uppercase tracking-[0.12em] text-cream/65">
-        {client}
+        {client.name}
       </span>
     ),
   }));
@@ -206,8 +212,6 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
             loop
             autoRotate
             autoRotateMs={2200}
-            soundUrl="/sounds/click-soft.wav"
-            soundVolume={0.5}
           />
         </div>
       </section>

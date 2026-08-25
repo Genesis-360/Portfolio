@@ -76,10 +76,17 @@ export default config({
           }),
           { label: "Socials", itemLabel: (props) => props.fields.label.value }
         ),
-        clients: fields.array(fields.text({ label: "Client name" }), {
-          label: "Trusted-by clients",
-          itemLabel: (props) => props.value,
-        }),
+        clients: fields.array(
+          fields.object({
+            name: fields.text({ label: "Name" }),
+            logo: fields.image({
+              label: "Logo",
+              directory: "public/logos",
+              publicPath: "/logos/",
+            }),
+          }),
+          { label: "Trusted-by clients", itemLabel: (props) => props.fields.name.value }
+        ),
         services: fields.array(
           fields.object({
             title: fields.text({ label: "Title" }),

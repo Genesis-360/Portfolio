@@ -22,7 +22,7 @@ export type Site = {
   calLink: string;
   calEmbedPath: string;
   socials: { label: string; href: string }[];
-  clients: string[];
+  clients: { name: string; logo?: string }[];
   services: { title: string; items: string[] }[];
 };
 
@@ -63,7 +63,7 @@ export async function getSite(): Promise<Site> {
     calLink: site.calLink ?? "https://cal.com/oreenza/discovery-call",
     calEmbedPath: site.calEmbedPath ?? "oreenza/discovery-call",
     socials: site.socials ? site.socials.map((x) => ({ label: x.label, href: x.href })) : [],
-    clients: [...(site.clients ?? [])],
+    clients: (site.clients ?? []).map((c) => ({ name: c?.name ?? "", logo: c?.logo ?? undefined })),
     services: site.services ? site.services.map((x) => ({ title: x.title, items: [...x.items] })) : [],
   };
 }
