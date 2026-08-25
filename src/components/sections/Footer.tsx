@@ -1,7 +1,6 @@
 "use client";
 
-import { SOCIALS } from "@/lib/data";
-export function Footer() {
+export function Footer({ socials }: { socials: { label: string; href: string }[] }) {
 
   return (
     <footer
@@ -12,7 +11,7 @@ export function Footer() {
           © {new Date().getFullYear()} OREENZA Agency. All rights reserved.
         </p>
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
-          {SOCIALS.map((s) => (
+          {socials.map((s) => (
             <a
               key={s.label}
               href={s.href}

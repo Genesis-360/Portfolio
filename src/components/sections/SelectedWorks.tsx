@@ -3,9 +3,9 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PROJECTS } from "@/lib/data";
+import type { Project } from "@/lib/content";
 
-export function SelectedWorks() {
+export function SelectedWorks({ projects }: { projects: Project[] }) {
   const sectionRef = useRef<HTMLElement>(null);
   return (
     <section
@@ -14,7 +14,7 @@ export function SelectedWorks() {
       className="scroll-mt-24 py-0"
     >
       <div className="flex flex-col gap-2 lg:gap-3">
-        {PROJECTS.map((p) => (
+        {projects.map((p) => (
           <article key={p.slug} className="group">
             <Link href={`/project/${p.slug}`} data-cursor="hover" data-cursor-label="View Project">
               <div className="relative aspect-16/19 overflow-hidden bg-ink lg:aspect-video">
@@ -22,7 +22,7 @@ export function SelectedWorks() {
                   src={p.cover}
                   alt={p.title}
                   fill
-                  priority={p.index === "01"}
+                  priority={p.index === 1}
                   sizes="(max-width: 1024px) 100vw, 1200px"
                   className="object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.02]"
                 />
@@ -38,7 +38,7 @@ export function SelectedWorks() {
                       ™
                     </span>
                     <span className="mx-1.5 text-accent">·</span>
-                    <span className="text-accent">{p.category}</span>
+                    <span className="text-accent">{p.industry}</span>
                   </p>
                 </div>
               </div>

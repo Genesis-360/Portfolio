@@ -1,0 +1,44 @@
+email: hello@oreenza.com
+calLink: https://cal.com/oreenza/discovery-call
+calEmbedPath: oreenza/discovery-call
+socials:
+  - label: Instagram
+    href: https://instagram.com
+  - label: Dribbble
+    href: https://dribbble.com
+  - label: LinkedIn
+    href: https://linkedin.com
+  - label: X / Twitter
+    href: https://x.com
+clients:
+  - NOVA
+  - KINDL
+  - ARC
+  - MÖBIUS
+  - FORM
+  - VESPER
+services:
+  - title: Brand Identity
+    items:
+      - Naming
+      - Logo Systems
+      - Guidelines
+      - Voice
+  - title: Web Design
+    items:
+      - UX/UI
+      - Design Systems
+      - Webflow
+      - Next.js
+  - title: Product
+    items:
+      - Prototyping
+      - Design Eng
+      - Accessibility
+      - QA
+  - title: Motion
+    items:
+      - Art Direction
+      - GSAP
+      - 3D
+      - Video

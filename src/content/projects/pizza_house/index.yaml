@@ -1,0 +1,22 @@
+title:
+  name: Pizza House
+  slug: pizza_house
+index: 2
+industry: Restaurant Brand
+year: "2024"
+client: Pizza House
+intro: >-
+  A warm, appetite-first rebrand for a neighbourhood favourite.
+description:
+  - >-
+    Pizza House needed to feel as good as it tastes. We built a friendly,
+    tactile identity and a site that gets out of the way of the food.
+  - >-
+    From menu to packaging, every touchpoint now shares one hungry, handwritten
+    point of view.
+services:
+  - Brand Identity
+  - Packaging
+  - Web Design
+cover: /projects/pizza_house/pizza_house.webp
+gallery: []

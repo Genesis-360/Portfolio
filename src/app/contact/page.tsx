@@ -5,7 +5,7 @@ import { MaskText, Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Footer } from "@/components/sections/Footer";
 import { CalInline } from "@/components/ui/CalInline";
-import { CAL_EMBED, EMAIL, SOCIALS } from "@/lib/data";
+import { getSite } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact — OREENZA",
@@ -24,10 +24,21 @@ function Detail({ label, children }: { label: string; children: React.ReactNode 
   );
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const site = await getSite();
+
   return (
     <div className="lg:flex lg:items-start">
-      <Sidebar variant="sub" content="contact" />
+      <Sidebar
+        variant="sub"
+        content="contact"
+        data={{
+          serviceTitles: site.services.map((sv) => sv.title),
+          clients: site.clients,
+          email: site.email,
+          socials: site.socials,
+        }}
+      />
 
       <main className="w-full lg:w-[70%] lg:flex-1">
         {/* Header */}
@@ -80,7 +91,7 @@ export default function ContactPage() {
           </MaskText>
 
           <Reveal className="mt-8">
-            <CalInline calLink={CAL_EMBED} />
+            <CalInline calLink={site.calEmbedPath} />
           </Reveal>
         </section>
 
@@ -99,17 +110,17 @@ export default function ContactPage() {
             </MaskText>
 
             <div className="mt-10">
-              <ContactForm />
+              <ContactForm email={site.email} />
             </div>
           </div>
 
           <div className="space-y-8 lg:col-span-5">
             <Detail label="Email">
               <a
-                href={`mailto:${EMAIL}`}
+                href={`mailto:${site.email}`}
                 data-cursor="hover"
                 className="text-2xl text-cream/90 underline-offset-4 transition-colors hover:text-accent">
-                {EMAIL}
+                {site.email}
               </a>
             </Detail>
 
@@ -139,7 +150,7 @@ export default function ContactPage() {
 
             <Detail label="Socials">
               <ul className="flex flex-col gap-2">
-                {SOCIALS.map((s) => (
+                {site.socials.map((s) => (
                   <li key={s.label}>
                     <a
                       href={s.href}
@@ -164,7 +175,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <Footer />
+        <Footer socials={site.socials} />
       </main>
     </div>
   );

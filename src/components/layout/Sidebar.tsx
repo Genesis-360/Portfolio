@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { LogoLoop, type LogoItem } from "@/components/ui/LogoLoop";
 import OptionWheel from "@/components/ui/OptionWheel";
-import { CLIENTS, EMAIL, SERVICES, SOCIALS } from "@/lib/data";
+
 
 const BASE =
   "sticky top-0 z-40 flex w-full flex-col overflow-hidden border-b border-cream/15 bg-ink lg:h-screen lg:w-[30%] lg:max-w-[560px] lg:border-b-0 lg:border-r";
@@ -19,10 +19,18 @@ type SidebarProject = {
   index?: string;
 };
 
+export type SidebarData = {
+  serviceTitles: string[];
+  clients: string[];
+  email: string;
+  socials: { label: string; href: string }[];
+};
+
 type SidebarProps = {
   variant?: "home" | "sub";
   content?: "home" | "contact" | "project";
   project?: SidebarProject;
+  data: SidebarData;
 };
 
 /* ------------------------------------------------------------------ */
@@ -93,12 +101,12 @@ function SideRail() {
 /* Page content                                                       */
 /* ------------------------------------------------------------------ */
 
-function HomeContent({ isHome }: { isHome: boolean }) {
+function HomeContent({ isHome, data }: { isHome: boolean; data: SidebarData }) {
   const { scrollTo } = useSmoothScroll();
-  const clientLogos: LogoItem[] = CLIENTS.map((client) => ({
+  const clientLogos: LogoItem[] = data.clients.map((client) => ({
     node: (
       <span className="font-medium uppercase tracking-[0.12em] text-cream/65">
-        {client.name}
+        {client}
       </span>
     ),
   }));
@@ -170,7 +178,7 @@ function HomeContent({ isHome }: { isHome: boolean }) {
         </p>
         <div className="mt-3 h-48 sm:h-52 [@media(min-height:900px)]:h-64 [@media(min-height:1050px)]:h-72">
           <OptionWheel
-            items={SERVICES.map((s) => s.title)}
+            items={data.serviceTitles}
             defaultSelected={0}
             side="left"
             fontSize={1.55}
@@ -192,7 +200,7 @@ function HomeContent({ isHome }: { isHome: boolean }) {
   );
 }
 
-function ContactContent() {
+function ContactContent({ data }: { data: SidebarData }) {
   const { scrollTo } = useSmoothScroll();
   return (
     <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
@@ -206,10 +214,10 @@ function ContactContent() {
       </h2>
 
       <a
-        href={`mailto:${EMAIL}`}
+        href={`mailto:${data.email}`}
         data-cursor="hover"
         className="mt-6 inline-block w-fit text-3xl text-cream/85 transition-colors hover:text-accent">
-        {EMAIL}
+        {data.email}
       </a>
 
       <a
@@ -230,7 +238,7 @@ function ContactContent() {
           Elsewhere
         </p>
         <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-cream/15 bg-cream/10">
-          {SOCIALS.slice(0, 4).map((s) => (
+          {data.socials.slice(0, 4).map((s) => (
             <li key={s.label}>
               <a
                 href={s.href}
@@ -255,7 +263,7 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
       <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.24em] text-cream/40">
         <span className="text-accent">{project?.index ?? "00"}</span>
         <span className="h-px w-8 bg-cream/15" />
-        Selected project
+        Featured Project
       </p>
 
       <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.92] tracking-tight text-cream">
@@ -312,14 +320,15 @@ export function Sidebar({
   variant = "home",
   content = "home",
   project,
+  data,
 }: SidebarProps) {
   const pageContent =
     content === "contact" ? (
-      <ContactContent />
+      <ContactContent data={data} />
     ) : content === "project" ? (
       <ProjectContent project={project} />
     ) : (
-      <HomeContent isHome={variant === "home"} />
+      <HomeContent isHome={variant === "home"} data={data} />
     );
 
   return (

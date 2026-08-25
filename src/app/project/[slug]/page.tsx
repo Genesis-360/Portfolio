@@ -1,19 +1,20 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { PROJECTS, getProject, getNextProject } from "@/lib/data";
+import { getNextProject, getProject, getProjects, getSite } from "@/lib/content";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { RevealMedia } from "@/components/ui/Reveal";
 import { HideScrollbar } from "@/components/ui/HideScrollbar";
 
-export function generateStaticParams() {
-  return PROJECTS.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  const projects = await getProjects();
+  return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps<"/project/[slug]">) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const [project, site] = await Promise.all([getProject(slug), getSite()]);
   if (!project) return { title: "Project not found — OREENZA" };
   return {
     title: `${project.title} — OREENZA`,
@@ -25,9 +26,9 @@ export default async function ProjectPage({
   params,
 }: PageProps<"/project/[slug]">) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const [project, site] = await Promise.all([getProject(slug), getSite()]);
   if (!project) notFound();
-  const next = getNextProject(slug);
+  const next = await getNextProject(slug);
 
   return (
     <div className="lg:flex lg:items-start">
@@ -37,11 +38,17 @@ export default async function ProjectPage({
         content="project"
         project={{
           title: project.title,
-          category: project.category,
+          category: project.industry,
           year: project.year,
           services: project.services,
           intro: project.intro,
-          index: project.index,
+          index: String(project.index).padStart(2, "0"),
+        }}
+        data={{
+          serviceTitles: [],
+          clients: [],
+          email: site.email,
+          socials: site.socials,
         }}
       />
 

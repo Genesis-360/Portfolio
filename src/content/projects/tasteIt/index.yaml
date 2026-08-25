@@ -1,0 +1,23 @@
+title:
+  name: TasteIt
+  slug: tasteIt
+index: 3
+industry: Product & Web
+year: "2025"
+client: TasteIt
+intro: >-
+  A food-discovery product designed to make choosing effortless.
+description:
+  - >-
+    TasteIt's challenge was decision fatigue. We designed the core flows and a
+    flexible product system that makes browsing feel like a recommendation from
+    a friend.
+  - >-
+    Fast, focused, and a little playful — built to scale across devices without
+    losing its charm.
+services:
+  - Product Design
+  - Web Design
+  - Motion
+cover: /projects/tasteIt/tasteIt.webp
+gallery: []

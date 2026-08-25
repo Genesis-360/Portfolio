@@ -1,0 +1,24 @@
+title:
+  name: Oestra
+  slug: oestra
+index: 1
+industry: Brand & Web
+year: "2025"
+client: Oestra
+intro: >-
+  A confident identity and website for a modern wellness brand finding its
+  voice.
+description:
+  - >-
+    We shaped Oestra's brand from the ground up — a calm, assured identity
+    system and a website that turns a complex offer into something clear and
+    human.
+  - >-
+    The result reads premium without cold: considered type, restrained colour,
+    and motion that guides rather than distracts.
+services:
+  - Brand Identity
+  - Web Design
+  - Art Direction
+cover: /projects/oestra/oestra.webp
+gallery: []

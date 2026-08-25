@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { EMAIL } from "@/lib/data";
 
 const fieldCls =
   "w-full border-b border-cream/20 bg-transparent py-3 text-lg text-cream outline-none transition-colors duration-300 placeholder:text-cream/30 focus:border-accent";
 
-export function ContactForm() {
+export function ContactForm({ email: siteEmail }: { email: string }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -16,7 +15,7 @@ export function ContactForm() {
     e.preventDefault();
     const subject = `New project enquiry — ${name || "Hello"}`;
     const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
+    window.location.href = `mailto:${siteEmail}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
   };
