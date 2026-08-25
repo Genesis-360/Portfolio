@@ -16,6 +16,7 @@ type SidebarProject = {
   year: string;
   services: string[];
   intro?: string;
+  index?: string;
 };
 
 type SidebarProps = {
@@ -251,41 +252,44 @@ function ContactContent() {
 function ProjectContent({ project }: { project?: SidebarProject }) {
   return (
     <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
-      <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
-        <span className="text-accent">00</span>
-        <span className="h-px w-6 bg-cream/15" />
+      <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.24em] text-cream/40">
+        <span className="text-accent">{project?.index ?? "00"}</span>
+        <span className="h-px w-8 bg-cream/15" />
         Selected project
       </p>
 
-      <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.9] tracking-tight text-cream">
+      <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.92] tracking-tight text-cream">
         {project?.title ?? "Selected Project"}
+        <span className="ml-1 align-super font-body text-[0.42em] font-bold tracking-normal text-cream/50">
+          ™
+        </span>
       </h2>
 
-      <p className="mt-4 flex items-center gap-3 text-xs uppercase tracking-[0.14em] text-cream/55">
+      <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.24em] text-cream/45">
         {project?.year ?? "Year"}
-        <span className="h-1 w-1 rounded-full bg-accent" />
+        <span className="mx-2.5 text-accent">·</span>
         {project?.category ?? "Industry"}
       </p>
 
       {project?.intro && (
-        <p className="mt-5 text-sm leading-relaxed text-cream/60">
+        <p className="mt-6 max-w-[36ch] text-[15px] leading-[1.75] text-cream/60">
           {project.intro}
         </p>
       )}
 
       {(project?.services?.length ?? 0) > 0 && (
-        <ul className="mt-6 flex flex-wrap gap-2">
+        <ul className="mt-7 flex flex-wrap gap-2">
           {project!.services.map((service) => (
             <li
               key={service}
-              className="rounded-full border border-cream/15 px-3.5 py-1.5 text-[10px] uppercase tracking-[0.14em] text-cream/65 transition-colors hover:border-accent hover:text-accent">
+              className="rounded-full border border-cream/15 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-cream/60 transition-colors duration-300 hover:border-accent/60 hover:text-accent">
               {service}
             </li>
           ))}
         </ul>
       )}
 
-      <div className="mt-9 flex flex-col items-start gap-4">
+      <div className="mt-10">
         <Button
           href="/contact#book"
           className="border-accent bg-accent text-ink hover:bg-cream">
@@ -295,20 +299,7 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
           </span>
           Book a 15-min call
         </Button>
-        <a
-          href={`mailto:${EMAIL}`}
-          data-cursor="hover"
-          className="text-xs text-cream/45 transition-colors hover:text-accent">
-          {EMAIL}
-        </a>
       </div>
-
-      <Link
-        href="/#work"
-        data-cursor="hover"
-        className="mt-8 inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream/60 transition-colors hover:text-accent">
-        ← All work
-      </Link>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export function SelectedWorks() {
       ref={sectionRef}
       className="scroll-mt-24 py-0"
     >
-      <div className="flex flex-col gap-3 lg:gap-4">
+      <div className="flex flex-col gap-2 lg:gap-3">
         {PROJECTS.map((p) => (
           <article key={p.slug} className="group">
             <Link href={`/project/${p.slug}`} data-cursor="hover" data-cursor-label="View Project">
@@ -28,15 +28,17 @@ export function SelectedWorks() {
                 />
                 <div className="absolute inset-0 bg-ink/10 transition-colors group-hover:bg-ink/0" />
 
-                <div className="absolute bottom-4 right-4 rounded-xl border border-cream/10 bg-ink/80 px-5 py-3 text-right shadow-[0_10px_35px_rgba(0,0,0,0.55)] backdrop-blur-md transition-transform duration-300 ease-smooth group-hover:-translate-y-1">
+                <div className="absolute bottom-4 right-4 rounded-sm border border-cream/10 bg-ink/80 px-5 py-3 text-right shadow-[0_10px_35px_rgba(0,0,0,0.55)] backdrop-blur-md transition-transform duration-300 ease-smooth group-hover:-translate-y-1">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-cream/45">
                     {p.year}
                   </p>
-                  <p className="mt-1 font-anton text-sm uppercase tracking-[0.04em] text-cream">
-                    <span className="mr-2 text-accent">{p.index}</span>
+                  <p className="mt-1 text-sm uppercase tracking-[0.04em] text-cream">
                     {p.title}
+                    <span className="ml-0.5 align-super text-[0.55em] font-bold text-cream/50">
+                      ™
+                    </span>
                     <span className="mx-1.5 text-accent">·</span>
-                    <span className="text-cream/60">{p.category}</span>
+                    <span className="text-accent">{p.category}</span>
                   </p>
                 </div>
               </div>

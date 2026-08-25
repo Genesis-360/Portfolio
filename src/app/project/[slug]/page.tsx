@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PROJECTS, getProject, getNextProject } from "@/lib/data";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { RevealMedia } from "@/components/ui/Reveal";
+import { HideScrollbar } from "@/components/ui/HideScrollbar";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
@@ -30,6 +31,7 @@ export default async function ProjectPage({
 
   return (
     <div className="lg:flex lg:items-start">
+      <HideScrollbar />
       <Sidebar
         variant="sub"
         content="project"
@@ -39,6 +41,7 @@ export default async function ProjectPage({
           year: project.year,
           services: project.services,
           intro: project.intro,
+          index: project.index,
         }}
       />
 
@@ -72,7 +75,11 @@ export default async function ProjectPage({
             Next project
           </span>
           <span className="font-anton text-xl uppercase tracking-[0.04em] text-cream transition-colors duration-300 group-hover:text-accent">
-            {next.title} →
+            {next.title}
+            <span className="ml-0.5 align-super font-body text-[0.5em] font-bold text-cream/50">
+              ™
+            </span>{" "}
+            →
           </span>
         </Link>
       </main>
