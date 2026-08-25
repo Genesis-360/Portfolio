@@ -41,6 +41,7 @@ export default async function ProjectPage({
           category: project.industry,
           year: project.year,
           services: project.services,
+          liveUrl: project.liveUrl,
           description: project.description.join(" "),
           index: String(project.index).padStart(2, "0"),
         }}

@@ -9,7 +9,7 @@ import { useEffect } from "react";
  */
 export function CalInline({
   calLink,
-  className = "h-[680px] w-full",
+  className = "h-170 w-full",
 }: {
   calLink: string;
   className?: string;

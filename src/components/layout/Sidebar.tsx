@@ -18,6 +18,7 @@ type SidebarProject = {
   category: string;
   year: string;
   services: string[];
+  liveUrl?: string;
   description?: string;
   index?: string;
 };
@@ -122,15 +123,14 @@ function SideRail() {
 
 function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
   const clientLogos: LogoItem[] = data.clients.map((client) => ({
-    node: client.logo ? (
-      <Image
-        src={client.logo}
-        alt={client.name}
-        className="h-5 w-auto opacity-70 transition-opacity duration-300 hover:opacity-100"
-      />
-    ) : (
-      <span className="font-medium uppercase tracking-[0.12em] text-cream/65">
-        {client.name}
+    node: (
+      <span className="flex items-center gap-2.5 opacity-70 transition-opacity duration-300 hover:opacity-100">
+        {client.logo && (
+          <img src={client.logo} alt="" className="h-5 w-auto flex-none" />
+        )}
+        <span className="whitespace-nowrap font-body text-sm font-semibold tracking-wide text-cream/85">
+          {client.name}
+        </span>
       </span>
     ),
   }));
@@ -238,7 +238,7 @@ function ContactContent({ data }: { data: SidebarData }) {
         className="mt-6 inline-block w-fit text-3xl text-cream/85 transition-colors hover:text-accent">
         {data.email}
       </a>
-
+      
       <div className="mt-10">
         <Button
           href="/contact#book"
@@ -317,6 +317,24 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
             </li>
           ))}
         </ul>
+      )}
+
+      {project?.liveUrl && (
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cursor="hover"
+          data-cursor-label="Live"
+          className="mt-6 inline-flex w-fit items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-cream/60 transition-colors duration-300 hover:text-accent"
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+          </span>
+          Visit live site
+          <span aria-hidden>↗</span>
+        </a>
       )}
 
       <div className="mt-10">

@@ -27,6 +27,12 @@ clients:
     logo: /logos/spotify.svg
   - name: Airbnb
     logo: /logos/airbnb.svg
+  - name: Zomato
+    logo: /logos/zomato.svg
+  - name: Swiggy
+    logo: /logos/swiggy.svg
+  - name: Paytm
+    logo: /logos/paytm.svg
 services:
   - title: Brand Identity
     items:

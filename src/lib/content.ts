@@ -10,6 +10,7 @@ export type Project = {
   industry: string;
   year: string;
   client: string;
+  liveUrl: string;
   intro: string;
   description: string[];
   services: string[];
@@ -42,6 +43,7 @@ export async function getProjects(): Promise<Project[]> {
       industry: project.industry,
       year: project.year,
       client: project.client,
+      liveUrl: project.liveUrl ?? "",
       intro: project.intro,
       description: [...(project.description ?? [])],
       services: [...(project.services ?? [])],

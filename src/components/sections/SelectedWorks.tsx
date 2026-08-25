@@ -17,7 +17,7 @@ export function SelectedWorks({ projects }: { projects: Project[] }) {
         {projects.map((p) => (
           <article key={p.slug} className="group">
             <Link href={`/project/${p.slug}`} data-cursor="hover" data-cursor-label="View Project">
-              <div className="relative aspect-[4/5] overflow-hidden bg-ink sm:aspect-[16/10] lg:aspect-video">
+              <div className="relative aspect-4/5 overflow-hidden bg-ink lg:aspect-video">
                 <Image
                   src={p.cover}
                   alt={p.title}

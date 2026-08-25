@@ -29,6 +29,7 @@ export default config({
         industry: fields.text({ label: "Industry" }),
         year: fields.text({ label: "Year" }),
         client: fields.text({ label: "Client" }),
+        liveUrl: fields.url({ label: "Live site URL", description: "Shown as the Visit live site link" }),
         intro: fields.text({
           label: "Intro",
           multiline: true,
