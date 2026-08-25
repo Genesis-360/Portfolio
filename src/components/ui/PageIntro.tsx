@@ -30,15 +30,15 @@ export function PageIntro() {
           initial={{ y: -18, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}>
-          <p className="font-body text-[21px] uppercase leading-[0.95] tracking-tight">
+          <p className="font-body text-sm uppercase leading-[0.95] tracking-tight sm:text-[21px]">
             OREENZA
             <br />
             AGENCY
           </p>
-          <p className="font-anton text-[40px] tracking-tight text-cream]">
+          <p className="font-anton text-xl tracking-tight text-cream] sm:text-[40px]">
             +91 94576 33238
           </p>
-          <p className="font-body text-right text-[21px] uppercase leading-[0.95] tracking-tight">
+          <p className="hidden font-body text-right text-sm uppercase leading-[0.95] tracking-tight sm:block sm:text-[21px]">
             OREENZA
             <br />
             AGENCY
@@ -50,11 +50,11 @@ export function PageIntro() {
           initial={{ y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}>
-          <h2 className="font-anton text-[459px] uppercase leading-[0.78] tracking-tight text-cream sm:text-[30vw] lg:text-[31vw]">
+          <h2 className="font-anton text-[24vw] uppercase leading-[0.78] tracking-tight text-cream sm:text-[30vw] lg:text-[31vw]">
             OREENZA
           </h2>
           <motion.p
-            className="pointer-events-none absolute left-1/2 top-[47%] -translate-x-1/2 -translate-y-1/2 font-script text-[138px] leading-none text-ink sm:text-[13.8vw] lg:text-[12.2vw]"
+            className="pointer-events-none absolute left-1/2 top-[47%] -translate-x-1/2 -translate-y-1/2 font-script text-[11vw] leading-none text-ink sm:text-[13.8vw] lg:text-[12.2vw]"
             initial={{ opacity: 0, y: 20, rotate: -2 }}
             animate={{ opacity: 1, y: 0, rotate: 0 }}
             transition={{
@@ -66,16 +66,16 @@ export function PageIntro() {
           </motion.p>
         </motion.div>
 
-        <p className="absolute left-[4%] top-[62%] -translate-y-1/2 -rotate-90 font-body text-[18px] uppercase tracking-[0.04em] text-accent/95">
+        <p className="absolute left-[4%] top-[62%] hidden -translate-y-1/2 -rotate-90 sm:block font-body text-[18px] uppercase tracking-[0.04em] text-accent/95">
           OREENZA
         </p>
-        <p className="absolute left-[4%] top-[28%] -rotate-90 font-body text-[18px] uppercase tracking-[0.12em] text-accent/95 ">
+        <p className="absolute left-[4%] top-[28%] hidden -rotate-90 sm:block font-body text-[18px] uppercase tracking-[0.12em] text-accent/95 ">
           AGENCY
         </p>
-        <p className="absolute right-[3%] top-[34%] rotate-90 font-body text-[18px] uppercase tracking-[0.12em] text-accent/95 ">
+        <p className="absolute right-[3%] top-[34%] hidden rotate-90 sm:block font-body text-[18px] uppercase tracking-[0.12em] text-accent/95 ">
           DESIGNING
         </p>
-        <p className="absolute right-[6.5%] top-[60%] font-body text-[18px] uppercase tracking-[0.12em] text-accent/95">
+        <p className="absolute right-[6.5%] top-[60%] hidden font-body sm:block text-[18px] uppercase tracking-[0.12em] text-accent/95">
           WEBSITES
         </p>
 
@@ -91,15 +91,15 @@ export function PageIntro() {
           initial={{ y: -18, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}>
-          <p className="font-body text-[21px] uppercase leading-[0.95] tracking-tight">
+          <p className="font-body text-sm uppercase leading-[0.95] tracking-tight sm:text-[21px]">
             OREENZA
             <br />
             AGENCY
           </p>
-          <p className="font-anton text-[40px] tracking-tight text-cream]">
+          <p className="font-anton text-sm tracking-tight text-cream] sm:text-[40px]">
             hello@oreenza.com
           </p>
-          <p className="font-body text-right text-[21px] uppercase leading-[0.95] tracking-tight">
+          <p className="hidden font-body text-right text-sm uppercase leading-[0.95] tracking-tight sm:block sm:text-[21px]">
             OREENZA
             <br />
             AGENCY

@@ -5,10 +5,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { LogoLoop, type LogoItem } from "@/components/ui/LogoLoop";
 import OptionWheel from "@/components/ui/OptionWheel";
+import { Text3DFlip } from "@/components/ui/Text3DFlip";
 
 
 const BASE =
-  "sticky top-0 z-40 flex w-full flex-col overflow-hidden border-b border-cream/15 bg-ink lg:h-screen lg:w-[30%] lg:max-w-[560px] lg:border-b-0 lg:border-r";
+  "relative z-40 flex w-full flex-col overflow-hidden border-b border-cream/15 bg-ink lg:sticky lg:top-0 lg:h-screen lg:w-[30%] lg:max-w-[560px] lg:border-b-0 lg:border-r";
 
 type SidebarProject = {
   title: string;
@@ -56,10 +57,26 @@ function NavRow({ variant }: { variant: "home" | "sub" }) {
         onClick={isHome ? (e) => { e.preventDefault(); scrollTo("#work", { offset: -20 }); } : undefined}
         data-cursor="hover"
         className={`${NAV_LINK} border-r`}>
-        Home
+        <Text3DFlip
+          as="span"
+          textClassName="text-cream"
+          flipTextClassName="text-accent"
+          staggerDuration={0.04}
+          rotateDirection="top"
+        >
+          Home
+        </Text3DFlip>
       </Link>
       <Link href="/contact" data-cursor="hover" className={NAV_LINK}>
-        Contact
+        <Text3DFlip
+          as="span"
+          textClassName="text-cream"
+          flipTextClassName="text-accent"
+          staggerDuration={0.04}
+          rotateDirection="top"
+        >
+          Contact
+        </Text3DFlip>
       </Link>
     </div>
   );
@@ -101,8 +118,7 @@ function SideRail() {
 /* Page content                                                       */
 /* ------------------------------------------------------------------ */
 
-function HomeContent({ isHome, data }: { isHome: boolean; data: SidebarData }) {
-  const { scrollTo } = useSmoothScroll();
+function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
   const clientLogos: LogoItem[] = data.clients.map((client) => ({
     node: (
       <span className="font-medium uppercase tracking-[0.12em] text-cream/65">
@@ -125,13 +141,13 @@ function HomeContent({ isHome, data }: { isHome: boolean; data: SidebarData }) {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
         </span>
-        Book a call
+        Book a free call
       </Button>
 
       {/* Flexible breathing room — absorbs leftover space on tall screens */}
       <div aria-hidden className="min-h-12 flex-1" />
 
-      {/* Trusted by */}
+      {/* Trusted brands */}
       <section className="border-t border-cream/15 pt-6">
         <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
           <span className="relative flex h-2 w-2">
@@ -159,14 +175,14 @@ function HomeContent({ isHome, data }: { isHome: boolean; data: SidebarData }) {
         </div>
       </section>
 
-      {/* What we do — spinning wheel */}
+      {/* Services — spinning wheel */}
       <section className="mt-7 border-t border-cream/15 pt-6">
         <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
           <span className="relative flex h-2 w-2">
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <span className="h-px w-6 bg-cream/15" />
-          What we do
+          Services we offer
         </p>
         <div className="mt-3 h-48 sm:h-52 [@media(min-height:900px)]:h-64 [@media(min-height:1050px)]:h-72">
           <OptionWheel
@@ -193,11 +209,10 @@ function HomeContent({ isHome, data }: { isHome: boolean; data: SidebarData }) {
 }
 
 function ContactContent({ data }: { data: SidebarData }) {
-  const { scrollTo } = useSmoothScroll();
   return (
     <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
       <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
-      <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
         <span className="h-px w-6 bg-cream/15" />
         Get in touch
       </p>
@@ -212,20 +227,21 @@ function ContactContent({ data }: { data: SidebarData }) {
         {data.email}
       </a>
 
-      <a
-        href="#book"
-        onClick={(e) => {
-          e.preventDefault();
-          scrollTo("#book", { offset: -20 });
-        }}
-        data-cursor="hover"
-        className="mt-7 inline-flex w-fit items-center gap-2 border border-accent bg-accent px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-ink transition-colors duration-300 hover:bg-cream">
-        Book a discovery call ↓
-      </a>
+      <div className="mt-10">
+        <Button
+          href="/contact#book"
+          className="border-accent bg-accent text-ink hover:bg-cream">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
+          </span>
+          Book a discovery call
+        </Button>
+      </div>
 
       <div className="mt-10 border-t border-cream/15 pt-5">
         <p className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           <span className="h-px w-6 bg-cream/15" />
           Elsewhere
         </p>
@@ -237,9 +253,11 @@ function ContactContent({ data }: { data: SidebarData }) {
                 target="_blank"
                 rel="noreferrer noopener"
                 data-cursor="hover"
-                className="flex items-center justify-between bg-ink px-4 py-3 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:bg-cream/[0.04] hover:text-cream">
+                className="flex items-center justify-between bg-ink px-4 py-3 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:bg-cream/4 hover:text-cream">
                 {s.label}
-                <span className="text-cream/30 transition-transform group-hover:translate-x-0.5">↗</span>
+                <span className="text-cream/30 transition-transform group-hover:translate-x-0.5">
+                  ↗
+                </span>
               </a>
             </li>
           ))}

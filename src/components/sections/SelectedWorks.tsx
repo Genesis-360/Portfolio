@@ -28,11 +28,11 @@ export function SelectedWorks({ projects }: { projects: Project[] }) {
                 />
                 <div className="absolute inset-0 bg-ink/10 transition-colors group-hover:bg-ink/0" />
 
-                <div className="absolute bottom-4 right-4 rounded-sm border border-cream/10 bg-ink/80 px-5 py-3 text-right shadow-[0_10px_35px_rgba(0,0,0,0.55)] backdrop-blur-md transition-transform duration-300 ease-smooth group-hover:-translate-y-1">
+                <div className="absolute bottom-3 right-3 rounded-sm border border-cream/10 bg-ink/80 px-3.5 py-2.5 sm:bottom-4 sm:right-4 sm:px-5 sm:py-3 text-right shadow-[0_10px_35px_rgba(0,0,0,0.55)] backdrop-blur-md transition-transform duration-300 ease-smooth group-hover:-translate-y-1">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-cream/45">
                     {p.year}
                   </p>
-                  <p className="mt-1 text-sm uppercase tracking-[0.04em] text-cream">
+                  <p className="mt-1 text-xs uppercase tracking-[0.04em] text-cream sm:text-sm">
                     {p.title}
                     <span className="ml-0.5 align-super text-[0.55em] font-bold text-cream/50">
                       ™
