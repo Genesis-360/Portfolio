@@ -14,11 +14,11 @@ export async function generateMetadata({
   params,
 }: PageProps<"/project/[slug]">) {
   const { slug } = await params;
-  const [project, site] = await Promise.all([getProject(slug), getSite()]);
+  const [project] = await Promise.all([getProject(slug), getSite()]);
   if (!project) return { title: "Project not found — OREENZA" };
   return {
     title: `${project.title} — OREENZA`,
-    description: project.intro,
+    description: project.description,
   };
 }
 
@@ -41,7 +41,7 @@ export default async function ProjectPage({
           category: project.industry,
           year: project.year,
           services: project.services,
-          intro: project.intro,
+          description: project.description.join(" "),
           index: String(project.index).padStart(2, "0"),
         }}
         data={{

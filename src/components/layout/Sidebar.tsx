@@ -2,6 +2,7 @@
 
 import { useSmoothScroll } from "@/components/providers/SmoothScroll";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { LogoLoop, type LogoItem } from "@/components/ui/LogoLoop";
 import OptionWheel from "@/components/ui/OptionWheel";
@@ -17,7 +18,7 @@ type SidebarProject = {
   category: string;
   year: string;
   services: string[];
-  intro?: string;
+  description?: string;
   index?: string;
 };
 
@@ -122,7 +123,7 @@ function SideRail() {
 function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
   const clientLogos: LogoItem[] = data.clients.map((client) => ({
     node: client.logo ? (
-      <img
+      <Image
         src={client.logo}
         alt={client.name}
         className="h-5 w-auto opacity-70 transition-opacity duration-300 hover:opacity-100"
@@ -302,7 +303,7 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
 
       {project?.description && (
         <p className="mt-6 max-w-[36ch] text-[15px] leading-[1.75] text-cream/60">
-          {project.des}
+          {project.description}
         </p>
       )}
 
