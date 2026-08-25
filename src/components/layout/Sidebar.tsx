@@ -119,15 +119,7 @@ function HomeContent({ isHome, data }: { isHome: boolean; data: SidebarData }) {
       </h2>
 
       <Button
-        href={isHome ? "#work" : "/#work"}
-        onClick={
-          isHome ?
-            (e) => {
-              e.preventDefault();
-              scrollTo("#work", { offset: -20 });
-            }
-          : undefined
-        }
+        href="/contact"
         className="mt-8 self-start border-cream/20 bg-accent text-ink hover:bg-cream">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />

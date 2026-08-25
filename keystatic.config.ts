@@ -17,7 +17,7 @@ export default config({
     projects: collection({
       label: "Projects",
       slugField: "title",
-      path: "src/content/projects/*",
+      path: "src/content/projects/*/",
       schema: {
         title: fields.slug({
           name: { label: "Project name" },
@@ -61,7 +61,7 @@ export default config({
   singletons: {
     site: singleton({
       label: "Site settings",
-      path: "src/content/site",
+      path: "src/content/site/",
       schema: {
         email: fields.text({ label: "Contact email" }),
         calLink: fields.url({ label: "Cal.com link" }),
