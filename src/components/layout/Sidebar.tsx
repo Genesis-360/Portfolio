@@ -15,6 +15,7 @@ type SidebarProject = {
   category: string;
   year: string;
   services: string[];
+  intro?: string;
 };
 
 type SidebarProps = {
@@ -255,35 +256,34 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
         <span className="h-px w-6 bg-cream/15" />
         Selected project
       </p>
+
       <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.9] tracking-tight text-cream">
         {project?.title ?? "Selected Project"}
       </h2>
 
       <p className="mt-4 flex items-center gap-3 text-xs uppercase tracking-[0.14em] text-cream/55">
-        {project?.category ?? "Category"}
-        <span className="h-1 w-1 rounded-full bg-cream/30" />
         {project?.year ?? "Year"}
+        <span className="h-1 w-1 rounded-full bg-accent" />
+        {project?.category ?? "Industry"}
       </p>
 
-      <div className="mt-8 border-t border-cream/15 pt-5">
-        <p className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
-          <span className="text-accent">01</span>
-          <span className="h-px w-6 bg-cream/15" />
-          Scope
+      {project?.intro && (
+        <p className="mt-5 text-sm leading-relaxed text-cream/60">
+          {project.intro}
         </p>
-        <ul className="flex flex-col gap-2">
-          {(project?.services ?? []).slice(0, 4).map((service, i) => (
+      )}
+
+      {(project?.services?.length ?? 0) > 0 && (
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {project!.services.map((service) => (
             <li
               key={service}
-              className="flex items-center gap-3 text-xs uppercase tracking-[0.14em] text-cream/70">
-              <span className="font-anton text-sm text-accent">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+              className="rounded-full border border-cream/15 px-3.5 py-1.5 text-[10px] uppercase tracking-[0.14em] text-cream/65 transition-colors hover:border-accent hover:text-accent">
               {service}
             </li>
           ))}
         </ul>
-      </div>
+      )}
 
       <div className="mt-9 flex flex-col items-start gap-4">
         <Button

@@ -38,6 +38,7 @@ export default async function ProjectPage({
           category: project.category,
           year: project.year,
           services: project.services,
+          intro: project.intro,
         }}
       />
 
@@ -48,14 +49,14 @@ export default async function ProjectPage({
             src={project.cover}
             alt={`${project.title} — cover mockup`}
             priority
-            className="aspect-[16/11] lg:aspect-[16/10]"
+            className="aspect-video lg:aspect-video"
           />
           {project.gallery.map((src, i) => (
             <RevealMedia
               key={i}
               src={src}
               alt={`${project.title} — mockup ${i + 1}`}
-              className="aspect-[16/11] lg:aspect-[16/10]"
+              className="aspect-video lg:aspect-video"
             />
           ))}
         </div>
