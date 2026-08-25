@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { LogoLoop, type LogoItem } from "@/components/ui/LogoLoop";
 import OptionWheel from "@/components/ui/OptionWheel";
 import { Text3DFlip } from "@/components/ui/Text3DFlip";
+import { ServiceIcon } from "@/components/ui/ServiceIcons";
 
 
 const BASE =
@@ -67,10 +68,7 @@ function NavRow({ variant }: { variant: "home" | "sub" }) {
           Home
         </Text3DFlip>
       </Link>
-      <Link href="/contact" 
-          onClick={isHome ? (e) => { e.preventDefault(); scrollTo("#work", { offset: -20 }); } : undefined}
-          data-cursor="hover" 
-          className={NAV_LINK}>
+      <Link href="/contact" data-cursor="hover" className={NAV_LINK}>
         <Text3DFlip
           as="span"
           textClassName="text-cream"
@@ -189,19 +187,25 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
         </p>
         <div className="mt-3 h-48 sm:h-52 [@media(min-height:900px)]:h-64 [@media(min-height:1050px)]:h-72">
           <OptionWheel
-            items={data.serviceTitles}
+            items={data.serviceTitles.map((title) => ({
+              label: title,
+              icon: <ServiceIcon title={title} />
+            }))}
             defaultSelected={0}
             side="left"
-            fontSize={1.55}
-            spacing={1.3}
+            fontSize={1.4}
+            spacing={1.35}
             tilt={7}
             curve={1}
             blur={1.5}
             fade={0.32}
             minOpacity={0.08}
-            inset={24}
+            inset={20}
             textColor="#7a7868"
             activeColor="#fffae5"
+            loop
+            autoRotate
+            autoRotateMs={2200}
             soundUrl="/sounds/click-soft.wav"
             soundVolume={0.5}
           />

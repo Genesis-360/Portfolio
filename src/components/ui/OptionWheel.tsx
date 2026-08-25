@@ -1,11 +1,15 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect, type CSSProperties } from 'react';
+import { useRef, useState, useCallback, useEffect, type CSSProperties, type ReactNode } from 'react';
 
 type Side = 'left' | 'right';
 
+export type OptionWheelItem = string | { label: string; icon?: ReactNode };
+
 export interface OptionWheelProps {
-  items?: string[];
+  items?: OptionWheelItem[];
+  autoRotate?: boolean;
+  autoRotateMs?: number;
   defaultSelected?: number;
   onChange?: (index: number, item: string) => void;
   textColor?: string;
@@ -40,6 +44,7 @@ interface WheelConfig {
   loop: boolean;
   smoothing: number;
   draggable: boolean;
+  autoRotate: boolean;
   soundUrl: string;
   soundVolume: number;
 }
@@ -77,6 +82,8 @@ const OptionWheel = ({
   inset = 80,
   loop = false,
   draggable = true,
+  autoRotate = false,
+  autoRotateMs = 2200,
   soundUrl = '',
   soundVolume = 0.5,
   className = ''
@@ -213,10 +220,23 @@ const OptionWheel = ({
     [startLoop, playTick]
   );
 
+  // Auto-rotation: advances one option per tick; all user interaction is off.
+  useEffect(() => {
+    if (!autoRotate) return;
+    const id = setInterval(() => {
+      const cfg = cfgRef.current;
+      if (!cfg.count) return;
+      let next = targetRef.current + 1;
+      if (!cfg.loop && next > cfg.count - 1) next = 0;
+      applyTarget(next, true);
+    }, Math.max(autoRotateMs, 600));
+    return () => clearInterval(id);
+  }, [autoRotate, autoRotateMs, applyTarget]);
+
   // Wheel / touchpad scrolling, registered manually so it can be non-passive.
   useEffect(() => {
     const el = rootRef.current;
-    if (!el) return;
+    if (!el || autoRotate) return;
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const cfg = cfgRef.current;
@@ -267,7 +287,7 @@ const OptionWheel = ({
 
   const handleItemClick = useCallback(
     (index: number) => {
-      if (dragMovedRef.current) return;
+      if (dragMovedRef.current || cfgRef.current.autoRotate) return;
       const cfg = cfgRef.current;
       const cur = targetRef.current;
       let d = index - (((cur % cfg.count) + cfg.count) % cfg.count);
@@ -285,7 +305,7 @@ const OptionWheel = ({
       let delta: number | null = null;
       if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') delta = -1;
       else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') delta = 1;
-      if (delta == null) return;
+      if (delta == null || cfgRef.current.autoRotate) return;
       e.preventDefault();
       applyTarget(Math.round(targetRef.current) + delta, true);
     },
@@ -302,7 +322,7 @@ const OptionWheel = ({
     onChangeRef.current = onChange;
     cfgRef.current = {
       count: items.length,
-      items,
+      items: items.map((i) => (typeof i === 'string' ? i : i.label)),
       rowH: Math.max(fontSize * spacing * remPx, 1),
       curve,
       tilt,
@@ -312,7 +332,8 @@ const OptionWheel = ({
       side,
       loop,
       smoothing,
-      draggable,
+      draggable: draggable && !autoRotate,
+      autoRotate,
       soundUrl,
       soundVolume
     };
@@ -330,8 +351,7 @@ const OptionWheel = ({
     loop,
     smoothing,
     draggable,
-    soundUrl,
-    soundVolume,
+    autoRotate,
     onChange,
     applyTarget
   ]);
@@ -351,7 +371,7 @@ const OptionWheel = ({
       role="listbox"
       tabIndex={0}
       aria-label="Option wheel"
-      className={`relative h-full w-full select-none overflow-hidden outline-none [touch-none] ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}${className ? ` ${className}` : ''}`}
+      className={`relative h-full w-full select-none overflow-hidden outline-none [touch-none] ${autoRotate ? 'cursor-default' : isDragging ? 'cursor-grabbing' : 'cursor-grab'}${className ? ` ${className}` : ''}`}
       style={
         {
           '--ow-text-color': textColor,
@@ -366,22 +386,33 @@ const OptionWheel = ({
       onPointerCancel={handlePointerEnd}
       onKeyDown={handleKeyDown}
     >
-      {items.map((label, index) => (
-        <div
-          key={`${label}-${index}`}
-          ref={el => {
-            itemRefs.current[index] = el;
-          }}
-          role="option"
-          aria-selected={selectedIndex === index}
-          className={`absolute top-1/2 cursor-pointer whitespace-nowrap leading-none will-change-[transform,opacity,filter] [font-size:var(--ow-font-size)] text-[color-mix(in_srgb,var(--ow-active-color)_calc(var(--ow-p,0)*100%),var(--ow-text-color))] ${
-            side === 'right' ? 'right-(--ow-inset) origin-right' : 'left-(--ow-inset) origin-left'
-          } ${selectedIndex === index ? 'font-medium' : 'font-extralight'}`}
-          onClick={() => handleItemClick(index)}
-        >
-          {label}
-        </div>
-      ))}
+      {items.map((item, index) => {
+        const label = typeof item === 'string' ? item : item.label;
+        const icon = typeof item === 'string' ? null : item.icon;
+        return (
+          <div
+            key={`${label}-${index}`}
+            ref={el => {
+              itemRefs.current[index] = el;
+            }}
+            role="option"
+            aria-selected={selectedIndex === index}
+            className={`absolute top-1/2 whitespace-nowrap leading-none will-change-[transform,opacity,filter] [font-size:var(--ow-font-size)] text-[color-mix(in_srgb,var(--ow-active-color)_calc(var(--ow-p,0)*100%),var(--ow-text-color))] ${
+              autoRotate ? '' : 'cursor-pointer '
+            }${
+              side === 'right' ? 'right-(--ow-inset) origin-right' : 'left-(--ow-inset) origin-left'
+            } ${selectedIndex === index ? 'font-medium' : 'font-extralight'}`}
+            onClick={() => handleItemClick(index)}
+          >
+            <span className="flex items-center gap-[0.55em]">
+              {icon ? (
+                <span className="inline-block h-[1.15em] w-[1.15em] flex-none">{icon}</span>
+              ) : null}
+              {label}
+            </span>
+          </div>
+        );
+      })}
     </div>
   );
 };

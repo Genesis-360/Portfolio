@@ -28,17 +28,29 @@ services:
     items:
       - UX/UI
       - Design Systems
-      - Webflow
       - Next.js
-  - title: Product
+      - CMS Setup
+  - title: Social Media Management
     items:
-      - Prototyping
-      - Design Eng
-      - Accessibility
-      - QA
-  - title: Motion
+      - Content Calendars
+      - Captions
+      - Community
+      - Analytics
+  - title: GBP Management
     items:
-      - Art Direction
-      - GSAP
-      - 3D
-      - Video
+      - Profile Setup
+      - Weekly Posts
+      - Reviews
+      - Local SEO
+  - title: App Development
+    items:
+      - iOS & Android
+      - React Native
+      - APIs
+      - Maintenance
+  - title: SEO With AI
+    items:
+      - AI Keyword Research
+      - Content Optimization
+      - Technical SEO
+      - Rank Tracking
