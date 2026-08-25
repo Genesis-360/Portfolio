@@ -214,7 +214,7 @@ export function RevealMedia({
           fill
           priority={priority}
           sizes={sizes ?? "(max-width: 1024px) 100vw, 58vw"}
-          className="object-cover"
+          className="object-contain p-4 sm:object-cover sm:p-0"
         />
       </div>
     </div>

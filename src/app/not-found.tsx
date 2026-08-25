@@ -168,7 +168,7 @@ function CharactersAnimation({ ready }: { ready: boolean }) {
           data-fly={f.fly}
           data-spin={f.spin ?? ""}
           data-delay={f.delay}
-          className="absolute w-[13%] max-w-[150px] sm:w-[15%]"
+          className="absolute w-[19%] max-w-[150px] sm:w-[15%]"
           style={{ top: f.top, bottom: f.bottom, left: f.fly ? "106%" : "6%" }}
         >
           <StickFigure pose={f.pose} />
@@ -316,21 +316,21 @@ function MessageDisplay({ ready }: { ready: boolean }) {
           <span className="h-px w-8 bg-ink/30" />
         </p>
 
-        <h1 className="mt-4 font-anton text-[clamp(6rem,22vw,15rem)] leading-[0.85] tracking-tight text-ink">
+        <h1 className="mt-3 font-anton text-[clamp(4.5rem,26vw,15rem)] leading-[0.85] tracking-tight text-ink">
           4<span className="text-accent">0</span>4
         </h1>
 
-        <p className="mt-6 max-w-md text-sm font-medium leading-relaxed text-ink/70">
+        <p className="mt-4 max-w-md text-[13px] font-medium leading-relaxed text-ink/70 sm:mt-6 sm:text-sm">
           The page you are looking for might have been removed, had its name
           changed, or is temporarily unavailable.
         </p>
 
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-7 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
           <button
             onClick={() => router.back()}
             data-cursor="hover"
             data-cursor-label="Back"
-            className="group flex items-center gap-2 border-2 border-ink/50 px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-ink transition-all duration-300 ease-smooth hover:bg-ink hover:text-cream"
+            className="group flex items-center justify-center gap-2 border-2 border-ink/50 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-ink transition-all duration-300 ease-smooth hover:bg-ink hover:text-cream sm:py-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -353,7 +353,7 @@ function MessageDisplay({ ready }: { ready: boolean }) {
             href="/"
             data-cursor="hover"
             data-cursor-label="Home"
-            className="group flex items-center gap-2 bg-accent px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-ink transition-all duration-300 ease-smooth hover:bg-ink hover:text-cream"
+            className="group flex items-center justify-center gap-2 bg-accent px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-ink transition-all duration-300 ease-smooth hover:bg-ink hover:text-cream sm:py-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

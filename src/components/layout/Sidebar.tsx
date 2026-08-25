@@ -67,7 +67,10 @@ function NavRow({ variant }: { variant: "home" | "sub" }) {
           Home
         </Text3DFlip>
       </Link>
-      <Link href="/contact" data-cursor="hover" className={NAV_LINK}>
+      <Link href="/contact" 
+          onClick={isHome ? (e) => { e.preventDefault(); scrollTo("#work", { offset: -20 }); } : undefined}
+          data-cursor="hover" 
+          className={NAV_LINK}>
         <Text3DFlip
           as="span"
           textClassName="text-cream"
