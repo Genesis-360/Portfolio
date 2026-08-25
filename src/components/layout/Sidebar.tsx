@@ -285,6 +285,24 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
         </ul>
       </div>
 
+      <div className="mt-9 flex flex-col items-start gap-4">
+        <Button
+          href="/contact#book"
+          className="border-accent bg-accent text-ink hover:bg-cream">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
+          </span>
+          Book a 15-min call
+        </Button>
+        <a
+          href={`mailto:${EMAIL}`}
+          data-cursor="hover"
+          className="text-xs text-cream/45 transition-colors hover:text-accent">
+          {EMAIL}
+        </a>
+      </div>
+
       <Link
         href="/#work"
         data-cursor="hover"
