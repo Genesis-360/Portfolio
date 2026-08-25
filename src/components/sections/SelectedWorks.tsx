@@ -27,17 +27,17 @@ export function SelectedWorks() {
                   className="object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-ink/10 transition-colors group-hover:bg-ink/0" />
-              </div>
 
-              <div className="mt-4 flex items-center justify-between gap-4 border border-cream/15 px-5 py-4 transition-colors duration-300 group-hover:border-accent">
-                <p className="font-anton text-sm uppercase tracking-[0.04em] text-cream">
-                  {p.title}
-                  <span className="mx-2 text-accent">.</span>
-                  <span className="text-cream/50">{p.category}</span>
-                </p>
-                <p className="flex-none text-[10px] uppercase tracking-[0.2em] text-cream/45">
-                  {p.year}
-                </p>
+                <div className="absolute bottom-0 right-0 bg-ink/90 px-5 py-3.5 text-right backdrop-blur-sm">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-cream/45">
+                    {p.year}
+                  </p>
+                  <p className="mt-1 font-anton text-sm uppercase tracking-[0.04em] text-cream">
+                    {p.title}
+                    <span className="mx-1.5 text-accent">·</span>
+                    <span className="text-cream/60">{p.category}</span>
+                  </p>
+                </div>
               </div>
             </Link>
           </article>
