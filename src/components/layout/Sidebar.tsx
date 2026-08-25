@@ -117,6 +117,34 @@ function SideRail() {
   );
 }
 
+function SideRailMobile() {
+  return (
+    <div className="flex items-center justify-between px-5 py-4 lg:hidden">
+      <p className="font-body text-lg tracking-tight text-cream/60">Oreenza</p>
+      <div className="flex items-center gap-6">
+        <div className="flex items-center gap-2.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+          </span>
+          <div className="flex items-baseline gap-1.5">
+            <p className="font-anton text-lg leading-none text-cream">10</p>
+            <p className="text-[9px] uppercase tracking-[0.14em] text-cream/45">
+              Slots open
+            </p>
+          </div>
+        </div>
+        <div className="flex items-end gap-1">
+          <span className="h-5 w-0.5 bg-accent" />
+          <span className="h-5 w-0.5 bg-accent" />
+          <span className="h-5 w-0.5 bg-cream/25" />
+          <span className="h-5 w-0.5 bg-cream/25" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /* Page content                                                       */
 /* ------------------------------------------------------------------ */
@@ -381,6 +409,8 @@ export function Sidebar({
         <SideRail />
         <main className="min-h-0 flex-1">{pageContent}</main>
       </div>
+
+      <SideRailMobile />
     </aside>
   );
 }
