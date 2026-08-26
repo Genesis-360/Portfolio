@@ -1,4 +1,5 @@
-import { makePage } from "@keystatic/next/ui/app";
-import keystaticConfig from "../../../../keystatic.config";
+// src/app/keystatic/[[...params]]/page.tsx
 
-export default makePage(keystaticConfig);
+export default function Page() {
+  return null;
+}

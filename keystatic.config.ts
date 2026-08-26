@@ -1,12 +1,16 @@
 import { collection, config, fields, singleton } from "@keystatic/core";
 
+// NOTE: this config is imported by a "use client" module (src/app/keystatic/keystatic.ts),
+// so it is evaluated in BOTH the server and the browser. Next.js only inlines env vars
+// prefixed with NEXT_PUBLIC_ into the client bundle — any other var is `undefined` there.
+// Using a server-only var here makes the browser silently fall back to local mode while
+// the server runs in github mode, which breaks the login flow entirely.
+const repo = process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO;
+
 const githubStorage =
-  process.env.KEYSTATIC_GITHUB_CLIENT_ID && process.env.KEYSTATIC_GITHUB_REPO
-    ? {
-        kind: "github" as const,
-        repo: process.env.KEYSTATIC_GITHUB_REPO as `${string}/${string}`,
-      }
-    : { kind: "local" as const };
+  repo ?
+    { kind: "github" as const, repo: repo as `${string}/${string}` }
+  : { kind: "local" as const };
 
 export default config({
   storage: githubStorage,
@@ -29,16 +33,22 @@ export default config({
         industry: fields.text({ label: "Industry" }),
         year: fields.text({ label: "Year" }),
         client: fields.text({ label: "Client" }),
-        liveUrl: fields.url({ label: "Live site URL", description: "Shown as the Visit live site link" }),
+        liveUrl: fields.url({
+          label: "Live site URL",
+          description: "Shown as the Visit live site link",
+        }),
         intro: fields.text({
           label: "Intro",
           multiline: true,
           description: "One-liner shown in the sidebar and page meta",
         }),
-        description: fields.array(fields.text({ label: "Paragraph", multiline: true }), {
-          label: "Description",
-          itemLabel: () => "Paragraph",
-        }),
+        description: fields.array(
+          fields.text({ label: "Paragraph", multiline: true }),
+          {
+            label: "Description",
+            itemLabel: () => "Paragraph",
+          },
+        ),
         services: fields.array(fields.text({ label: "Service" }), {
           label: "Services",
           itemLabel: (props) => props.value,
@@ -54,7 +64,7 @@ export default config({
             directory: "public/projects",
             publicPath: "/projects/",
           }),
-          { label: "Mockups", itemLabel: () => "Mockup" }
+          { label: "Mockups", itemLabel: () => "Mockup" },
         ),
       },
     }),
@@ -75,7 +85,7 @@ export default config({
             label: fields.text({ label: "Label" }),
             href: fields.url({ label: "URL" }),
           }),
-          { label: "Socials", itemLabel: (props) => props.fields.label.value }
+          { label: "Socials", itemLabel: (props) => props.fields.label.value },
         ),
         clients: fields.array(
           fields.object({
@@ -86,7 +96,10 @@ export default config({
               publicPath: "/logos/",
             }),
           }),
-          { label: "Trusted-by clients", itemLabel: (props) => props.fields.name.value }
+          {
+            label: "Trusted-by clients",
+            itemLabel: (props) => props.fields.name.value,
+          },
         ),
         services: fields.array(
           fields.object({
@@ -96,7 +109,7 @@ export default config({
               itemLabel: (props) => props.value,
             }),
           }),
-          { label: "Services", itemLabel: (props) => props.fields.title.value }
+          { label: "Services", itemLabel: (props) => props.fields.title.value },
         ),
       },
     }),
