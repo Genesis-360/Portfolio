@@ -136,7 +136,7 @@ export default async function ContactPage() {
                   <span className="text-sm">+</span>
                   <span className="flex h-8 w-8 flex-none items-center justify-center overflow-hidden rounded-md border border-ink/25 bg-ink">
                     <Image
-                      src="/mascot-avatar.webp"
+                      src="/ori-avatar.webp"
                       alt="Oreenza mascot"
                       width={32}
                       height={32}

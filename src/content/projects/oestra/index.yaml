@@ -1,7 +1,7 @@
 title: Oestra
 index: 1
-industry: Brand & Web
-year: "2025"
+industry: Cafe & Hospitality
+year: "2026"
 client: Oestra
 liveUrl: https://www.oestra.in
 intro: >-
@@ -19,5 +19,5 @@ services:
   - Brand Identity
   - Web Design
   - Art Direction
-cover: /projects/oestra/oestra.webp
-gallery: []
+cover: /projects/oestra/oestra_home.webp
+gallery: [/projects/oestra/oestra_home.webp, /projects/oestra/oestra01.webp, /projects/oestra/oestra02.webp, /projects/oestra/oestra03.webp, /projects/oestra/oestra04.webp, /projects/oestra/oestra05.webp, /projects/oestra/oestra06.webp]

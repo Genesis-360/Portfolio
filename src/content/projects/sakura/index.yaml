@@ -1,0 +1,19 @@
+title: Sakura Sushi Bar
+index: 0
+industry: Food & Beverage
+year: "2026"
+client: Sakura Sushi Bar
+liveUrl: https://www.sakurasushibar.com
+intro: >-
+  A modern sushi experience with a focus on quality and authenticity.
+description:
+  - >-
+    We developed a brand identity and website for Sakura Sushi Bar that reflects its commitment to traditional sushi craftsmanship while appealing to a contemporary audience.
+  - >-
+    The design incorporates clean lines, elegant typography, and a color palette inspired by the natural ingredients used in sushi, creating a visually appealing and user-friendly experience.
+services:
+  - Brand Identity
+  - Web Design
+  - Art Direction
+cover: /projects/sakura/sakura_home.webp
+gallery: [/projects/sakura/sakura_home.webp, /projects/sakura/sakura01.webp, /projects/sakura/sakura03.webp, /projects/sakura/sakura04.webp, /projects/sakura/sakura05.webp, /projects/sakura/sakura06.webp, /projects/sakura/sakura07.webp]

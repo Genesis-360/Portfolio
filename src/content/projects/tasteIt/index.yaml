@@ -1,22 +1,19 @@
 title: TasteIt
 index: 3
-industry: Product & Web
-year: "2025"
+industry: Food & Beverage
+year: "2026"
 client: TasteIt
 liveUrl: https://www.tasteit.app
 intro: >-
-  A food-discovery product designed to make choosing effortless.
+  A fast, focused, and playful product system for a food discovery app.
 description:
   - >-
-    TasteIt's challenge was decision fatigue. We designed the core flows and a
-    flexible product system that makes browsing feel like a recommendation from
-    a friend.
+    TasteIt is a food discovery app that helps users find the best local eateries and hidden gems. We designed a product system that is fast, focused, and a little playful, ensuring a seamless user experience across devices.
   - >-
-    Fast, focused, and a little playful — built to scale across devices without
-    losing its charm.
+    The design emphasizes intuitive navigation, vibrant visuals, and engaging interactions, making it easy for users to explore and share their culinary adventures.
 services:
   - Product Design
   - Web Design
   - Motion
-cover: /projects/tasteIt/tasteIt.webp
-gallery: []
+cover: /projects/tasteIt/tasteit_home.webp
+gallery: [/projects/tasteIt/tasteit01.webp, /projects/tasteIt/tasteit02.webp, /projects/tasteIt/tasteit03.webp]
