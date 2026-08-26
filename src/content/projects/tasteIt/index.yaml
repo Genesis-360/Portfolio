@@ -1,19 +1,19 @@
 title: TasteIt
-index: 3
+index: 5
 industry: Food & Beverage
 year: "2026"
 client: TasteIt
-liveUrl: https://www.tasteit.app
+liveUrl: https://oreenza.github.io/tasteit-website/
 intro: >-
-  A fast, focused, and playful product system for a food discovery app.
+  A vibrant and engaging platform for food enthusiasts to discover and share culinary experiences.
 description:
   - >-
-    TasteIt is a food discovery app that helps users find the best local eateries and hidden gems. We designed a product system that is fast, focused, and a little playful, ensuring a seamless user experience across devices.
+    TasteIt is a food discovery platform that connects food lovers with unique culinary experiences. We designed a dynamic brand identity and an interactive website that captures the essence of TasteIt's mission to inspire and engage its audience.
   - >-
-    The design emphasizes intuitive navigation, vibrant visuals, and engaging interactions, making it easy for users to explore and share their culinary adventures.
+    The design features bold colors, playful typography, and intuitive navigation, creating an immersive experience that encourages users to explore and share their favorite food moments.
 services:
   - Product Design
   - Web Design
   - Motion
 cover: /projects/tasteIt/tasteit_home.webp
-gallery: [/projects/tasteIt/tasteit01.webp, /projects/tasteIt/tasteit02.webp, /projects/tasteIt/tasteit03.webp]
+gallery: [/projects/tasteIt/tasteit01.webp, /projects/tasteIt/tasteit02.webp, /projects/tasteIt/tasteit03.webp, /projects/tasteIt/tasteit04.webp, /projects/tasteIt/tasteit05.webp, /projects/tasteIt/tasteit06.webp]
