@@ -166,9 +166,9 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
   return (
     <div className="flex h-full min-h-0 flex-col px-5 pt-8 pb-7 lg:px-7 lg:pt-10 lg:pb-8">
       {/* Hero */}
-      <h2 className="max-w-[15ch] font-body text-[clamp(1.9rem,2.6vw,3.4rem)] leading-[0.95] tracking-tight text-cream">
+      <h1 className="max-w-[15ch] font-body text-[clamp(1.9rem,2.6vw,3.4rem)] leading-[0.95] tracking-tight text-cream">
         Performance-first creative agency for ambitious brands.
-      </h2>
+      </h1>
 
       <Button
         href="/contact"
@@ -407,7 +407,7 @@ export function Sidebar({
 
       <div className="flex min-h-0 flex-1 border-b border-cream/15 lg:grid lg:grid-cols-[56px_1fr]">
         <SideRail />
-        <main className="min-h-0 flex-1">{pageContent}</main>
+        <div className="min-h-0 flex-1">{pageContent}</div>
       </div>
 
       <SideRailMobile />
