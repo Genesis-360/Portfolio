@@ -7,14 +7,27 @@ import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { PageIntro } from "@/components/ui/PageIntro";
 
 export const metadata: Metadata = {
-  title: "OREENZA — Performance First Creative Agency",
+  metadataBase: new URL("https://oreenza.com"),
+  title: {
+    default: "OREENZA — Performance First Creative Agency",
+    template: "%s — OREENZA",
+  },
   description:
     "OREENZA is an independent design & development studio crafting brands, products and motion for ambitious teams.",
+  alternates: { canonical: "/" },
   openGraph: {
+    type: "website",
+    url: "https://oreenza.com",
+    siteName: "OREENZA",
     title: "OREENZA — Performance First Creative Agency",
     description:
-      "An independent studio crafting brands, products and motion.",
-    type: "website",
+      "An independent studio crafting brands, products and motion for ambitious teams.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OREENZA — Performance First Creative Agency",
+    description:
+      "An independent studio crafting brands, products and motion for ambitious teams.",
   },
 };
 
@@ -24,15 +37,28 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
-  children,
-}: LayoutProps<"/">) {
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "OREENZA",
+  url: "https://oreenza.com",
+  email: "hello@oreenza.com",
+  telephone: "+91 94576 33238",
+  description:
+    "An independent design & development studio crafting brands, products and motion for ambitious teams.",
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
       className={`${anton.variable} ${openSauce.variable} ${amsterdam.variable} antialiased`}
     >
       <body className="min-h-screen bg-ink text-cream">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
         <MotionProvider>
           <SmoothScroll>
             <CustomCursor />
