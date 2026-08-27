@@ -23,7 +23,7 @@ export function SelectedWorks({ projects }: { projects: Project[] }) {
                     alt={p.title}
                     fill
                     priority={p.index === 1}
-                    sizes="(max-width: 1024px) 100vw, 1200px"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-ink/10 transition-colors group-hover:bg-ink/0" />
