@@ -34,8 +34,11 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
+    // Touch devices get native scrolling: Lenis's perpetual rAF hurts mobile
+    // Total Blocking Time and is jankier than the browser's own momentum.
+    const isTouch = window.matchMedia("(hover: none)").matches;
 
-    if (prefersReduced) {
+    if (prefersReduced || isTouch) {
       ScrollTrigger.refresh();
       return;
     }
