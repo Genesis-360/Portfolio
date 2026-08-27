@@ -154,7 +154,7 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
     node: (
       <span className="flex items-center gap-2.5 opacity-70 transition-opacity duration-300 hover:opacity-100">
         {client.logo && (
-          <img
+          <Image
             src={client.logo}
             alt=""
             width={20}
