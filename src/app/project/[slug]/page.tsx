@@ -16,10 +16,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const [project] = await Promise.all([getProject(slug), getSite()]);
   if (!project) return { title: "Project not found — OREENZA" };
-  return {
-    title: `${project.title} — OREENZA`,
-    description: project.description,
-  };
+    return {
+      title: `${project.title} — OREENZA`,
+      description: project.description.join(" "),
+    };
 }
 
 export default async function ProjectPage({
@@ -60,14 +60,14 @@ export default async function ProjectPage({
             src={project.cover}
             alt={`${project.title} — cover mockup`}
             priority
-            className="aspect-4/5 sm:aspect-video lg:aspect-video"
+            className="aspect-video"
           />
           {project.gallery.map((src, i) => (
             <RevealMedia
               key={i}
               src={src}
               alt={`${project.title} — mockup ${i + 1}`}
-              className="aspect-4/5 sm:aspect-video lg:aspect-video"
+              className="aspect-video"
             />
           ))}
         </div>

@@ -17,13 +17,13 @@ export function SelectedWorks({ projects }: { projects: Project[] }) {
         {projects.map((p) => (
           <article key={p.slug} className="group">
             <Link href={`/project/${p.slug}`} data-cursor="hover" data-cursor-label="View Project">
-              <div className="relative aspect-4/5 overflow-hidden bg-ink lg:aspect-video">
-                <Image
-                  src={p.cover}
-                  alt={p.title}
-                  fill
-                  priority={p.index === 1}
-                  sizes="(max-width: 1024px) 100vw, 1200px"
+                <div className="relative aspect-video overflow-hidden bg-ink">
+                  <Image
+                    src={p.cover}
+                    alt={p.title}
+                    fill
+                    priority={p.index === 1}
+                    sizes="(max-width: 1024px) 100vw, 1200px"
                   className="object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-ink/10 transition-colors group-hover:bg-ink/0" />
