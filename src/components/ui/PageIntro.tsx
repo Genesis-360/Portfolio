@@ -1,10 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export function PageIntro() {
   const [done, setDone] = useState(false);
+
+  // Any first interaction dismisses the splash so it never traps the visitor.
+  useEffect(() => {
+    if (done) return;
+    const skip = () => setDone(true);
+    const opts = { once: true } as const;
+    window.addEventListener("pointerdown", skip, opts);
+    window.addEventListener("keydown", skip, opts);
+    window.addEventListener("wheel", skip, opts);
+    window.addEventListener("touchstart", skip, opts);
+    // Hard fallback: guarantees the splash is removed even if rAF-driven
+    // animation callbacks are throttled (background tabs, some headless runs).
+    const fallback = setTimeout(() => setDone(true), 1000);
+    return () => {
+      window.removeEventListener("pointerdown", skip);
+      window.removeEventListener("keydown", skip);
+      window.removeEventListener("wheel", skip);
+      window.removeEventListener("touchstart", skip);
+      clearTimeout(fallback);
+    };
+  }, [done]);
+
   if (done) return null;
 
   return (
@@ -19,23 +41,23 @@ export function PageIntro() {
         window.dispatchEvent(new CustomEvent("oreenza:intro-done"));
         setDone(true);
       }}
-      transition={{ duration: 1.2, ease: [0.83, 0, 0.17, 1], delay: 1.9 }}>
+      transition={{ duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 0.2 }}>
       <motion.div
         className="relative h-full w-full"
         initial={{ opacity: 0, scale: 0.992 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}>
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}>
         <motion.div
           className="absolute left-0 right-0 top-0 flex items-start justify-between px-6 pt-5 text-cream sm:px-10 sm:pt-8"
           initial={{ y: -18, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}>
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}>
           <p className="font-body text-sm uppercase leading-[0.95] tracking-tight sm:text-[21px]">
             OREENZA
             <br />
             AGENCY
           </p>
-          <p className="font-anton text-xl tracking-tight text-cream] sm:text-[40px]">
+          <p className="font-anton text-xl tracking-tight text-cream sm:text-[40px]">
             +91 94576 33238
           </p>
           <p className="hidden font-body text-right text-sm uppercase leading-[0.95] tracking-tight sm:block sm:text-[21px]">
@@ -49,7 +71,7 @@ export function PageIntro() {
           className="absolute inset-x-0 top-[18%] text-center sm:top-[22%]"
           initial={{ y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}>
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}>
           <h2 className="font-anton text-[24vw] uppercase leading-[0.78] tracking-tight text-cream sm:text-[30vw] lg:text-[31vw]">
             OREENZA
           </h2>
@@ -58,9 +80,9 @@ export function PageIntro() {
             initial={{ opacity: 0, y: 20, rotate: -2 }}
             animate={{ opacity: 1, y: 0, rotate: 0 }}
             transition={{
-              duration: 0.8,
+              duration: 0.5,
               ease: [0.16, 1, 0.3, 1],
-              delay: 0.35,
+              delay: 0.2,
             }}>
             Agency
           </motion.p>
@@ -83,20 +105,20 @@ export function PageIntro() {
           className="absolute left-1/2 top-[74.5%] w-[94%] -translate-x-1/2 text-center font-body text-base uppercase leading-tight text-ink sm:top-[76.8%] sm:w-[90%] sm:text-[3.7rem]  lg:text-[32px]"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}>
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}>
           THE COMPLETE DIGITAL STOREFRONT FOR RESTAURANTS & CAFES
         </motion.p>
         <motion.div
           className="absolute left-0 right-0 bottom-0 flex items-start justify-between px-6 pb-5 text-cream sm:px-10 sm:pt-8"
           initial={{ y: -18, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}>
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}>
           <p className="font-body text-sm uppercase leading-[0.95] tracking-tight sm:text-[21px]">
             OREENZA
             <br />
             AGENCY
           </p>
-          <p className="font-anton text-sm tracking-tight text-cream] sm:text-[40px]">
+          <p className="font-anton text-sm tracking-tight text-cream sm:text-[40px]">
             hello@oreenza.com
           </p>
           <p className="hidden font-body text-right text-sm uppercase leading-[0.95] tracking-tight sm:block sm:text-[21px]">
