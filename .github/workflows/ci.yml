@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    name: Lint & type-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run typecheck
+
+      # Production build is performed by Vercel on deploy. It requires the
+      # KEYSTATIC_GITHUB_* / KEYSTATIC_SECRET environment variables, so it is
+      # intentionally not run here. Add those secrets and a `npm run build`
+      # step if you want CI to also verify the production build.
