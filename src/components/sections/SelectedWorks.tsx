@@ -28,16 +28,16 @@ export function SelectedWorks({ projects }: { projects: Project[] }) {
                 />
                 <div className="absolute inset-0 bg-ink/10 transition-colors group-hover:bg-ink/0" />
 
-                <div className="absolute bottom-3 right-3 rounded-sm border border-cream/10 bg-ink/80 px-3.5 py-2.5 sm:bottom-4 sm:right-4 sm:px-5 sm:py-3 text-right shadow-[0_10px_35px_rgba(0,0,0,0.55)] backdrop-blur-md transition-transform duration-300 ease-smooth group-hover:-translate-y-1">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-cream/45">
+                <div className="absolute bottom-2 right-2 rounded-sm border border-cream/10 bg-ink/80 px-2.5 py-1.5 text-right shadow-[0_10px_35px_rgba(0,0,0,0.55)] backdrop-blur-md transition-transform duration-300 ease-smooth group-hover:-translate-y-1 sm:bottom-4 sm:right-4 sm:px-5 sm:py-3">
+                  <p className="text-[9px] uppercase tracking-[0.18em] text-cream/45 sm:text-[10px] sm:tracking-[0.2em]">
                     {p.year}
                   </p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.04em] text-cream sm:text-sm">
+                  <p className="mt-0.5 text-[11px] uppercase tracking-[0.02em] text-cream sm:mt-1 sm:text-sm sm:tracking-[0.04em]">
                     {p.title}
                     <span className="ml-0.5 align-super text-[0.55em] font-bold text-cream/50">
                       ™
                     </span>
-                    <span className="mx-1.5 text-accent">·</span>
+                    <span className="mx-1 text-accent sm:mx-1.5">·</span>
                     <span className="text-accent">{p.industry}</span>
                   </p>
                 </div>
