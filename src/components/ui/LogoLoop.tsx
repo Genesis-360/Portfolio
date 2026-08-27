@@ -376,18 +376,18 @@ export const LogoLoop = React.memo<LogoLoopProps>(
         ) : (
           <img
             className={cx(
-              'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
-              '[-webkit-user-drag:none] pointer-events-none',
-              '[image-rendering:-webkit-optimize-contrast]',
-              'motion-reduce:transition-none',
+              "h-[var(--logoloop-logoHeight)] w-auto block object-contain",
+              "[-webkit-user-drag:none] pointer-events-none",
+              "[image-rendering:-webkit-optimize-contrast]",
+              "motion-reduce:transition-none",
               scaleOnHover &&
-                'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
+                "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120"
             )}
             src={(item as any).src}
             srcSet={(item as any).srcSet}
             sizes={(item as any).sizes}
-            width={(item as any).width}
-            height={(item as any).height}
+            width={(item as any).width ?? 200}
+            height={(item as any).height ?? 50}
             alt={(item as any).alt ?? ''}
             title={(item as any).title}
             loading="lazy"

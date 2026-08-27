@@ -243,6 +243,7 @@ const CharBox = memo(
     <span
       className="text-3d-flip-char inline transform-3d"
       style={{ transform: CONTAINER_TRANSFORMS[rotateDirection] }}
+      aria-hidden="true"
     >
       <span
         className={cn("relative h-[1lh] backface-hidden", textClassName)}
