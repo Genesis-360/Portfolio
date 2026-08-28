@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s — OREENZA",
   },
   description:
-    "OREENZA is an independent design & development studio crafting brands, products and motion for ambitious teams.",
+    "OREENZA is an independent design & development studio building brands, websites, products and motion. We help ambitious teams grow with SEO, social media and AI.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     siteName: "OREENZA",
     title: "OREENZA — Performance First Creative Agency",
     description:
-      "An independent studio crafting brands, products and motion for ambitious teams.",
+      "OREENZA is an independent design & development studio building brands, websites, products and motion. We help ambitious teams grow with SEO, social media and AI.",
   },
   twitter: {
     card: "summary_large_image",
     title: "OREENZA — Performance First Creative Agency",
     description:
-      "An independent studio crafting brands, products and motion for ambitious teams.",
+      "OREENZA is an independent design & development studio building brands, websites, products and motion. We help ambitious teams grow with SEO, social media and AI.",
   },
 };
 

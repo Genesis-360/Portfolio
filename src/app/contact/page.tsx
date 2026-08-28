@@ -65,7 +65,7 @@ export default async function ContactPage() {
 
             <Reveal className="flex-none">
               <Image
-                src="/whatsapp-qr.png"
+                src="/whatsapp-qr.webp"
                 alt="WhatsApp QR code — scan to chat with Oreenza"
                 width={512}
                 height={512}

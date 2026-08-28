@@ -153,11 +153,11 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
   const clientLogos: LogoItem[] = data.clients.map((client) => ({
     node: (
       <span className="flex items-center gap-2.5 opacity-70 transition-opacity duration-300 hover:opacity-100">
-        {client.logo && (
-          <Image
-            src={client.logo}
-            alt=""
-            width={20}
+          {client.logo && (
+            <Image
+              src={client.logo}
+              alt={client.name}
+              width={20}
             height={20}
             className="h-5 w-auto flex-none"
           />
