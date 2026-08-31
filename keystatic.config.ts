@@ -7,9 +7,17 @@ import { collection, config, fields, singleton } from "@keystatic/core";
 // the server runs in github mode, which breaks the login flow entirely.
 const repo = process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO;
 
-const githubStorage =
-  repo ?
-    { kind: "github" as const, repo: repo as `${string}/${string}` }
+if (!repo && process.env.NODE_ENV === "production") {
+  throw new Error(
+    "NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO is required in production. " +
+      "Keystatic's local-mode fallback exposes an unauthenticated file-write " +
+      "endpoint at POST /api/keystatic/update, which is a security hole in " +
+      "any deployed environment. See SECURITY.md for setup steps.",
+  );
+}
+
+const githubStorage = repo
+  ? { kind: "github" as const, repo: repo as `${string}/${string}` }
   : { kind: "local" as const };
 
 export default config({
@@ -75,6 +83,14 @@ export default config({
       path: "src/content/site/",
       schema: {
         email: fields.text({ label: "Contact email" }),
+        phone: fields.text({
+          label: "Contact phone",
+          description: "E.164 format preferred, e.g. +919457633238",
+        }),
+        slotsOpen: fields.integer({
+          label: "Slots open",
+          description: "Number shown in the sidebar 'Slots open' indicator",
+        }),
         calLink: fields.url({ label: "Cal.com link" }),
         calEmbedPath: fields.text({
           label: "Cal.com embed path",
@@ -87,17 +103,15 @@ export default config({
           }),
           { label: "Socials", itemLabel: (props) => props.fields.label.value },
         ),
-        clients: fields.array(
+        industries: fields.array(
           fields.object({
-            name: fields.text({ label: "Name" }),
-            logo: fields.image({
-              label: "Logo",
-              directory: "public/logos",
-              publicPath: "/logos/",
-            }),
+            name: fields.text({ label: "Industry name" }),
           }),
           {
-            label: "Trusted-by clients",
+            label: "Industries served",
+            description:
+              "Generic verticals shown in the 'Trusted-by' sidebar rail. " +
+              "Use real client names only if you have permission to display their brand.",
             itemLabel: (props) => props.fields.name.value,
           },
         ),

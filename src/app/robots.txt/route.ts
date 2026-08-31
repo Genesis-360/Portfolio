@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-
-const BASE = "https://oreenza.com";
+import { siteUrl } from "@/lib/url";
 
 const ROBOTS = `User-agent: *
 Allow: /
@@ -10,47 +9,33 @@ Disallow: /keystatic
 Disallow: /api/
 Disallow: /md/
 
+# Content-Signal: declare AI usage preferences for all crawlers.
+# (Group-member lines bind to the preceding User-agent block, so this
+# would only apply to Bytespider if it lived after its block. Hoisted.)
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
 # --- AI crawler permissions ---
 User-agent: GPTBot
 Allow: /
-Disallow: /keystatic
-Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
-Disallow: /keystatic
-Disallow: /api/
-
-User-agent: Claude-Web
-Allow: /
-Disallow: /keystatic
-Disallow: /api/
-
-User-agent: anthropic-ai
-Allow: /
-Disallow: /keystatic
-Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
-Disallow: /keystatic
-Disallow: /api/
 
+# Google-Extended exists solely to opt in/out of Gemini training on
+# Google-indexed content. Saying "Allow: /" here explicitly opts in
+# to AI training. Remove this block if you'd rather opt out.
 User-agent: Google-Extended
-Allow: /
-Disallow: /keystatic
-Disallow: /api/
+Disallow: /
 
+# Bytespider has a poor reputation for crawl-storming. Slow it down
+# by removing its access entirely.
 User-agent: Bytespider
-Allow: /
-Disallow: /keystatic
-Disallow: /api/
+Disallow: /
 
-# --- Content Signals: declare AI usage preferences ---
-# See https://contentsignals.org/
-Content-Signal: ai-train=no, search=yes, ai-input=no
-
-Sitemap: ${BASE}/sitemap.xml
+Sitemap: ${siteUrl}/sitemap.xml
 `;
 
 export function GET() {
