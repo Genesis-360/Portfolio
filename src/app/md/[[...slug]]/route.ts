@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getProjects, getSite } from "@/lib/content";
-
-const BASE = "https://oreenza.com";
+import { absoluteUrl } from "@/lib/url";
 
 function mdResponse(body: string) {
   return new NextResponse(body, {
@@ -37,14 +36,14 @@ async function homeMarkdown(): Promise<string> {
     "## Selected works",
     bullets(
       projects.map(
-        (p) => `[${p.title}](${BASE}/project/${p.slug}) — ${p.client ?? ""} ${p.year ?? ""}`.trim()
+        (p) => `[${p.title}](${absoluteUrl(`/project/${p.slug}`)}) — ${p.client ?? ""} ${p.year ?? ""}`.trim()
       )
     ),
     "",
     "## Contact",
     `- Email: ${site.email}`,
     bullets(site.socials.map((s) => `[${s.label}](${s.href})`)),
-    `- Website: ${BASE}/`,
+    `- Website: ${absoluteUrl("/")}`,
     "",
   ];
   return lines.join("\n");
@@ -61,7 +60,7 @@ async function contactMarkdown(): Promise<string> {
     "- Book a call: see the embedded calendar on the contact page",
     bullets(site.socials.map((s) => `[${s.label}](${s.href})`)),
     "",
-    `Web: ${BASE}/contact`,
+    `Web: ${absoluteUrl("/contact")}`,
     "",
   ];
   return lines.join("\n");
@@ -82,7 +81,7 @@ async function projectMarkdown(slug: string): Promise<string | null> {
     "",
     desc,
     "",
-    `Project page: ${BASE}/project/${p.slug}`,
+    `Project page: ${absoluteUrl(`/project/${p.slug}`)}`,
     "",
   ].filter((l) => l !== "");
   return lines.join("\n");
@@ -99,18 +98,18 @@ This document describes how automated agents may interact with the public site.
 
 ## Public, unauthenticated resources
 
-- Website (HTML): ${BASE}/
+- Website (HTML): ${absoluteUrl("/")}
 - Markdown representation: negotiated via \`Accept: text/markdown\`
-- API catalog: ${BASE}/.well-known/api-catalog (application/linkset+json)
-- robots.txt: ${BASE}/robots.txt
-- sitemap.xml: ${BASE}/sitemap.xml
+- API catalog: ${absoluteUrl("/.well-known/api-catalog")} (application/linkset+json)
+- robots.txt: ${absoluteUrl("/robots.txt")}
+- sitemap.xml: ${absoluteUrl("/sitemap.xml")}
 
 ## Contact (agent-initiated)
 
 Agents may surface the public contact channel to humans or other agents:
 
-- Email: see ${BASE}/contact for the current address
-- Social links: see ${BASE}/contact
+- Email: see ${absoluteUrl("/contact")} for the current address
+- Social links: see ${absoluteUrl("/contact")}
 
 No programmatic account registration, provisioning, or credential issuance is
 offered, so \`POST /agent/auth\` is not implemented and no OAuth Protected

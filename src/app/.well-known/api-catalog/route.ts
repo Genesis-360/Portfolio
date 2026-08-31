@@ -1,53 +1,52 @@
 import { NextResponse } from "next/server";
 import { getProjects } from "@/lib/content";
-
-const BASE = "https://oreenza.com";
+import { absoluteUrl } from "@/lib/url";
 
 export async function GET() {
   const projects = await getProjects();
 
   const linkset = [
     {
-      anchor: `${BASE}/`,
+      anchor: absoluteUrl("/"),
       "service-doc": [
-        { href: `${BASE}/`, type: "text/html", title: "OREENZA — homepage" },
+        { href: absoluteUrl("/"), type: "text/html", title: "OREENZA — homepage" },
       ],
       "service-desc": [
-        { href: `${BASE}/`, type: "text/html", title: "OREENZA — site documentation" },
+        { href: absoluteUrl("/"), type: "text/html", title: "OREENZA — site documentation" },
       ],
       describedby: [
-        { href: `${BASE}/robots.txt`, type: "text/plain" },
-        { href: `${BASE}/sitemap.xml`, type: "application/xml" },
+        { href: absoluteUrl("/robots.txt"), type: "text/plain" },
+        { href: absoluteUrl("/sitemap.xml"), type: "application/xml" },
       ],
-      sitemap: [{ href: `${BASE}/sitemap.xml`, type: "application/xml" }],
+      sitemap: [{ href: absoluteUrl("/sitemap.xml"), type: "application/xml" }],
       "api-catalog": [
-        { href: `${BASE}/.well-known/api-catalog`, type: "application/linkset+json" },
+        { href: absoluteUrl("/.well-known/api-catalog"), type: "application/linkset+json" },
       ],
       alternate: [
-        { href: `${BASE}/`, type: "text/markdown", title: "Markdown representation" },
+        { href: absoluteUrl("/"), type: "text/markdown", title: "Markdown representation" },
       ],
     },
     {
-      anchor: `${BASE}/contact`,
+      anchor: absoluteUrl("/contact"),
       "service-doc": [
-        { href: `${BASE}/contact`, type: "text/html", title: "Contact OREENZA" },
+        { href: absoluteUrl("/contact"), type: "text/html", title: "Contact OREENZA" },
       ],
       alternate: [
-        { href: `${BASE}/contact`, type: "text/markdown", title: "Markdown representation" },
+        { href: absoluteUrl("/contact"), type: "text/markdown", title: "Markdown representation" },
       ],
     },
     ...projects.map((p) => ({
-      anchor: `${BASE}/project/${p.slug}`,
+      anchor: absoluteUrl(`/project/${p.slug}`),
       "service-doc": [
         {
-          href: `${BASE}/project/${p.slug}`,
+          href: absoluteUrl(`/project/${p.slug}`),
           type: "text/html",
           title: `Project — ${p.title}`,
         },
       ],
       alternate: [
         {
-          href: `${BASE}/project/${p.slug}`,
+          href: absoluteUrl(`/project/${p.slug}`),
           type: "text/markdown",
           title: "Markdown representation",
         },

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "OREENZA — Performance First Creative Agency";
+export const alt = "OREENZA — Performance-first design & development studio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -16,12 +16,19 @@ export default function OpengraphImage() {
           justifyContent: "center",
           padding: "80px",
           background: "#000000",
-          color: "#f5f1e8",
+          color: "#fffae5",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 6, color: "#e8533a" }}>
-          INDEPENDENT DESIGN &amp; DEVELOPMENT STUDIO
+        <div
+          style={{
+            fontSize: 28,
+            letterSpacing: 6,
+            color: "#f63b05",
+            textTransform: "uppercase",
+          }}
+        >
+          Independent design &amp; development studio
         </div>
         <div
           style={{
@@ -34,8 +41,8 @@ export default function OpengraphImage() {
         >
           OREENZA
         </div>
-        <div style={{ fontSize: 40, marginTop: 20, color: "#f5f1e8" }}>
-          Performance-first creative agency for ambitious brands.
+        <div style={{ fontSize: 40, marginTop: 20, color: "#fffae5" }}>
+          Performance-first design &amp; development studio.
         </div>
       </div>
     ),
