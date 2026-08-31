@@ -1,16 +1,14 @@
-"use client";
-
 export function Footer({ socials }: { socials: { label: string; href: string }[] }) {
-
+  const year = new Date().getFullYear();
   return (
     <footer
       id="contact"
       className="container-edge relative scroll-mt-24 overflow-hidden border-t border-cream/10 pt-24 lg:pt-2">
       <div className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-cream/40">
-          © {new Date().getFullYear()} OREENZA Agency. All rights reserved.
+        <p className="text-sm text-cream/55">
+          © {year} OREENZA Agency. All rights reserved.
         </p>
-        <nav className="flex flex-wrap gap-x-6 gap-y-2">
+        <nav aria-label="Social links" className="flex flex-wrap gap-x-6 gap-y-2">
           {socials.map((s) => (
             <a
               key={s.label}
