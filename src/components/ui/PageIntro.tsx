@@ -27,12 +27,21 @@ export function PageIntro() {
     };
   }, [done]);
 
+  // The intro is fully pointer-transparent: clicks pass straight through to
+  // the page underneath. We unmount it on first interaction (or after the
+  // 1s fallback) so the painted-out state doesn't keep a heavy subtree in
+  // the React tree on subsequent renders.
   if (done) return null;
 
   return (
     <motion.div
       aria-hidden
-      className="fixed inset-0 z-90 overflow-hidden border-4 border-cream/70 bg-accent"
+      // pointer-events-none is the critical perf fix. Without it, the
+      // first click on a project link is captured by the intro overlay
+      // (which only sets `done` to dismiss itself), so the link click is
+      // lost and the user has to click again. With it, the click passes
+      // through to the link underneath and navigation happens immediately.
+      className="pointer-events-none fixed inset-0 z-90 overflow-hidden border-4 border-cream/70 bg-accent"
       initial={{ y: 0 }}
       animate={{ y: "-100%" }}
       onAnimationComplete={() => {
@@ -106,7 +115,7 @@ export function PageIntro() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}>
-          THE COMPLETE DIGITAL STOREFRONT FOR RESTAURANTS & CAFES
+          THE COMPLETE DIGITAL STOREFRONT FOR RESTAURANTS &amp; CAFES
         </motion.p>
         <motion.div
           className="absolute left-0 right-0 bottom-0 flex items-start justify-between px-6 pb-5 text-cream sm:px-10 sm:pt-8"

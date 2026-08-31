@@ -6,6 +6,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import NextLink from "next/link";
 import type { ReactNode } from "react";
 
 type ButtonProps = {
@@ -22,10 +23,14 @@ const base =
   "group relative inline-flex items-center justify-center gap-2 border border-accent px-7 py-3.5 text-sm font-bold uppercase tracking-[0.12em] transition-colors duration-300";
 
 const variants: Record<string, string> = {
-  primary: "bg-accent text-cream hover:bg-[#ff4f1a]",
+  primary: "bg-accent text-ink hover:bg-[#ff4f1a]",
   outline: "border border-cream/30 text-cream hover:border-accent hover:text-accent",
   ghost: "text-cream/70 hover:text-cream",
 };
+
+function isInternalHref(href: string): boolean {
+  return href.startsWith("/") && !href.startsWith("//");
+}
 
 export function Button({
   children,
@@ -60,19 +65,47 @@ export function Button({
     </motion.span>
   );
 
+  const cursorProps = {
+    "data-cursor": "hover",
+    "data-cursor-label": cursorLabel,
+  } as const;
+
   if (href) {
+    const isExternal = external ?? !isInternalHref(href);
+    if (!isExternal) {
+      // Use next/link for internal routes so navigation is client-side
+      // (no full page reload) and the destination prefetches in the
+      // background. This is the perf fix for "contact link takes ages".
+      return (
+        <NextLink
+          href={href}
+          onClick={onClick}
+          prefetch
+          className={cls}
+          {...cursorProps}
+        >
+          <motion.span
+            style={{ x: tx, y: ty }}
+            onMouseMove={handleMove}
+            onMouseLeave={reset}
+            className="inline-flex items-center gap-2"
+          >
+            {children}
+          </motion.span>
+        </NextLink>
+      );
+    }
     return (
       <motion.a
         href={href}
         onClick={onClick}
         onMouseMove={handleMove}
         onMouseLeave={reset}
-        data-cursor="hover"
-        data-cursor-label={cursorLabel}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
+        target="_blank"
+        rel="noopener noreferrer"
         whileTap={{ scale: 0.97 }}
         className={cls}
+        {...cursorProps}
       >
         {inner}
       </motion.a>
@@ -85,10 +118,9 @@ export function Button({
       onClick={onClick}
       onMouseMove={handleMove}
       onMouseLeave={reset}
-      data-cursor="hover"
-      data-cursor-label={cursorLabel}
       whileTap={{ scale: 0.97 }}
       className={cls}
+      {...cursorProps}
     >
       {inner}
     </motion.button>

@@ -113,7 +113,11 @@ export function MaskText({
   }
 
   return (
-    <Tag ref={ref as never} className={className}>
+    <Tag
+      ref={ref as never}
+      className={`reveal-mask ${className ?? ""}`}
+      aria-label={typeof children === "string" ? children : undefined}
+    >
       <span data-inner className="block">
         {children}
       </span>
