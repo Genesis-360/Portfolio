@@ -2,13 +2,10 @@
 
 import { useSmoothScroll } from "@/components/providers/SmoothScroll";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { LogoLoop, type LogoItem } from "@/components/ui/LogoLoop";
 import OptionWheel from "@/components/ui/OptionWheel";
 import { Text3DFlip } from "@/components/ui/Text3DFlip";
 import { ServiceIcon } from "@/components/ui/ServiceIcons";
-
 
 const BASE =
   "relative z-40 flex w-full flex-col overflow-hidden border-b border-cream/15 bg-ink lg:sticky lg:top-0 lg:h-screen lg:w-[30%] lg:max-w-[560px] lg:border-b-0 lg:border-r";
@@ -25,8 +22,10 @@ type SidebarProject = {
 
 export type SidebarData = {
   serviceTitles: string[];
-  clients: { name: string; logo?: string }[];
+  industries: { name: string }[];
   email: string;
+  phone: string;
+  slotsOpen: number;
   socials: { label: string; href: string }[];
 };
 
@@ -51,6 +50,7 @@ function NavRow({ variant }: { variant: "home" | "sub" }) {
     <div className="grid min-h-14 grid-cols-[48px_1fr_1fr] border-cream/15 lg:min-h-16 lg:grid-cols-[56px_1fr_1fr]">
       <Link
         href="/"
+        aria-label="OREENZA — go to homepage"
         data-cursor="hover"
         className="flex items-center justify-center border-r border-cream/15 bg-ink font-anton text-lg text-cream/90">
         O
@@ -89,7 +89,7 @@ function NavRow({ variant }: { variant: "home" | "sub" }) {
 /* Vertical rail (Oreenza wordmark + slots open + equalizer)          */
 /* ------------------------------------------------------------------ */
 
-function SideRail() {
+function SideRail({ slotsOpen }: { slotsOpen: number }) {
   return (
     <div className="relative hidden border-r border-cream/15 lg:block">
       <p className="absolute left-1/2 top-18 -translate-x-1/2 -rotate-90 whitespace-nowrap font-body text-2xl tracking-tight text-cream/60">
@@ -101,8 +101,10 @@ function SideRail() {
           <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
         </span>
         <div className="text-center">
-          <p className="font-anton text-2xl leading-none text-cream">10</p>
-          <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-cream/45">
+          <p className="font-anton text-2xl leading-none text-cream" aria-label={`${slotsOpen} project slots open`}>
+            {slotsOpen}
+          </p>
+          <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-cream/55">
             Slots open
           </p>
         </div>
@@ -117,7 +119,7 @@ function SideRail() {
   );
 }
 
-function SideRailMobile() {
+function SideRailMobile({ slotsOpen }: { slotsOpen: number }) {
   return (
     <div className="flex items-center justify-between px-5 py-4 lg:hidden">
       <p className="font-body text-lg tracking-tight text-cream/60">Oreenza</p>
@@ -128,8 +130,10 @@ function SideRailMobile() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <div className="flex items-baseline gap-1.5">
-            <p className="font-anton text-lg leading-none text-cream">10</p>
-            <p className="text-[9px] uppercase tracking-[0.14em] text-cream/45">
+            <p className="font-anton text-lg leading-none text-cream" aria-label={`${slotsOpen} project slots open`}>
+              {slotsOpen}
+            </p>
+            <p className="text-[9px] uppercase tracking-[0.14em] text-cream/55">
               Slots open
             </p>
           </div>
@@ -150,28 +154,8 @@ function SideRailMobile() {
 /* ------------------------------------------------------------------ */
 
 function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
-  const clientLogos: LogoItem[] = data.clients.map((client) => ({
-    node: (
-      <span className="flex items-center gap-2.5 opacity-70 transition-opacity duration-300 hover:opacity-100">
-          {client.logo && (
-            <Image
-              src={client.logo}
-              alt={client.name}
-              width={20}
-            height={20}
-            className="h-5 w-auto flex-none"
-          />
-        )}
-        <span className="whitespace-nowrap font-body text-sm font-semibold tracking-wide text-cream/85">
-          {client.name}
-        </span>
-      </span>
-    ),
-  }));
-
   return (
     <div className="flex h-full min-h-0 flex-col px-5 pt-8 pb-7 lg:px-7 lg:pt-10 lg:pb-8">
-      {/* Hero */}
       <h1 className="max-w-[15ch] font-body text-[clamp(1.9rem,2.6vw,3.4rem)] leading-[0.95] tracking-tight text-cream">
         Performance-first creative agency for ambitious brands.
       </h1>
@@ -186,40 +170,31 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
         Book a free call
       </Button>
 
-      {/* Flexible breathing room — absorbs leftover space on tall screens */}
       <div aria-hidden className="min-h-12 flex-1" />
 
-      {/* Trusted brands */}
+      {/* Industries served — generic verticals, not a fake client list. */}
       <section className="border-t border-cream/15 pt-6">
-        <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
+        <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
           <span className="relative flex h-2 w-2">
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <span className="h-px w-6 bg-cream/15" />
-          Trusted by
+          Industries we serve
         </p>
-        <p className="mt-2.5 text-xs leading-relaxed text-cream/55">
-          50+ brands across SAAS, hospitality &amp; B2B.
-        </p>
-        <div className="relative mt-6 overflow-hidden">
-          <LogoLoop
-            logos={clientLogos}
-            speed={22}
-            direction="left"
-            logoHeight={17}
-            gap={48}
-            pauseOnHover
-            scaleOnHover
-            fadeOut
-            fadeOutColor="#000000"
-            ariaLabel="Trusted clients"
-          />
-        </div>
+        <ul className="mt-4 flex flex-wrap gap-2" aria-label="Industries we serve">
+          {data.industries.map((i) => (
+            <li
+              key={i.name}
+              className="rounded-full border border-cream/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-cream/65"
+            >
+              {i.name}
+            </li>
+          ))}
+        </ul>
       </section>
 
-      {/* Services — spinning wheel */}
       <section className="mt-7 border-t border-cream/15 pt-6">
-        <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
+        <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
           <span className="relative flex h-2 w-2">
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
@@ -230,7 +205,7 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
           <OptionWheel
             items={data.serviceTitles.map((title) => ({
               label: title,
-              icon: <ServiceIcon title={title} />
+              icon: <ServiceIcon title={title} />,
             }))}
             defaultSelected={0}
             side="left"
@@ -257,7 +232,7 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
 function ContactContent({ data }: { data: SidebarData }) {
   return (
     <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
-      <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
+      <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
         <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
         <span className="h-px w-6 bg-cream/15" />
         Get in touch
@@ -272,7 +247,17 @@ function ContactContent({ data }: { data: SidebarData }) {
         className="mt-6 inline-block w-fit text-3xl text-cream/85 transition-colors hover:text-accent">
         {data.email}
       </a>
-      
+
+      {data.phone ? (
+        <a
+          href={`tel:${data.phone.replace(/[^\d+]/g, "")}`}
+          data-cursor="hover"
+          className="mt-3 inline-block w-fit text-base text-cream/65 transition-colors hover:text-accent"
+        >
+          {data.phone}
+        </a>
+      ) : null}
+
       <div className="mt-10">
         <Button
           href="/contact#book"
@@ -286,7 +271,7 @@ function ContactContent({ data }: { data: SidebarData }) {
       </div>
 
       <div className="mt-10 border-t border-cream/15 pt-5">
-        <p className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/45">
+        <p className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
           <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           <span className="h-px w-6 bg-cream/15" />
           Elsewhere
@@ -316,7 +301,7 @@ function ContactContent({ data }: { data: SidebarData }) {
 function ProjectContent({ project }: { project?: SidebarProject }) {
   return (
     <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
-      <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.24em] text-cream/40">
+      <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.24em] text-cream/55">
         <span className="text-accent">{project?.index ?? "00"}</span>
         <span className="h-px w-8 bg-cream/15" />
         Featured Project
@@ -329,14 +314,14 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
         </span>
       </h2>
 
-      <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.24em] text-cream/45">
+      <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.24em] text-cream/55">
         {project?.year ?? "Year"}
         <span className="mx-2.5 text-accent">·</span>
         {project?.category ?? "Industry"}
       </p>
 
       {project?.description && (
-        <p className="mt-6 max-w-[36ch] text-[15px] leading-[1.75] text-cream/60">
+        <p className="mt-6 max-w-[36ch] text-[15px] leading-[1.75] text-cream/65">
           {project.description}
         </p>
       )}
@@ -346,7 +331,7 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
           {project!.services.map((service) => (
             <li
               key={service}
-              className="rounded-full border border-cream/15 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-cream/60 transition-colors duration-300 hover:border-accent/60 hover:text-accent">
+              className="rounded-full border border-cream/15 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-cream/65 transition-colors duration-300 hover:border-accent/60 hover:text-accent">
               {service}
             </li>
           ))}
@@ -360,7 +345,7 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
           rel="noopener noreferrer"
           data-cursor="hover"
           data-cursor-label="Live"
-          className="mt-6 inline-flex w-fit items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-cream/60 transition-colors duration-300 hover:text-accent"
+          className="mt-6 inline-flex w-fit items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-cream/65 transition-colors duration-300 hover:text-accent"
         >
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -412,11 +397,11 @@ export function Sidebar({
       </div>
 
       <div className="flex min-h-0 flex-1 border-b border-cream/15 lg:grid lg:grid-cols-[56px_1fr]">
-        <SideRail />
+        <SideRail slotsOpen={data.slotsOpen} />
         <div className="min-h-0 flex-1">{pageContent}</div>
       </div>
 
-      <SideRailMobile />
+      <SideRailMobile slotsOpen={data.slotsOpen} />
     </aside>
   );
 }

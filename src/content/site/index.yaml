@@ -1,6 +1,8 @@
 email: hello@oreenza.com
 calLink: https://cal.com/oreenza/discovery-call
 calEmbedPath: oreenza/discovery-call
+phone: "+91 94576 33238"
+slotsOpen: 4
 socials:
   - label: Instagram
     href: https://instagram.com/oreenza_agency
@@ -10,29 +12,17 @@ socials:
     href: https://linkedin.com/in/oreenza
   - label: X / Twitter
     href: https://x.com/oreenza
-clients:
-  - name: Google
-    logo: /logos/google.svg
-  - name: Meta
-    logo: /logos/meta.svg
-  - name: Shopify
-    logo: /logos/shopify.svg
-  - name: Stripe
-    logo: /logos/stripe.svg
-  - name: Notion
-    logo: /logos/notion.svg
-  - name: Figma
-    logo: /logos/figma.svg
-  - name: Spotify
-    logo: /logos/spotify.svg
-  - name: Airbnb
-    logo: /logos/airbnb.svg
-  - name: Zomato
-    logo: /logos/zomato.svg
-  - name: Swiggy
-    logo: /logos/swiggy.svg
-  - name: Paytm
-    logo: /logos/paytm.svg
+# Generic industry placeholders used in the "Trusted-by" sidebar rail.
+# Replace these with real client names (and the actual logo SVGs in
+# public/logos/) before going live. Real trademarks displayed without
+# permission is a legal exposure.
+industries:
+  - name: Hospitality
+  - name: SaaS
+  - name: Fintech
+  - name: D2C
+  - name: Health & Wellness
+  - name: Real Estate
 services:
   - title: Brand Identity
     items:

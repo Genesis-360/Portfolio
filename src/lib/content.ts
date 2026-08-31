@@ -20,10 +20,12 @@ export type Project = {
 
 export type Site = {
   email: string;
+  phone: string;
+  slotsOpen: number;
   calLink: string;
   calEmbedPath: string;
   socials: { label: string; href: string }[];
-  clients: { name: string; logo?: string }[];
+  industries: { name: string }[];
   services: { title: string; items: string[] }[];
 };
 
@@ -74,10 +76,16 @@ export async function getSite(): Promise<Site> {
   const s = site ?? {};
   return {
     email: s.email ?? "hello@oreenza.com",
+    phone: s.phone ?? "+91 94576 33238",
+    slotsOpen: s.slotsOpen ?? 4,
     calLink: s.calLink ?? "https://cal.com/oreenza/discovery-call",
     calEmbedPath: s.calEmbedPath ?? "oreenza/discovery-call",
-    socials: s.socials ? s.socials.map((x) => ({ label: x.label, href: x.href })) : [],
-    clients: (s.clients ?? []).map((c) => ({ name: c?.name ?? "", logo: c?.logo ?? undefined })),
-    services: s.services ? s.services.map((x) => ({ title: x.title, items: [...x.items] })) : [],
+    socials: s.socials
+      ? s.socials.map((x) => ({ label: x.label, href: x.href }))
+      : [],
+    industries: (s.industries ?? []).map((i) => ({ name: i?.name ?? "" })),
+    services: s.services
+      ? s.services.map((x) => ({ title: x.title, items: [...x.items] }))
+      : [],
   };
 }
