@@ -8,9 +8,17 @@ import { CalInline } from "@/components/ui/CalInline";
 import { getSite } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Contact — OREENZA",
+  title: { absolute: "Contact — OREENZA" },
   description:
     "Start a project with OREENZA — an independent design & development studio.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact — OREENZA",
+    description:
+      "Start a project with OREENZA — an independent design & development studio.",
+    url: "/contact",
+    type: "website",
+  },
 };
 
 function Detail({ label, children }: { label: string; children: React.ReactNode }) {
@@ -34,13 +42,15 @@ export default async function ContactPage() {
         content="contact"
         data={{
           serviceTitles: site.services.map((sv) => sv.title),
-          clients: site.clients,
+          industries: site.industries,
           email: site.email,
+          phone: site.phone,
+          slotsOpen: site.slotsOpen,
           socials: site.socials,
         }}
       />
 
-      <main className="w-full lg:w-[70%] lg:flex-1">
+      <main id="main" className="w-full lg:w-[70%] lg:flex-1">
         {/* Header */}
         <section className="container-edge pb-10 pt-24 lg:pt-32">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch lg:justify-between">
@@ -124,6 +134,15 @@ export default async function ContactPage() {
               </a>
             </Detail>
 
+            <Detail label="Phone">
+              <a
+                href={`tel:${site.phone}`}
+                data-cursor="hover"
+                className="text-2xl text-cream/90 underline-offset-4 transition-colors hover:text-accent">
+                {site.phone}
+              </a>
+            </Detail>
+
             <Detail label="Quick call">
               <a
                 href="#book"
@@ -170,7 +189,10 @@ export default async function ContactPage() {
             </Detail>
 
             <Detail label="Availability">
-              <p className="text-base text-cream/80">Slots open — 2026</p>
+              <p className="text-base text-cream/80">
+                {site.slotsOpen} {site.slotsOpen === 1 ? "slot" : "slots"} open
+                — {new Date().getFullYear()}
+              </p>
             </Detail>
           </div>
         </section>
