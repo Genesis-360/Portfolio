@@ -221,8 +221,13 @@ const OptionWheel = ({
   );
 
   // Auto-rotation: advances one option per tick; all user interaction is off.
+  // Respect prefers-reduced-motion: skip auto-rotation entirely for users
+  // who've requested reduced motion (the global CSS backstop doesn't catch
+  // setInterval-driven writes, so we have to do it here).
   useEffect(() => {
     if (!autoRotate) return;
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(() => {
       const cfg = cfgRef.current;
       if (!cfg.count) return;
@@ -253,7 +258,7 @@ const OptionWheel = ({
       el.removeEventListener('wheel', onWheel);
       if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
     };
-  }, [applyTarget]);
+  }, [applyTarget, autoRotate]);
 
   const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     if (!cfgRef.current.draggable) return;
@@ -353,7 +358,9 @@ const OptionWheel = ({
     draggable,
     autoRotate,
     onChange,
-    applyTarget
+    applyTarget,
+    soundUrl,
+    soundVolume,
   ]);
 
   useEffect(
@@ -371,7 +378,7 @@ const OptionWheel = ({
       role="listbox"
       tabIndex={0}
       aria-label="Option wheel"
-      className={`relative h-full w-full select-none overflow-hidden outline-none [touch-none] ${autoRotate ? 'cursor-default' : isDragging ? 'cursor-grabbing' : 'cursor-grab'}${className ? ` ${className}` : ''}`}
+      className={`relative h-full w-full select-none overflow-hidden touch-none ${autoRotate ? 'cursor-default' : isDragging ? 'cursor-grabbing' : 'cursor-grab'}${className ? ` ${className}` : ''}`}
       style={
         {
           '--ow-text-color': textColor,

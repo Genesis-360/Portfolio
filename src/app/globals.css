@@ -39,6 +39,31 @@
     color: var(--color-cream);
   }
 
+  /* Global keyboard focus ring. The site previously had no
+     :focus-visible rule at all, so keyboard users got no visual
+     feedback when tabbing through links/buttons. The ring uses the
+     accent color (high contrast against both ink and cream surfaces)
+     and respects rounded corners on the focused element. */
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* Buttons and links that are clearly interactive get a slightly
+     thicker ring for visibility. */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline-width: 2px;
+    outline-offset: 4px;
+  }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 9px;
