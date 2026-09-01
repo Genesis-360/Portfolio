@@ -4,6 +4,36 @@ industry: Coffee & Beverage
 year: "2026"
 client: Velvet Bean
 liveUrl: https://oreenza.github.io/velvet-bean-website/
+location: Melbourne, Australia
+timeline: 5 weeks
+platform: Next.js + Keystatic
+problem: >-
+  Velvet Bean was a specialty coffee roaster with a devoted wholesale following
+  but no direct-to-consumer channel. Their packaging was indistinguishable from
+  commodity roasters, their sustainability story was buried in fine print, and
+  they had no website — just a PDF menu that nobody could find. Premium buyers
+  couldn't justify the price premium because the brand couldn't communicate it.
+strategy: >-
+  We built a quiet, grounded brand world that puts the product first. Earthy
+  tones drawn from the sourcing origins, hand-drawn detail that signals
+  craft, and packaging that tells the farm-to-cup story in a single glance.
+  The website became the subscription and retail engine: a clean product
+  showcase, origin stories that justify the premium, and a checkout flow
+  that makes recurring orders effortless.
+outcome: >-
+  A roastery brand that commands premium shelf placement and a site that
+  converts curious browsers into committed subscribers. The sustainability
+  story is now the centrepiece, not the footnote.
+metrics:
+  - label: Subscription signups
+    value: 4.2×
+    context: direct-to-consumer subscriptions in 90 days post-launch
+  - label: Wholesale account growth
+    value: +60%
+    context: new retail partnerships in the first 6 months
+  - label: Average order value
+    value: +35%
+    context: direct site orders vs. prior wholesale-only revenue
 intro: >-
   A quiet, grounded brand world for a specialty coffee roastery.
 description:

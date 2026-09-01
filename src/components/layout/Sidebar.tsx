@@ -47,7 +47,7 @@ function NavRow({ variant }: { variant: "home" | "sub" }) {
   const { scrollTo } = useSmoothScroll();
   const isHome = variant === "home";
   return (
-    <div className="grid min-h-14 grid-cols-[48px_1fr_1fr] border-cream/15 lg:min-h-16 lg:grid-cols-[56px_1fr_1fr]">
+    <div className="grid min-h-14 grid-cols-4 border-cream/15 lg:min-h-16 lg:grid-cols-[56px_1fr_1fr_1fr]">
       <Link
         href="/"
         aria-label="OREENZA — go to homepage"
@@ -68,6 +68,17 @@ function NavRow({ variant }: { variant: "home" | "sub" }) {
           rotateDirection="top"
         >
           Home
+        </Text3DFlip>
+      </Link>
+      <Link href="/services" data-cursor="hover" className={`${NAV_LINK} border-r`}>
+        <Text3DFlip
+          as="span"
+          textClassName="text-cream"
+          flipTextClassName="text-accent"
+          staggerDuration={0.04}
+          rotateDirection="top"
+        >
+          Services
         </Text3DFlip>
       </Link>
       <Link href="/contact" data-cursor="hover" className={NAV_LINK}>

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getNextProject, getProject, getProjects, getSite } from "@/lib/content";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Reveal, RevealMedia } from "@/components/ui/Reveal";
+import { CaseStudy, caseStudyMetadata } from "@/components/ui/CaseStudy";
 import { absoluteUrl } from "@/lib/url";
 
 export async function generateStaticParams() {
@@ -22,22 +23,38 @@ export async function generateMetadata({
       robots: { index: false, follow: false },
     };
   }
-  const description =
-    project.intro?.trim() || project.description.join(" ").slice(0, 160);
+
+  const caseDescription = [
+    project.intro,
+    project.problem,
+    project.outcome,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .slice(0, 160);
+
+  const base = caseStudyMetadata(project);
   return {
-    title: project.title,
-    description,
-    alternates: { canonical: `/project/${project.slug}` },
+    ...base,
     openGraph: {
-      title: project.title,
-      description,
+      ...base.openGraph,
+      title: `${project.title} — ${project.client} Case Study | Oreenza`,
+      description: caseDescription,
       url: `/project/${project.slug}`,
       type: "article",
+      images: [
+        {
+          url: project.cover,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — case study cover`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: project.title,
-      description,
+      title: `${project.title} case study`,
+      description: caseDescription,
     },
   };
 }
@@ -94,6 +111,12 @@ export default async function ProjectPage({
           ) : null}
         </header>
 
+        {/* Case study — narrative section. Renders the problem, strategy,
+            outcome, metrics, and CTA. Renders BEFORE the mockup stack so
+            the case-study story is what search engines (and skimmers) see
+            first; the visual evidence comes second. */}
+        <CaseStudy project={project} />
+
         {/* Mockup stack */}
         <div className="container-edge mt-10 space-y-4 lg:pr-6">
           <RevealMedia
@@ -113,19 +136,29 @@ export default async function ProjectPage({
         </div>
 
         {/* Per-project JSON-LD so the project actually surfaces in
-            structured-data search results. */}
+            structured-data search results. Marked as Article because the
+            page is a long-form narrative case study, not just a portfolio
+            item. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "CreativeWork",
-              name: project.title,
-              url: absoluteUrl(`/project/${project.slug}`),
+              "@type": "Article",
+              headline: project.title,
+              description:
+                project.intro?.trim() ||
+                project.description.join(" ").slice(0, 160),
+              image: project.cover,
               datePublished: project.year,
-              about: project.industry,
-              keywords: project.services.join(", "),
               author: { "@type": "Organization", name: "OREENZA" },
+              publisher: {
+                "@type": "Organization",
+                name: "OREENZA",
+                logo: { "@type": "ImageObject", url: "/logo.svg" },
+              },
+              keywords: project.services.join(", "),
+              url: absoluteUrl(`/project/${project.slug}`),
             }),
           }}
         />

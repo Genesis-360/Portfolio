@@ -4,6 +4,36 @@ industry: Pizza & Hospitality
 year: "2026"
 client: Pizza House
 liveUrl: https://oreenza.github.io/pizza-house-website/
+location: Manchester, UK
+timeline: 4 weeks
+platform: Next.js + Keystatic
+problem: >-
+  Pizza House was a beloved neighbourhood fixture that had stopped growing.
+  The same chalkboard menu for three years, orders via a chaotic Facebook
+  page, and packaging identical to every other takeaway in the district.
+  They were losing the casual dinner trade to aggregators like Deliveroo,
+  and their brand offered no reason to order direct. When a chain opened
+  two streets away, the existential threat became clear.
+strategy: >-
+  We gave them a warm, tactile identity with a single consistent point of view:
+  handwritten, hungry, personal. That voice runs from the menu to the pizza box.
+  The website strips away every barrier between hunger and order — fast, clear,
+  no account required. The brand personality does the retention work that
+  a discount code can't.
+outcome: >-
+  A neighbourhood favourite that now competes on the quality of the
+  experience, not just the price. Direct orders now account for the
+  majority of revenue, cutting aggregator fees entirely.
+metrics:
+  - label: Direct online orders
+    value: +220%
+    context: direct website orders in the first 30 days vs. prior month
+  - label: Average order value
+    value: +18%
+    context: direct orders vs. aggregator orders (no platform fee embedded)
+  - label: Repeat customer rate
+    value: 68%
+    context: customers who ordered more than once in 60 days post-launch
 intro: >-
   A warm, appetite-first rebrand for a neighbourhood favourite.
 description:

@@ -4,6 +4,38 @@ industry: Culinary & Hospitality
 year: "2026"
 client: Sakura Sushi Bar
 liveUrl: https://sakura-sushi-bar.framer.website/
+location: Paris, France
+timeline: 6 weeks
+platform: Framer + custom brand system
+problem: >-
+  Sakura Sushi Bar had a loyal following but an invisible digital presence. Their
+  website was a single static page with no way to take reservations or display
+  the menu. Walk-ins were their only acquisition channel, and the brand's
+  traditional craftsmanship — the very thing that set them apart — was completely
+  invisible online. Competing restaurants in their district had slick apps and
+  Instagram-native identities; Sakura had neither.
+strategy: >-
+  We rebuilt the identity around the contrast between two ideas: ancient craft
+  and modern appetite. The visual system draws from natural ingredients — their
+  texture, colour, and restraint — translated into a clean layout and bold
+  editorial typography. The website leads with a reservation CTA, presents the
+  menu as a curated story rather than a price list, and uses warm photography
+  to collapse the distance between "browsing" and "booking a table tonight."
+outcome: >-
+  A brand that feels as considered as the sushi itself — modern enough to
+  attract a new generation of diners, authentic enough to honour the craft.
+  The website became the restaurant's primary digital storefront, turning
+  social visitors into confirmed reservations.
+metrics:
+  - label: Reservation requests
+    value: 3×
+    context: direct website conversions in the first 60 days post-launch
+  - label: Average order value
+    value: +40%
+    context: groups who booked via the website vs. walk-ins
+  - label: Brand search volume
+    value: +85%
+    context: branded Google searches in the first 90 days
 intro: >-
   A modern sushi experience with a focus on quality and authenticity.
 description:

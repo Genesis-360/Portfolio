@@ -45,6 +45,48 @@ export default config({
           label: "Live site URL",
           description: "Shown as the Visit live site link",
         }),
+        location: fields.text({
+          label: "Client location",
+          description: "City, Country — used in the case study hero",
+        }),
+        timeline: fields.text({
+          label: "Timeline",
+          description: "e.g. '6 weeks' — shown in case study facts",
+        }),
+        platform: fields.text({
+          label: "Platform / stack",
+          description: "e.g. 'Next.js + Keystatic', 'Shopify + Liquid'",
+        }),
+        problem: fields.text({
+          label: "The problem",
+          multiline: true,
+          description: "1-2 sentences on the business pain point the client came with",
+        }),
+        strategy: fields.text({
+          label: "The strategic solution",
+          multiline: true,
+          description: "1-2 sentences on why we made the design/tech choices we did",
+        }),
+        outcome: fields.text({
+          label: "The outcome",
+          multiline: true,
+          description: "1-2 sentences on the qualitative result",
+        }),
+        metrics: fields.array(
+          fields.object({
+            label: fields.text({ label: "Metric label" }),
+            value: fields.text({ label: "Metric value (display)" }),
+            context: fields.text({
+              label: "Context",
+              description: "What it measures, e.g. 'organic search traffic, 90 days post-launch'",
+            }),
+          }),
+          {
+            label: "Measurable results",
+            description: "Up to 4 metric cards. Estimates are fine — label them as such.",
+            itemLabel: (props) => props.fields.label.value,
+          },
+        ),
         intro: fields.text({
           label: "Intro",
           multiline: true,

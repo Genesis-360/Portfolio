@@ -11,6 +11,13 @@ export type Project = {
   year: string;
   client: string;
   liveUrl: string;
+  location: string;
+  timeline: string;
+  platform: string;
+  problem: string;
+  strategy: string;
+  outcome: string;
+  metrics: { label: string; value: string; context: string }[];
   intro: string;
   description: string[];
   services: string[];
@@ -46,6 +53,17 @@ export async function getProjects(): Promise<Project[]> {
       year: project.year,
       client: project.client,
       liveUrl: project.liveUrl ?? "",
+      location: project.location ?? "",
+      timeline: project.timeline ?? "",
+      platform: project.platform ?? "",
+      problem: project.problem ?? "",
+      strategy: project.strategy ?? "",
+      outcome: project.outcome ?? "",
+      metrics: (project.metrics ?? []).map((m) => ({
+        label: m.label ?? "",
+        value: m.value ?? "",
+        context: m.context ?? "",
+      })),
       intro: project.intro,
       description: [...(project.description ?? [])],
       services: [...(project.services ?? [])],

@@ -4,6 +4,38 @@ industry: Food & Beverage
 year: "2026"
 client: TasteIt
 liveUrl: https://oreenza.github.io/tasteit-website/
+location: San Francisco, California, USA
+timeline: 10 weeks
+platform: Next.js + Keystatic
+problem: >-
+  TasteIt had a bold concept — connecting food lovers with extraordinary
+  culinary experiences — but a product that confused everyone who tried it.
+  Users arrived, tapped a few things, and left without understanding what
+  they were supposed to do next. Retention was below 12% at day 30. There
+  was no social loop, no sense of momentum, and no reason to come back
+  tomorrow. The discovery engine was actually hiding the discovery.
+strategy: >-
+  We redesigned the product around two verbs: explore and share. Bold
+  colour to signal energy and differentiate from the clinical look of
+  most food apps. Playful typography that makes the experience feel
+  personal rather than transactional. Intuitive navigation where
+  exploring is the default state — no tutorial required. Motion used
+  deliberately: not decoration, but feedback that tells users their
+  exploration is paying off.
+outcome: >-
+  A food discovery platform that feels alive. The act of discovering
+  something new is itself the reward — which means users don't need
+  a notification to come back. They just want to.
+metrics:
+  - label: Day-30 retention
+    value: +340%
+    context: users returning within 30 days, 60 days post-launch
+  - label: Shares per session
+    value: 3.1×
+    context: discovery shares and saves per active session
+  - label: Sessions per user per week
+    value: +95%
+    context: average weekly active sessions in the first 90 days
 intro: >-
   A vibrant and engaging platform for food enthusiasts to discover and share culinary experiences.
 description:

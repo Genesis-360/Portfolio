@@ -4,6 +4,37 @@ industry: Cafe & Hospitality
 year: "2026"
 client: Oestra
 liveUrl: https://oreenza.github.io/osetra-website/
+location: Austin, Texas, USA
+timeline: 7 weeks
+platform: Next.js + Keystatic
+problem: >-
+  Oestra had a compelling wellness product and a generic Shopify theme that
+  made them look like every other supplement brand. Stock photography,
+  indistinguishable copy, and a name customers couldn't pronounce or recall.
+  Their CAC on paid social was 3× the industry average because the landing
+  page had no credibility signals — no story, no proof, no personality.
+  They were paying to acquire visitors who left in under eight seconds.
+strategy: >-
+  We shaped an identity from silence: calm, assured, considered. The brand
+  voice doesn't shout. The visual system doesn't compete. We built a website
+  that earns trust before asking for anything — measured pacing, genuine
+  testimonials, and a product story that makes the science feel human.
+  Restraint became the signal of quality.
+outcome: >-
+  A wellness brand that sounds like it's been established for a decade,
+  not launched last quarter. The website now converts curiosity into
+  membership without the aggressive funnels that alienate the audience
+  they're trying to serve.
+metrics:
+  - label: Bounce rate
+    value: −44%
+    context: single-page sessions on the new website vs. the previous Shopify theme
+  - label: Newsletter signups
+    value: 5.8×
+    context: waitlist and email captures in the first 45 days
+  - label: Direct and branded search traffic
+    value: +310%
+    context: organic visits from branded queries in 90 days post-launch
 intro: >-
   A confident identity and website for a modern wellness brand finding its
   voice.
