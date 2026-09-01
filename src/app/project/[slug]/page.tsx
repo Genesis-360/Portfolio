@@ -24,11 +24,7 @@ export async function generateMetadata({
     };
   }
 
-  const caseDescription = [
-    project.intro,
-    project.problem,
-    project.outcome,
-  ]
+  const caseDescription = [project.intro, project.problem, project.outcome]
     .filter(Boolean)
     .join(" ")
     .slice(0, 160);
