@@ -31,7 +31,7 @@ export type SidebarData = {
 
 type SidebarProps = {
   variant?: "home" | "sub";
-  content?: "home" | "contact" | "project";
+  content?: "home" | "contact" | "project" | "services" | "blog" | "team";
   project?: SidebarProject;
   data: SidebarData;
 };
@@ -46,8 +46,18 @@ const NAV_LINK =
 function NavRow({ variant }: { variant: "home" | "sub" }) {
   const { scrollTo } = useSmoothScroll();
   const isHome = variant === "home";
+
+  const NAV_ITEMS = [
+    { label: "Home", href: "/" },
+    { label: "Work", href: "/", scrollTarget: "#work" },
+    { label: "Services", href: "/services" },
+    { label: "Team", href: "/team" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
-    <div className="grid min-h-14 grid-cols-4 border-cream/15 lg:min-h-16 lg:grid-cols-[56px_1fr_1fr_1fr]">
+    <div className="grid min-h-14 grid-cols-[56px_1fr_1fr_1fr_1fr_1fr] border-cream/15 lg:min-h-16">
       <Link
         href="/"
         aria-label="OREENZA — go to homepage"
@@ -55,43 +65,28 @@ function NavRow({ variant }: { variant: "home" | "sub" }) {
         className="flex items-center justify-center border-r border-cream/15 bg-ink font-anton text-lg text-cream/90">
         O
       </Link>
-      <Link
-        href="/"
-        onClick={isHome ? (e) => { e.preventDefault(); scrollTo("#work", { offset: -20 }); } : undefined}
-        data-cursor="hover"
-        className={`${NAV_LINK} border-r`}>
-        <Text3DFlip
-          as="span"
-          textClassName="text-cream"
-          flipTextClassName="text-accent"
-          staggerDuration={0.04}
-          rotateDirection="top"
-        >
-          Home
-        </Text3DFlip>
-      </Link>
-      <Link href="/services" data-cursor="hover" className={`${NAV_LINK} border-r`}>
-        <Text3DFlip
-          as="span"
-          textClassName="text-cream"
-          flipTextClassName="text-accent"
-          staggerDuration={0.04}
-          rotateDirection="top"
-        >
-          Services
-        </Text3DFlip>
-      </Link>
-      <Link href="/contact" data-cursor="hover" className={NAV_LINK}>
-        <Text3DFlip
-          as="span"
-          textClassName="text-cream"
-          flipTextClassName="text-accent"
-          staggerDuration={0.04}
-          rotateDirection="top"
-        >
-          Contact
-        </Text3DFlip>
-      </Link>
+      {NAV_ITEMS.map((item, i) => (
+        <Link
+          key={item.label}
+          href={item.href}
+          onClick={
+            isHome && item.scrollTarget
+              ? (e) => { e.preventDefault(); scrollTo(item.scrollTarget, { offset: -20 }); }
+              : undefined
+          }
+          data-cursor="hover"
+          className={`${NAV_LINK} ${i < NAV_ITEMS.length - 1 ? "border-r" : ""}`}>
+          <Text3DFlip
+            as="span"
+            textClassName="text-cream"
+            flipTextClassName="text-accent"
+            staggerDuration={0.04}
+            rotateDirection="top"
+          >
+            {item.label}
+          </Text3DFlip>
+        </Link>
+      ))}
     </div>
   );
 }
@@ -386,20 +381,166 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
 /* Shell — spine: top nav, content, bottom nav                        */
 /* ------------------------------------------------------------------ */
 
+function ServicesContent({ data }: { data: SidebarData }) {
+  return (
+    <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
+      <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+        <span className="h-px w-6 bg-cream/15" />
+        What we do
+      </p>
+      <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.9] tracking-tight text-cream">
+        Performance-first services.
+      </h2>
+      <p className="mt-4 text-[15px] leading-relaxed text-cream/65">
+        Brand, web, and growth — built to load fast, rank well, and convert.
+      </p>
+
+      <ul className="mt-7 space-y-1.5">
+        {data.serviceTitles.slice(0, 6).map((s, i) => (
+          <li key={s}>
+            <Link
+              href={`/services#${slugify(s)}`}
+              data-cursor="hover"
+              className="group flex items-center justify-between border-b border-cream/10 py-2.5 text-[12px] font-bold uppercase tracking-[0.18em] text-cream/65 transition-colors hover:text-accent">
+              <span className="flex items-center gap-3">
+                <span className="text-accent/70 font-anton">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {s}
+              </span>
+              <span className="text-cream/30 transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden>
+                ↗
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-8">
+        <Button
+          href="/contact#book"
+          className="border-accent bg-accent text-ink hover:bg-cream">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
+          </span>
+          Book a call
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+function TeamContent({ data }: { data: SidebarData }) {
+  return (
+    <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
+      <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+        <span className="h-px w-6 bg-cream/15" />
+        Built by humans
+      </p>
+      <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.9] tracking-tight text-cream">
+        Small team. Big craft.
+      </h2>
+      <p className="mt-4 text-[15px] leading-relaxed text-cream/65">
+        A small group of designers, engineers and writers who&apos;ve shipped
+        for brands from cafés to SaaS.
+      </p>
+
+      <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-cream/15 bg-cream/10">
+        <a
+          href="mailto:hello@oreenza.com"
+          data-cursor="hover"
+          className="bg-ink p-4 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:text-accent">
+          <p className="text-[9px] text-cream/40">Email</p>
+          <p className="mt-1 normal-case tracking-normal">{data.email}</p>
+        </a>
+        <a
+          href={`tel:${data.phone.replace(/[^\d+]/g, "")}`}
+          data-cursor="hover"
+          className="bg-ink p-4 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:text-accent">
+          <p className="text-[9px] text-cream/40">Phone</p>
+          <p className="mt-1 normal-case tracking-normal">{data.phone}</p>
+        </a>
+      </div>
+
+      <div className="mt-7">
+        <Button
+          href="/contact#book"
+          className="border-accent bg-accent text-ink hover:bg-cream">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
+          </span>
+          Book a call
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+function BlogContent() {
+  return (
+    <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
+      <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+        <span className="h-px w-6 bg-cream/15" />
+        Field notes
+      </p>
+      <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.9] tracking-tight text-cream">
+        Insights.
+      </h2>
+      <p className="mt-4 text-[15px] leading-relaxed text-cream/65">
+        Practical thinking on design, performance, and SEO — straight from
+        the people doing the work.
+      </p>
+
+      <div className="mt-7">
+        <Button
+          href="/blog#latest"
+          className="border-accent bg-accent text-ink hover:bg-cream">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
+          </span>
+          Read the latest
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+function slugify(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function Sidebar({
   variant = "home",
   content = "home",
   project,
   data,
 }: SidebarProps) {
-  const pageContent =
-    content === "contact" ? (
-      <ContactContent data={data} />
-    ) : content === "project" ? (
-      <ProjectContent project={project} />
-    ) : (
-      <HomeContent isHome={variant === "home"} data={data} />
-    );
+  const pageContent = (() => {
+    switch (content) {
+      case "contact":
+        return <ContactContent data={data} />;
+      case "project":
+        return <ProjectContent project={project} />;
+      case "services":
+        return <ServicesContent data={data} />;
+      case "team":
+        return <TeamContent data={data} />;
+      case "blog":
+        return <BlogContent />;
+      default:
+        return <HomeContent isHome={variant === "home"} data={data} />;
+    }
+  })();
 
   return (
     <aside className={BASE}>

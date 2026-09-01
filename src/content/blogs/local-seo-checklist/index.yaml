@@ -1,0 +1,15 @@
+title: The Local SEO Checklist We Run for Every New Hospitality Client
+excerpt: Before we ever touch a design tool, we run this checklist. It's the foundation that determines whether the website we're building will actually get found.
+date: 2026-05-30
+author: OREENZA
+category: SEO
+readingTime: 8 min read
+cover: ""
+content:
+  - "Most hospitality businesses don't have an SEO problem — they have an SEO foundations problem. They haven't claimed their Google Business Profile correctly. Their NAP (Name, Address, Phone) is inconsistent across directories. They have no schema markup. They've never asked for a review. The website is beautiful, and nobody can find it."
+  - "We run this checklist before writing a single line of code. It's the work that determines whether the website we're building will be found — because a beautifully designed 404 page for a site nobody can find is not a business outcome."
+  - "Google Business Profile first. Claim it. Verify it. Fill in every field — not just the ones Google marks as required. Photos uploaded weekly. Posts every seven to ten days. Q&A populated with real questions and real answers. Reviews responded to within 24 hours. This is the foundation of local search visibility. If this is broken, nothing else matters."
+  - "NAP consistency is the second check. We audit every directory, citation, and social profile where the business name appears and verify that Name, Address, and Phone are identical in every instance. Even minor variations ('St.' vs 'Street', different phone number formats) dilute local ranking signals. This is tedious work. It's also the work that moves local rankings."
+  - "Schema markup is third. For restaurants, that means LocalBusiness schema with full address, opening hours, price range, and service options. For service-area businesses, that means Service schema with geographic coverage. For e-commerce, that means Product schema. Schema doesn't make pages rank — it helps search engines understand what the pages are about, which supports the signals that do rank them."
+  - "Technical SEO follows: Core Web Vitals (LCP under 2.5s, CLS under 0.1, INP under 200ms), HTTPS everywhere, XML sitemap submitted to Google Search Console, robots.txt not blocking important pages, canonical tags correct, hreflang correct if multi-language, and structured data validating without errors. These are table stakes — but they're more often missing than present on hospitality sites."
+  - "Only after all of this is verified do we start designing. The website is the destination. Local SEO is the road that gets people there. Building the destination before building the road means you have a beautiful building that nobody can reach."

@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 
@@ -28,8 +26,6 @@ type CaseStudyProps = {
 
 export function CaseStudy({ project }: CaseStudyProps) {
   const {
-    title,
-    client,
     location,
     timeline,
     platform,
@@ -38,58 +34,10 @@ export function CaseStudy({ project }: CaseStudyProps) {
     strategy,
     outcome,
     metrics,
-    cover,
-    intro,
-    liveUrl,
   } = project;
 
   return (
     <section className="container-edge mt-10 space-y-10 lg:mt-16 lg:space-y-14">
-      {/* ── Hero ── */}
-      <div className="relative overflow-hidden bg-cream/5">
-        <div className="absolute inset-0 bg-cream/[0.02]" />
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0">
-          <div className="p-8 sm:p-10 lg:p-14 lg:col-span-1">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent font-body">
-              {client} · {location}
-            </p>
-            <h2 className="font-anton text-[clamp(1.8rem,4vw,3.2rem)] uppercase leading-[0.92] tracking-tight text-cream mt-4">
-              The case study for{" "}
-              <span className="text-accent">{title}</span>
-            </h2>
-            <p className="mt-5 max-w-lg text-cream/70 leading-relaxed">
-              {intro}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-sm bg-accent px-5 py-3 font-body text-sm font-bold uppercase tracking-wider text-cream transition-colors duration-300 hover:brightness-110"
-              >
-                Visit live site
-              </a>
-              <Link
-                href="#problem"
-                className="inline-flex items-center gap-2 rounded-sm border border-cream/20 px-5 py-3 font-body text-sm font-bold uppercase tracking-wider text-cream transition-colors duration-300 hover:border-accent hover:text-accent"
-              >
-                See the work
-              </Link>
-            </div>
-          </div>
-          <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[36rem]">
-            <Image
-              src={cover}
-              alt={`${title} — case study hero visual`}
-              fill
-              priority
-              className="absolute inset-0 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/50 to-transparent lg:from-transparent lg:via-transparent lg:to-ink" />
-          </div>
-        </div>
-      </div>
-
       {/* ── Fast facts ── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {timeline && (

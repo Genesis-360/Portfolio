@@ -100,11 +100,6 @@ export default async function ProjectPage({
           <h1 className="font-anton text-[clamp(2.4rem,7vw,5.5rem)] uppercase leading-[0.9] tracking-tight text-cream">
             {project.title}
           </h1>
-          {project.intro ? (
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/70">
-              {project.intro}
-            </p>
-          ) : null}
         </header>
 
         {/* Case study — narrative section. Renders the problem, strategy,

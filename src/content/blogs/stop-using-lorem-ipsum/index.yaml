@@ -1,0 +1,14 @@
+title: Why We Stopped Using Lorem Ipsum (And What We Use Instead)
+excerpt: Placeholder copy trains your brain to ignore copy. Here's the system we use to write real content earlier, avoid expensive redesign cycles, and ship sites that actually sound like the brand.
+date: 2026-06-18
+author: OREENZA
+category: Insights
+readingTime: 4 min read
+cover: ""
+content:
+  - "Every project we've inherited that had a 'lorem ipsum problem' shared the same trajectory: design in Figma looks great with placeholder copy, client approves design, copywriter writes real content, content doesn't fit the design, design gets revised, copy gets revised to fit revised design, timeline explodes. Lorem ipsum defers the hard work and makes it more expensive when it finally arrives."
+  - "The fix is to write real content before the design is finalised. Not perfect content — but real content. For a restaurant client, that means actual menu descriptions, real opening hours, genuine brand voice. For a SaaS client, that means actual feature descriptions written in the tone they'd use in a sales conversation, not marketing boilerplate."
+  - "We use a technique we call 'content-first wireframing'. Before any visual design, we write the copy that needs to live on the page, then place it in a text-only wireframe to test hierarchy, length, and information architecture. The designer sees how the content actually reads — not how it looks — and can make structural decisions before any visual styling commits them."
+  - "For client projects, we run a 30-minute content workshop at the start of every engagement. We ask three questions: Who are you talking to? What do they already know? What should they feel after reading this? The answers become the content brief. The brief becomes the copy. The copy becomes the design constraint. This is faster than the traditional flow and produces better results."
+  - "The biggest objection is usually 'but we don't know what to say yet'. That's fine. The exercise isn't to finalise copy — it's to establish voice and direction so that when the final copy arrives, it fits the design rather than fighting it. A first draft written in a workshop is infinitely more useful than Lorem ipsum for making design decisions."
+  - "We now include a content brief deliverable in every web design project scope. It's a two-page document that defines the voice, tone, content hierarchy, and key messages for each page. It's the document that makes copywriter handoffs smooth and prevents the final copy surprise that derails most redesigns."

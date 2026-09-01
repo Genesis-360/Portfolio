@@ -1,0 +1,14 @@
+title: How We Cut a Client's Bounce Rate by 44% Without Changing the Design
+excerpt: Bounce rate is a symptom, not a problem. The fix isn't a new hero image — it's understanding what users came for and removing the friction between them and it.
+date: 2026-07-05
+author: OREENZA
+category: SEO
+readingTime: 7 min read
+cover: ""
+content:
+  - "Bounce rate is one of those metrics that causes a lot of anxiety and explains very little on its own. A 70% bounce rate sounds alarming until you realise that a user who lands on a blog post, reads it, and leaves has done exactly what they came to do. The goal isn't zero bounces — it's eliminating the bounces that represent unmet intent."
+  - "For a client in the café space, we were seeing 68% bounce rates on mobile traffic from local Google searches. The landing page was beautiful. The problem was that the primary CTA — 'Book a table' — required the user to scroll 600px past brand messaging, an Instagram feed, and a long About section before reaching the reservation button. On mobile, that's an eternity."
+  - "The fix was structural, not aesthetic. We moved the primary CTA into the sticky mobile nav. We added a secondary CTA — 'View the menu' — that answered the second most common intent. We reduced the hero section from 80vh to 55vh so the first meaningful content was visible without scrolling. The design barely changed. The bounce rate dropped to 38% in six weeks."
+  - "Internal linking is the second lever. When users land on a page and don't find what they need, the only question is whether the page gives them a clear path to what they're looking for. Strategic internal links — placed contextually within the content, not buried at the bottom — can reduce bounces by giving users an on-ramp to deeper content without requiring a return to search."
+  - "Content depth matters more than content length. Pages with 1,800+ words of genuinely useful content consistently outperform thin pages in Google for competitive queries. But 'genuinely useful' is the operative phrase. Padding word counts with filler content is detectable and counterproductive. The standard is: every paragraph should answer something a real user would ask."
+  - "The 44% improvement wasn't a magic number — it was the result of three weeks of user behaviour analysis, heatmap review, and iterative structural changes. The lesson isn't that fast websites win — it's that websites that answer questions faster win. Speed is part of it. Clarity and structural intent are the rest."

@@ -118,6 +118,80 @@ export default config({
         ),
       },
     }),
+    blogs: collection({
+      label: "Blog posts",
+      slugField: "title",
+      path: "src/content/blogs/*/",
+      schema: {
+        title: fields.slug({
+          name: { label: "Post title" },
+        }),
+        excerpt: fields.text({
+          label: "Excerpt",
+          multiline: true,
+          description: "Shown on the blog index and in OG meta (1-2 sentences)",
+        }),
+        date: fields.date({
+          label: "Publish date",
+          description: "Used to sort posts on the index",
+        }),
+        author: fields.text({
+          label: "Author",
+          defaultValue: "OREENZA",
+        }),
+        category: fields.text({
+          label: "Category",
+          description: "e.g. 'Design', 'SEO', 'Performance', 'Insights'",
+          defaultValue: "Insights",
+        }),
+        readingTime: fields.text({
+          label: "Reading time",
+          description: "e.g. '5 min read'",
+          defaultValue: "5 min read",
+        }),
+        cover: fields.image({
+          label: "Cover",
+          directory: "public/blog",
+          publicPath: "/blog/",
+        }),
+        content: fields.array(
+          fields.text({ label: "Paragraph", multiline: true }),
+          {
+            label: "Content",
+            description: "Each entry is a paragraph. Rendered verbatim on the post page.",
+            itemLabel: (props) => `${props.value.slice(0, 60)}…`,
+          },
+        ),
+      },
+    }),
+    team: collection({
+      label: "Team",
+      slugField: "name",
+      path: "src/content/team/*/",
+      schema: {
+        name: fields.slug({
+          name: { label: "Full name" },
+        }),
+        role: fields.text({
+          label: "Role",
+          description: "e.g. 'Founder & Creative Director'",
+        }),
+        bio: fields.text({
+          label: "Bio",
+          multiline: true,
+          description: "One short paragraph (1-2 sentences)",
+        }),
+        photo: fields.image({
+          label: "Photo",
+          directory: "public/team",
+          publicPath: "/team/",
+        }),
+        order: fields.integer({
+          label: "Display order",
+          description: "Lower numbers appear first",
+        }),
+      },
+    }),
   },
   singletons: {
     site: singleton({

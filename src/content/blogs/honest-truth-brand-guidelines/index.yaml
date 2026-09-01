@@ -1,0 +1,14 @@
+title: The Honest Truth About Brand Guidelines (And Why Most Are Useless)
+excerpt: Brand guidelines exist to protect consistency — but most of them protect the wrong things. Here's what actually makes a brand system work in practice, not just in theory.
+date: 2026-07-28
+author: OREENZA
+category: Design
+readingTime: 5 min read
+cover: ""
+content:
+  - "Every agency produces brand guidelines. Few agencies produce guidelines that get used. The difference is almost never the quality of the design — it's the specificity of the rules and the relevance of the examples. Vague guidelines like 'use the primary blue for headings' produce inconsistent results because different designers interpret 'primary blue' differently at 2am when they're working on a deadline."
+  - "The best brand guidelines we've seen are built around decisions, not directives. Instead of 'this is the typeface', it says 'we use this typeface at these sizes for these contexts because it reads well in both print and digital and carries the right level of formality for our audience.' That reasoning is what makes a rule stick when a designer faces an ambiguous situation the guidelines didn't anticipate."
+  - "Logo usage rules are almost universally inadequate. Most guidelines show the correct usage of the logo but never explain why the rules exist. When a designer is under pressure and the logo needs to fit in a narrow sidebar, they break the rule because they don't understand that the clear space rule exists to prevent the logo from competing with adjacent text."
+  - "Colour specifications should include real-world context. Saying 'accent: #F63B05' is a start. Saying 'accent: #F63B05 — use for CTAs, highlights, and key interactive elements. Avoid using on backgrounds larger than 40% of the viewport. Never pair with navy blue (#1a2744) as this combination fails WCAG AA contrast at 4.2:1' gives a designer enough information to make good decisions independently."
+  - "The single most useful thing in any brand guidelines is a 'how to break these rules' section. Not a licence to ignore the system — but explicit guidance on what constitutes an exception and how to handle it. Brands that never flex look rigid. Brands that flex without rules look incoherent. The best brands know exactly where they're rigid and where they can breathe."
+  - "We deliver brand guidelines as a living Notion or Figma file, not a PDF. PDFs go stale the day they're published. Interactive files can be updated, versioned, and annotated. The brand system that gets updated is the brand system that gets used."

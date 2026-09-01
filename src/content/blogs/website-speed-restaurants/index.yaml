@@ -1,0 +1,14 @@
+title: Why Every Restaurant Website Should Load in Under 3 Seconds
+excerpt: Speed isn't just a performance metric — it's a business decision. Here's why restaurant websites that load fast consistently outperform slower competitors in both search rankings and conversions.
+date: 2026-08-12
+author: OREENZA
+category: Performance
+readingTime: 6 min read
+cover: ""
+content:
+  - "A restaurant website that loads in 1.8 seconds and one that loads in 4.4 seconds look identical in a design review. They do not perform identically in the real world. Google has confirmed for years that page speed is a ranking signal. What's less discussed is the conversion impact: every additional second of load time correlates with roughly 7% fewer reservations, according to research across hospitality booking flows."
+  - "The culprits are almost always the same. Oversized hero images without srcset or WebP conversion, third-party widget scripts loaded synchronously, Google Fonts loaded without preconnect hints, and unused CSS frameworks shipped in full. None of these are hard to fix. They just rarely get fixed because the business impact is invisible until you measure it."
+  - "Image optimisation is the highest-leverage fix. Converting all images to WebP at 80% quality, using responsive srcset so mobile devices load 800px images instead of 2400px ones, and lazy-loading everything below the fold can cut load times by 60-70% on most restaurant sites. This is not a technical challenge — it's a workflow decision."
+  - "Next, look at render-blocking resources. If your site loads Google Fonts via a stylesheet link in the head, the browser stops rendering until the font file downloads. Using preconnect for fonts and loading them asynchronously, or self-hosting them, removes that bottleneck. The visual result is the same. The performance isn't."
+  - "Third-party scripts — reservation widgets, review embeds, social feeds — are the most insidious cause of slow load times. Each one adds DNS lookups, TCP handshakes, and JavaScript execution to your critical path. Every widget should be evaluated against its business contribution, not just installed because it's standard."
+  - "At OREENZA, we target sub-2-second load times on all client sites as a baseline, not an achievement. For restaurant clients, this directly translates to more table reservations, more orders, and more reviews — because when a hungry customer on their phone taps your link and waits, they're not waiting politely. They're already tapping someone else's."

@@ -36,6 +36,27 @@ export type Site = {
   services: { title: string; items: string[] }[];
 };
 
+export type BlogPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  category: string;
+  readingTime: string;
+  cover: string;
+  content: string[];
+};
+
+export type TeamMember = {
+  slug: string;
+  name: string;
+  role: string;
+  bio: string;
+  photo: string;
+  order: number;
+};
+
 export async function getProjects(): Promise<Project[]> {
   let all: Awaited<ReturnType<typeof reader.collections.projects.all>> = [];
   try {
@@ -82,6 +103,54 @@ export async function getNextProject(slug: string): Promise<Project> {
   const projects = await getProjects();
   const i = projects.findIndex((p) => p.slug === slug);
   return projects[(i + 1) % projects.length];
+}
+
+export async function getPosts(): Promise<BlogPost[]> {
+  let all: Awaited<ReturnType<typeof reader.collections.blogs.all>> = [];
+  try {
+    all = await reader.collections.blogs.all();
+  } catch (err) {
+    console.warn("[cms] failed to read blogs:", err);
+    return [];
+  }
+  return all
+    .map(({ slug, entry: post }) => ({
+      slug,
+      title: post.title,
+      excerpt: post.excerpt ?? "",
+      date: post.date ?? "",
+      author: post.author ?? "OREENZA",
+      category: post.category ?? "Insights",
+      readingTime: post.readingTime ?? "5 min read",
+      cover: post.cover ?? "",
+      content: [...(post.content ?? [])],
+    }))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export async function getPost(slug: string): Promise<BlogPost | undefined> {
+  const posts = await getPosts();
+  return posts.find((p) => p.slug === slug);
+}
+
+export async function getTeam(): Promise<TeamMember[]> {
+  let all: Awaited<ReturnType<typeof reader.collections.team.all>> = [];
+  try {
+    all = await reader.collections.team.all();
+  } catch (err) {
+    console.warn("[cms] failed to read team:", err);
+    return [];
+  }
+  return all
+    .map(({ slug, entry: member }) => ({
+      slug,
+      name: member.name,
+      role: member.role ?? "",
+      bio: member.bio ?? "",
+      photo: member.photo ?? "",
+      order: member.order ?? 0,
+    }))
+    .sort((a, b) => a.order - b.order);
 }
 
 export async function getSite(): Promise<Site> {
