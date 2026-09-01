@@ -1,4 +1,7 @@
 import { createReader } from "@keystatic/core/reader";
+import { yaml } from "@/lib/yaml";
+import { readFileSync } from "fs";
+import { join } from "path";
 import keystaticConfig from "../../keystatic.config";
 
 const reader = createReader(process.cwd(), keystaticConfig);
@@ -36,6 +39,15 @@ export type Site = {
   services: { title: string; items: string[] }[];
 };
 
+export type Service = {
+  slug: string;
+  title: string;
+  order: number;
+  intro: string;
+  sections: { heading: string; body: string }[];
+  faq: { q: string; a: string }[];
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -55,6 +67,7 @@ export type TeamMember = {
   bio: string;
   photo: string;
   order: number;
+  socials?: { platform: string; url: string }[];
 };
 
 export async function getProjects(): Promise<Project[]> {
@@ -134,23 +147,15 @@ export async function getPost(slug: string): Promise<BlogPost | undefined> {
 }
 
 export async function getTeam(): Promise<TeamMember[]> {
-  let all: Awaited<ReturnType<typeof reader.collections.team.all>> = [];
   try {
-    all = await reader.collections.team.all();
+    const filePath = join(process.cwd(), "src/content/team/index.yaml");
+    const raw = readFileSync(filePath, "utf-8");
+    const parsed = yaml(raw) as { members?: TeamMember[] };
+    return (parsed.members ?? []).sort((a, b) => a.order - b.order);
   } catch (err) {
     console.warn("[cms] failed to read team:", err);
     return [];
   }
-  return all
-    .map(({ slug, entry: member }) => ({
-      slug,
-      name: member.name,
-      role: member.role ?? "",
-      bio: member.bio ?? "",
-      photo: member.photo ?? "",
-      order: member.order ?? 0,
-    }))
-    .sort((a, b) => a.order - b.order);
 }
 
 export async function getSite(): Promise<Site> {
@@ -175,4 +180,32 @@ export async function getSite(): Promise<Site> {
       ? s.services.map((x) => ({ title: x.title, items: [...x.items] }))
       : [],
   };
+}
+
+export async function getServices(): Promise<Service[]> {
+  let all: Awaited<ReturnType<typeof reader.collections.services.all>> = [];
+  try {
+    all = await reader.collections.services.all();
+  } catch (err) {
+    console.warn("[cms] failed to read services:", err);
+    return [];
+  }
+  return all
+    .map(({ slug, entry: svc }) => ({
+      slug,
+      title: svc.title,
+      order: svc.order ?? 0,
+      intro: svc.intro ?? "",
+      sections: [...(svc.sections ?? [])],
+      faq: (svc.faq ?? []).map((f) => ({ q: f.q, a: f.a })),
+    }))
+    .sort((a, b) => a.order - b.order);
+}
+
+export async function getService(slug: string): Promise<Service | undefined> {
+  try {
+    return await reader.collections.services.read(slug) as Service | undefined;
+  } catch {
+    return undefined;
+  }
 }

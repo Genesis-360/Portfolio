@@ -6,6 +6,8 @@ import { MotionProvider } from "@/components/providers/MotionProvider";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { HideScrollbar } from "@/components/ui/HideScrollbar";
+import { SiteShell } from "@/components/layout/SiteShell";
+import { getSite } from "@/lib/content";
 import { absoluteUrl, siteUrl } from "@/lib/url";
 
 export const metadata: Metadata = {
@@ -16,12 +18,18 @@ export const metadata: Metadata = {
   },
   description:
     "OREENZA is an independent design & development studio building brands, websites, products and motion for ambitious teams.",
-  // Note: alternates.canonical and openGraph.url are intentionally NOT set
-  // here. Per Next.js 16, root-layout metadata is shallowly merged into
-  // every child route, so defining them at the root would force every
-  // other page to canonicalize to the homepage (and de-index itself).
-  // Each route sets its own. The default title/description above are
-  // overridden by child pages that define a `description` or `title`.
+  keywords: [
+    "design agency",
+    "web development studio",
+    "brand identity",
+    "performance web design",
+    "creative studio",
+    "Next.js development",
+    "brand guidelines",
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     siteName: "OREENZA",
@@ -35,6 +43,11 @@ export const metadata: Metadata = {
     description:
       "OREENZA is an independent design & development studio building brands, websites, products and motion for ambitious teams.",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 };
 
 export const viewport: Viewport = {
@@ -43,18 +56,32 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const orgJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "OREENZA",
-  url: siteUrl,
-  email: "hello@oreenza.com",
-  description:
-    "An independent design & development studio building brands, websites, products and motion for ambitious teams.",
-  // sameAs is filled in from the CMS in a server component below.
-};
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const site = await getSite();
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+  const sameAs = site.socials.map((s) => s.href);
+
+  const orgJsonLd = {
+    "@context": "https://schema.org" as const,
+    "@type": "Organization",
+    name: "OREENZA",
+    url: absoluteUrl("/"),
+    email: site.email,
+    telephone: site.phone,
+    description:
+      "An independent design & development studio building brands, websites, products and motion for ambitious teams.",
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/logo.svg`,
+    },
+    sameAs,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Remote",
+      addressCountry: "WW",
+    },
+  };
+
   return (
     <html
       lang="en"
@@ -69,20 +96,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              ...orgJsonLd,
-              "@context": "https://schema.org",
-              url: absoluteUrl("/"),
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         <MotionProvider>
           <SmoothScroll>
             <HideScrollbar />
             <CustomCursor />
             <PageIntro />
-            {children}
+            <SiteShell socials={site.socials} slotsOpen={site.slotsOpen}>
+              {children}
+            </SiteShell>
           </SmoothScroll>
         </MotionProvider>
       </body>

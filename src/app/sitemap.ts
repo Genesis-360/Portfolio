@@ -1,19 +1,11 @@
 import type { MetadataRoute } from "next";
-import { getPosts, getProjects, getSite } from "@/lib/content";
+import { getPosts, getProjects, getServices } from "@/lib/content";
 import { absoluteUrl } from "@/lib/url";
 
-function slugify(s: string) {
-  return s
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [projects, site, posts] = await Promise.all([
+  const [projects, services, posts] = await Promise.all([
     getProjects(),
-    getSite(),
+    getServices(),
     getPosts(),
   ]);
   const now = new Date();
@@ -30,8 +22,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    ...site.services.map((s) => ({
-      url: absoluteUrl(`/services/${slugify(s.title)}`),
+    ...services.map((s) => ({
+      url: absoluteUrl(`/services/${s.slug}`),
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,

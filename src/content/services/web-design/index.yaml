@@ -1,0 +1,19 @@
+title: Web Design
+order: 2
+intro: Your website is your best salesperson that never sleeps. We build it to load fast, rank in search, and turn visitors into enquiries — without the bloat that slows most sites down.
+sections:
+  - heading: UX/UI design
+    body: We start with user flows and wireframes before any pixel. Every decision traces back to a user need or a business goal — not a template grid. The result is a site that feels considered, not assembled.
+  - heading: Design systems
+    body: For projects that scale. We build a component library with documented states, variants, and usage rules — so engineering can ship new pages without re-designing the wheel every sprint.
+  - heading: Next.js development
+    body: Server-rendered, statically generated, or hybrid — we pick the rendering strategy that matches your traffic pattern. Most client sites run at 95+ Lighthouse scores out of the box.
+  - heading: CMS setup
+    body: We set up Keystatic with your content model, train your team to use it, and leave documentation. You should be able to add a blog post without touching code.
+faq:
+  - q: Can you work with our existing dev team?
+    a: Yes. We can design only, develop only, or do both. If you have a team, we hand off Figma files and a component library — not pixel-perfect screenshots.
+  - q: What about hosting and maintenance?
+    a: We deploy on Vercel or Fly.io and offer monthly retainers for ongoing maintenance, speed monitoring, and content updates.
+  - q: Do you do SEO as part of the build?
+    a: Core Web Vitals and basic on-page SEO are included in every build. Full SEO strategy is a separate engagement.

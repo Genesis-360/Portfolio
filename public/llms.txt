@@ -1,0 +1,53 @@
+# OREENZA — Performance-first design & development studio
+
+## Who we are
+OREENZA is an independent design & development studio building performance-first brands, websites, products, and motion for ambitious teams. We are remote-first and work with clients worldwide.
+
+## Services
+OREENZA offers six core services:
+- Brand Identity: Naming, logo systems, visual guidelines, brand voice
+- Web Design: UX/UI, design systems, Next.js builds, CMS setup (Keystatic)
+- Social Media Management: Content calendars, captions, community engagement, analytics
+- GBP Management: Profile setup, weekly posts, review responses, local SEO
+- App Development: iOS, Android, React Native, API integrations
+- SEO With AI: AI keyword research, content optimization, technical SEO audits, rank tracking
+
+## Work
+OREENZA has shipped projects across industries including SaaS, retail, food & beverage, finance, architecture, travel, healthcare, and beauty. Case studies available at /project/[slug].
+
+## Team
+OREENZA is a small senior team of designers, engineers, and writers who ship for clients from cafés to SaaS companies.
+
+## Contact
+- Email: hello@oreenza.com
+- Phone: Available on request
+- Calendly: Available at /contact#book
+- WhatsApp QR: Available on /contact page
+
+## Pages
+- / : Homepage with selected works
+- /services : Full service index with editorial magazine layout
+- /services/[slug] : Individual service detail pages with long-form content
+- /work : Project portfolio (redirects to /)
+- /project/[slug] : Case study pages for each project
+- /blog : Insights blog with articles on design, performance, and SEO
+- /blog/[slug] : Individual blog posts
+- /team : Team page
+- /contact : Contact form, Calendly booking, WhatsApp QR, email, phone
+
+## Technology
+- Built with Next.js 15 (App Router)
+- Tailwind CSS v4
+- Keystatic CMS
+- TypeScript throughout
+- Performance-first: Lighthouse 95+ targets
+- Deploys on Vercel or Fly.io
+
+## Socials
+Available at /contact and linked in the site footer.
+
+## Availability
+OREENZA takes on a limited number of projects per quarter. Contact to check current availability.
+
+---
+Updated: 2026

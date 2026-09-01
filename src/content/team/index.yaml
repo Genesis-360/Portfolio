@@ -1,0 +1,78 @@
+members:
+  - slug: siddhartha-kumar
+    name: Siddhartha Kumar
+    role: Founder & Creative Director
+    bio: Leads creative strategy and client relationships. Shipped 40+ projects from brand identity to full web builds. Believes performance and aesthetics aren't opposites.
+    photo: "/ori-avatar.webp"
+    order: 1
+    socials:
+      - platform: linkedin
+        url: "https://linkedin.com"
+      - platform: twitter
+        url: "https://twitter.com"
+      - platform: instagram
+        url: "https://instagram.com"
+
+  - slug: arjun-mehta
+    name: Arjun Mehta
+    role: Lead Front-End Engineer
+    bio: Turns complex designs into pixel-perfect, accessible, and blazing-fast interfaces. Obsessed with Core Web Vitals and animation craft.
+    photo: ""
+    order: 2
+    socials:
+      - platform: linkedin
+        url: "https://linkedin.com"
+      - platform: github
+        url: "https://github.com"
+
+  - slug: priya-sharma
+    name: Priya Sharma
+    role: UX & Product Designer
+    bio: Designs interfaces that don't need instructions. Background in cognitive psychology and systems thinking. She makes the complex feel obvious.
+    photo: ""
+    order: 3
+    socials:
+      - platform: linkedin
+        url: "https://linkedin.com"
+      - platform: dribbble
+        url: "https://dribbble.com"
+
+  - slug: vikram-patel
+    name: Vikram Patel
+    role: Back-End & Performance Engineer
+    bio: Architect behind OREENZA's technical stack. Specializes in Next.js, edge functions, and making sites load under 1 second on any device.
+    photo: ""
+    order: 4
+    socials:
+      - platform: linkedin
+        url: "https://linkedin.com"
+      - platform: github
+        url: "https://github.com"
+
+  - slug: ananya-reddy
+    name: Ananya Reddy
+    role: Brand & Visual Designer
+    bio: Creates brand identities that hold up at billboard scale and favicon scale. Every spacing decision is intentional.
+    photo: ""
+    order: 5
+    socials:
+      - platform: linkedin
+        url: "https://linkedin.com"
+      - platform: instagram
+        url: "https://instagram.com"
+      - platform: behance
+        url: "https://behance.net"
+
+  - slug: karan-singh
+    name: Karan Singh
+    role: Motion & Interaction Designer
+    bio: Bridges design and engineering through motion. Builds scroll-driven animations, micro-interactions, and GSAP sequences that make interfaces feel alive.
+    photo: ""
+    order: 6
+    socials:
+      - platform: linkedin
+        url: "https://linkedin.com"
+      - platform: twitter
+        url: "https://twitter.com"
+      - platform: instagram
+        url: "https://instagram.com"

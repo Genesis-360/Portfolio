@@ -6,18 +6,37 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { Footer } from "@/components/sections/Footer";
 import { CalInline } from "@/components/ui/CalInline";
 import { getSite } from "@/lib/content";
+import { absoluteUrl, siteUrl } from "@/lib/url";
 
 export const metadata: Metadata = {
   title: { absolute: "Contact — OREENZA" },
   description:
-    "Start a project with OREENZA — an independent design & development studio.",
+    "Start a project with OREENZA. Book a free 15-minute call, send a message, or chat on WhatsApp. Independent design & development studio, working worldwide.",
+  keywords: [
+    "contact OREENZA",
+    "hire design agency",
+    "book design call",
+    "creative agency contact",
+    "start a project",
+  ],
   alternates: { canonical: "/contact" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   openGraph: {
     title: "Contact — OREENZA",
     description:
-      "Start a project with OREENZA — an independent design & development studio.",
+      "Start a project with OREENZA — an independent design & development studio, working worldwide.",
     url: "/contact",
     type: "website",
+    siteName: "OREENZA",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact — OREENZA",
+    description: "Start a project with OREENZA. Book a free 15-minute call.",
   },
 };
 
@@ -35,8 +54,42 @@ function Detail({ label, children }: { label: string; children: React.ReactNode 
 export default async function ContactPage() {
   const site = await getSite();
 
+  const contactJsonLd = {
+    "@context": "https://schema.org" as const,
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        name: "Contact OREENZA",
+        url: absoluteUrl("/contact"),
+        description:
+          "Start a project with OREENZA. Book a free call, send a message, or chat on WhatsApp.",
+        publisher: {
+          "@type": "Organization",
+          name: "OREENZA",
+          logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
+        },
+        inLanguage: "en",
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: site.email,
+        telephone: site.phone,
+        url: absoluteUrl("/contact"),
+        areaServed: "Worldwide",
+        availableLanguage: ["English"],
+      },
+    ],
+  };
+
   return (
-    <div className="lg:flex lg:items-start">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
+
+      <div className="lg:flex lg:items-start">
       <Sidebar
         variant="sub"
         content="contact"
@@ -200,5 +253,6 @@ export default async function ContactPage() {
         <Footer socials={site.socials} />
       </main>
     </div>
+    </>
   );
 }

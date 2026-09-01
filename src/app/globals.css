@@ -156,3 +156,86 @@
     cursor: auto !important;
   }
 }
+
+/* ── SideNav animations ────────────────────────────────────────────── */
+@keyframes sidenav-rise {
+  from {
+    opacity: 0;
+    transform: translateY(110%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sidenav-slide {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sidenav-underline {
+  from {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+@keyframes sidenav-slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sidenav-rise {
+  animation: sidenav-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.sidenav-slide {
+  animation: sidenav-slide 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+/* The masked text reveal — wraps the link label so each character
+   can rise from beneath a hidden overflow parent. */
+.sidenav-mask {
+  display: block;
+  overflow: hidden;
+  line-height: 0.95;
+}
+
+.sidenav-mask-inner {
+  display: block;
+  animation: sidenav-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+/* Nav item hover: text flips 3D */
+.sidenav-item-link {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  cursor: pointer;
+}
+
+.sidenav-label-wrap {
+  display: block;
+  overflow: visible;
+}
+
+.sidenav-item-link:hover .sidenav-num {
+  color: var(--accent, #f63b05);
+}

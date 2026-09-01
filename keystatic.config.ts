@@ -192,6 +192,54 @@ export default config({
         }),
       },
     }),
+    services: collection({
+      label: "Services",
+      slugField: "title",
+      path: "src/content/services/*/",
+      schema: {
+        title: fields.slug({
+          name: { label: "Service name" },
+        }),
+        order: fields.integer({
+          label: "Display order",
+          description: "Lower numbers appear first on /services",
+        }),
+        intro: fields.text({
+          label: "Intro",
+          multiline: true,
+          description: "One paragraph shown at the top of the service detail page",
+        }),
+        sections: fields.array(
+          fields.object({
+            heading: fields.text({ label: "Section heading" }),
+            body: fields.text({
+              label: "Body",
+              multiline: true,
+              description: "1-2 paragraphs of long-form content",
+            }),
+          }),
+          {
+            label: "Long-form sections",
+            description: "Each section is a labelled block on the detail page",
+            itemLabel: (props) => props.fields.heading.value,
+          },
+        ),
+        faq: fields.array(
+          fields.object({
+            q: fields.text({ label: "Question" }),
+            a: fields.text({
+              label: "Answer",
+              multiline: true,
+            }),
+          }),
+          {
+            label: "FAQ",
+            description: "Optional — each Q&A is rendered as a collapsible item and emitted as FAQPage JSON-LD",
+            itemLabel: (props) => props.fields.q.value,
+          },
+        ),
+      },
+    }),
   },
   singletons: {
     site: singleton({

@@ -13,36 +13,80 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          padding: "80px",
+          justifyContent: "space-between",
+          padding: "72px",
           background: "#000000",
           color: "#fffae5",
-          fontFamily: "sans-serif",
+          fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
         <div
           style={{
-            fontSize: 28,
+            display: "flex",
+            fontSize: 24,
             letterSpacing: 6,
             color: "#f63b05",
             textTransform: "uppercase",
+            fontWeight: 700,
           }}
         >
           Independent design &amp; development studio
         </div>
+
         <div
           style={{
-            fontSize: 150,
-            fontWeight: 800,
-            letterSpacing: -4,
-            marginTop: 24,
-            lineHeight: 1,
+            display: "flex",
+            flexDirection: "column",
+            marginTop: 8,
           }}
         >
-          OREENZA
+          <div
+            style={{
+              fontSize: 200,
+              fontWeight: 900,
+              letterSpacing: -6,
+              lineHeight: 0.85,
+              color: "#fffae5",
+              textTransform: "uppercase",
+            }}
+          >
+            OREENZA
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: 32,
+              marginTop: 32,
+              fontSize: 28,
+              color: "#fffae5",
+              opacity: 0.75,
+            }}
+          >
+            <span>Brand</span>
+            <span style={{ color: "#f63b05" }}>·</span>
+            <span>Web</span>
+            <span style={{ color: "#f63b05" }}>·</span>
+            <span>App</span>
+            <span style={{ color: "#f63b05" }}>·</span>
+            <span>SEO</span>
+            <span style={{ color: "#f63b05" }}>·</span>
+            <span>Motion</span>
+          </div>
         </div>
-        <div style={{ fontSize: 40, marginTop: 20, color: "#fffae5" }}>
-          Performance-first design &amp; development studio.
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            fontSize: 22,
+            color: "#fffae5",
+            opacity: 0.55,
+            textTransform: "uppercase",
+            letterSpacing: 3,
+          }}
+        >
+          <span>oreenza.com</span>
+          <span>Remote · Worldwide</span>
         </div>
       </div>
     ),

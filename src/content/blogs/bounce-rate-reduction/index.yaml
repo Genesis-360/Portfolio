@@ -4,7 +4,7 @@ date: 2026-07-05
 author: OREENZA
 category: SEO
 readingTime: 7 min read
-cover: ""
+cover: "/projects/sakura/sakura01.webp"
 content:
   - "Bounce rate is one of those metrics that causes a lot of anxiety and explains very little on its own. A 70% bounce rate sounds alarming until you realise that a user who lands on a blog post, reads it, and leaves has done exactly what they came to do. The goal isn't zero bounces — it's eliminating the bounces that represent unmet intent."
   - "For a client in the café space, we were seeing 68% bounce rates on mobile traffic from local Google searches. The landing page was beautiful. The problem was that the primary CTA — 'Book a table' — required the user to scroll 600px past brand messaging, an Instagram feed, and a long About section before reaching the reservation button. On mobile, that's an eternity."

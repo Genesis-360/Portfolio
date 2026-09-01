@@ -1,0 +1,17 @@
+title: App Development
+order: 5
+intro: Mobile apps aren't just about presence on a home screen. Done well, they're the most direct relationship you can have with a user — no algorithm between you and the person who downloaded it.
+sections:
+  - heading: iOS & Android
+    body: Native builds or cross-platform — we recommend the approach that matches your budget, timeline, and the complexity of what the app needs to do. Not every app needs to be native.
+  - heading: React Native
+    body: For teams that want one codebase for both platforms without sacrificing performance. We use it for content apps, marketplaces, and internal tools where iteration speed matters more than platform-specific polish.
+  - heading: API integrations
+    body: Connecting your app to your backend, payment processor, CRM, or third-party services. We design the integration layer to be maintainable — so a future developer doesn't have to re-do it.
+  - heading: Maintenance
+    body: App store compliance, OS version support, and security updates. We offer monthly retainers for clients who need their app to stay current without hiring a dedicated mobile engineer.
+faq:
+  - q: How long does a typical app build take?
+    a: A minimum viable app takes 8–12 weeks. More complex apps with backend integrations run 4–8 months.
+  - q: Will my app be accepted on the App Store?
+    a: We follow Apple and Google guidelines closely and do a pre-submission audit before every launch. We've had a 100% acceptance rate.
