@@ -1,3 +1,5 @@
+import { PiArrowUpRightBold } from "react-icons/pi";
+
 export function Footer({ socials }: { socials: { label: string; href: string }[] }) {
   const year = new Date().getFullYear();
   return (
@@ -16,8 +18,9 @@ export function Footer({ socials }: { socials: { label: string; href: string }[]
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="hover"
-              className="text-sm uppercase tracking-[0.12em] text-cream/55 transition-colors hover:text-accent">
+              className="group inline-flex items-center gap-1 text-sm uppercase tracking-[0.12em] text-cream/55 transition-colors hover:text-accent">
               {s.label}
+              <PiArrowUpRightBold className="text-[10px] transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden />
             </a>
           ))}
         </nav>
