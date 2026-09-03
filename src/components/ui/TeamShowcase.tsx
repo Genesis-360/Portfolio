@@ -173,6 +173,12 @@ function MemberRow({
   const isActive = hoveredSlug === member.slug;
   const isDimmed = hoveredSlug !== null && !isActive;
   const socials = member.socials ?? [];
+  const initials = member.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
   return (
     <div
@@ -183,16 +189,24 @@ function MemberRow({
       onMouseLeave={() => onHover(null)}
     >
       <div className="flex items-center gap-3">
-        {/* Mobile: show photo to the left of name */}
-        {isMobile && member.photo && (
-          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md lg:hidden">
-            <Image
-              src={member.photo}
-              alt={member.name}
-              width={48}
-              height={48}
-              className="h-full w-full object-cover"
-            />
+        {/* Mobile: show avatar (photo or initials) to the left of name */}
+        {isMobile && (
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md bg-cream/10 lg:hidden">
+            {member.photo ? (
+              <Image
+                src={member.photo}
+                alt={member.name}
+                width={48}
+                height={48}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center">
+                <span className="font-anton text-sm text-cream/40">
+                  {initials}
+                </span>
+              </div>
+            )}
           </div>
         )}
 
