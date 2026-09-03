@@ -131,13 +131,15 @@ export function ContactForm({ email: siteEmail }: { email: string }) {
           value={budget}
           onChange={(e) => setBudget(e.target.value)}
           disabled={status === "sending"}
-          className={`${fieldCls} cursor-pointer appearance-none bg-transparent`}
+          className={`${fieldCls} cursor-pointer appearance-none bg-transparent text-cream ${
+            !budget ? "text-cream/30" : ""
+          }`}
         >
-          <option value="" className="bg-ink text-cream/40">
+          <option value="" disabled selected className="text-cream/30">
             Select a budget range
           </option>
           {BUDGET_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value} className="bg-ink text-cream">
+            <option key={option.value} value={option.value} className="text-cream">
               {option.label}
             </option>
           ))}
