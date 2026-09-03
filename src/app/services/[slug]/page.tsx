@@ -64,13 +64,11 @@ function ServiceDetailJsonLd({
   serviceName,
   description,
   sections,
-  faq,
 }: {
   slug: string;
   serviceName: string;
   description: string;
   sections: { heading: string; body: string }[];
-  faq?: { q: string; a: string }[];
 }) {
   const url = `${siteUrl}/services/${slug}`;
 
@@ -139,7 +137,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         serviceName={service.title}
         description={service.intro}
         sections={service.sections}
-        faq={service.faq}
       />
 
       <div className="lg:flex lg:items-start">

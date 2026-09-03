@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { PiArrowRightBold, PiArrowUpRightBold } from "react-icons/pi";
+import { PiArrowUpRightBold } from "react-icons/pi";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import OptionWheel from "@/components/ui/OptionWheel";
@@ -259,7 +259,7 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
   );
 }
 
-function ServicesContent({ data }: { data: SidebarData }) {
+function ServicesContent() {
   return (
     <div className="flex h-full min-h-0 flex-col justify-center px-5 py-10 lg:px-6">
       <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
@@ -389,7 +389,7 @@ export function Sidebar({
       case "project":
         return <ProjectContent project={project} />;
       case "services":
-        return <ServicesContent data={data} />;
+        return <ServicesContent />;
       case "team":
         return <TeamContent data={data} />;
       case "blog":

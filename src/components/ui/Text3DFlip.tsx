@@ -4,7 +4,6 @@ import React from "react";
 import {
   memo,
   useCallback,
-  useEffect,
   useMemo,
   useRef,
   type ElementType,
@@ -131,7 +130,6 @@ export function Text3DFlip({
   ...props
 }: Text3DFlipProps) {
   const containerRef = useRef<HTMLElement>(null);
-  const isAnimatingRef = useRef(false);
 
   const text = useMemo(() => {
     try {

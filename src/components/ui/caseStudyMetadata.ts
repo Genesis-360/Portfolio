@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 
-type Metric = { label: string; value: string; context: string };
-
 type ProjectMeta = {
   slug: string;
   title: string;

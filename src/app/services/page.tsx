@@ -205,54 +205,13 @@ function ServiceBlock({
             <Link
               href={`/services/${id}`}
               data-cursor="hover"
-              className="group mt-10 inline-flex items-center gap-3 font-anton text-xs uppercase tracking-[0.2em] text-cream/80 transition-colors hover:text-accent"
+              className="group mt-10 inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-cream/80 transition-colors hover:text-accent"
             >
               <span className="block h-px w-8 bg-current transition-all group-hover:w-12" />
               Explore {service.title}
               <PiArrowRightBold className="block transition-transform group-hover:translate-x-1" aria-hidden />
             </Link>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── CTA ─────────────────────────────────────────────────── */
-function ClosingCTA() {
-  return (
-    <section
-      aria-labelledby="cta-heading"
-      className="container-edge py-24 lg:py-32"
-    >
-      <div className="border-t border-cream/10 pt-16">
-        <p className="text-[10px] uppercase tracking-[0.32em] text-cream/40">End of index.</p>
-        <h2
-          id="cta-heading"
-          className="mt-6 max-w-4xl font-anton text-[clamp(2rem,5vw,3.6rem)] uppercase leading-[0.9] tracking-tight text-cream"
-        >
-          Not sure where to start?
-        </h2>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-cream/60 lg:text-lg">
-          Most projects begin with a free 30-minute call. We figure out the
-          right scope together — no pressure, no template proposals.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Link
-            href="/contact#book"
-            data-cursor="hover"
-            className="inline-flex items-center gap-2 bg-accent px-8 py-4 font-anton text-sm font-bold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-[#ff4f1a]"
-          >
-            Book a free call
-            <PiArrowRightBold className="text-[14px]" aria-hidden />
-          </Link>
-          <Link
-            href="/"
-            data-cursor="hover"
-            className="inline-flex items-center gap-2 border border-cream/30 px-8 py-4 font-anton text-sm font-bold uppercase tracking-[0.16em] text-cream transition-colors hover:border-accent hover:text-accent"
-          >
-            See our work
-          </Link>
         </div>
       </div>
     </section>

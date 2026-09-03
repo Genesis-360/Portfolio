@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PiArrowRightBold, PiArrowUpRightBold } from "react-icons/pi";
+import { PiArrowUpRightBold } from "react-icons/pi";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MaskText, Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/sections/ContactForm";
