@@ -133,11 +133,11 @@ export function ContactForm({ email: siteEmail }: { email: string }) {
           disabled={status === "sending"}
           className={`${fieldCls} cursor-pointer appearance-none bg-transparent`}
         >
-          <option value="" className="bg-ink text-cream/55">
+          <option value="">
             Select a budget range
           </option>
           {BUDGET_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value} className="bg-ink text-cream">
+            <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}
