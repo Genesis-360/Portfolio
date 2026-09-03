@@ -52,42 +52,58 @@ export function TeamShowcase({ members }: { members: TeamMember[] }) {
 
   return (
     <div className="flex w-full max-w-6xl flex-col items-start gap-8 px-4 py-8 mx-auto lg:flex-row lg:gap-10 lg:px-6">
-      {/* ── Left: photo grid (3 columns, staggered heights) — hidden on mobile ── */}
-      <div className="hidden lg:flex flex-shrink-0 gap-3">
-        <div className="flex flex-col gap-3">
-          {col1.map((member) => (
+      {/* ── Left: photo grid (3 columns, staggered heights) ── */}
+      <div className="flex flex-shrink-0 gap-3 lg:flex">
+        {/* Mobile: horizontal scroll row */}
+        <div className="flex gap-3 overflow-x-auto pb-2 lg:hidden">
+          {members.map((member) => (
             <PhotoCard
               key={member.slug}
               member={member}
-              className="w-[155px] h-[165px]"
+              className="w-[120px] h-[130px] shrink-0"
               hoveredSlug={hoveredSlug}
               onHover={setHoveredSlug}
             />
           ))}
         </div>
 
-        <div className="flex flex-col gap-3 mt-[68px]">
-          {col2.map((member) => (
-            <PhotoCard
-              key={member.slug}
-              member={member}
-              className="w-[172px] h-[182px]"
-              hoveredSlug={hoveredSlug}
-              onHover={setHoveredSlug}
-            />
-          ))}
-        </div>
+        {/* Desktop: 3-column staggered grid */}
+        <div className="hidden lg:flex flex-shrink-0 gap-3">
+          <div className="flex flex-col gap-3">
+            {col1.map((member) => (
+              <PhotoCard
+                key={member.slug}
+                member={member}
+                className="w-[155px] h-[165px]"
+                hoveredSlug={hoveredSlug}
+                onHover={setHoveredSlug}
+              />
+            ))}
+          </div>
 
-        <div className="flex flex-col gap-3 mt-8">
-          {col3.map((member) => (
-            <PhotoCard
-              key={member.slug}
-              member={member}
-              className="w-[162px] h-[172px]"
-              hoveredSlug={hoveredSlug}
-              onHover={setHoveredSlug}
-            />
-          ))}
+          <div className="flex flex-col gap-3 mt-[68px]">
+            {col2.map((member) => (
+              <PhotoCard
+                key={member.slug}
+                member={member}
+                className="w-[172px] h-[182px]"
+                hoveredSlug={hoveredSlug}
+                onHover={setHoveredSlug}
+              />
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-3 mt-8">
+            {col3.map((member) => (
+              <PhotoCard
+                key={member.slug}
+                member={member}
+                className="w-[162px] h-[172px]"
+                hoveredSlug={hoveredSlug}
+                onHover={setHoveredSlug}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

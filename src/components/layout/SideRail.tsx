@@ -41,11 +41,9 @@ export function SideRail({ slotsOpen }: { slotsOpen: number }) {
 export function SideRailMobile({ slotsOpen }: { slotsOpen: number }) {
   return (
     <div className="flex items-center justify-between px-5 py-4 lg:hidden">
-      <img
-        src="/wordmark.svg"
-        alt="Oreenza wordmark"
-        className="h-auto w-[140px]"
-      />
+      <p className="font-body text-lg tracking-tight text-cream/60">
+        Oreenza
+      </p>
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2.5">
           <span className="relative flex h-2 w-2">
