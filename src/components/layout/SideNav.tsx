@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PiArrowUpRightBold } from "react-icons/pi";
 import { usePathname } from "next/navigation";
 import { useSideNav } from "./SideNavContext";
 import { SideRail } from "./SideRail";
@@ -201,7 +200,6 @@ export function SideNavPanel({
                         className="group inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.16em] text-cream/60 transition-colors duration-200 hover:text-accent"
                       >
                         {s.label}
-                        <PiArrowUpRightBold className="text-[8px] transition-transform group-hover:translate-x-0.5" aria-hidden />
                       </a>
                     </li>
                   ))}

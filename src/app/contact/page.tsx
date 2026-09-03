@@ -230,8 +230,9 @@ export default async function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-cursor="hover"
-                      className="text-sm uppercase tracking-[0.12em] text-cream/55 transition-colors hover:text-accent">
-                      {s.label} <PiArrowUpRightBold className="text-cream/50 transition-colors" aria-hidden />
+                      className="group inline-flex items-center gap-1.5 text-sm uppercase tracking-[0.12em] text-cream/55 transition-colors hover:text-accent">
+                      {s.label}
+                      <PiArrowUpRightBold className="text-[12px] text-cream/50 transition-colors group-hover:text-accent" aria-hidden />
                     </a>
                   </li>
                 ))}
