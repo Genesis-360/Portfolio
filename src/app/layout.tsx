@@ -13,11 +13,11 @@ import { absoluteUrl, siteUrl } from "@/lib/url";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "OREENZA — Performance-first design & development studio",
+    default: "OREENZA — Performance-first design & development agency",
     template: "%s — OREENZA",
   },
   description:
-    "OREENZA is an independent design & development studio building brands, websites, products and motion for ambitious teams.",
+    "OREENZA is an independent design & development agency building brands, websites, products and motion for ambitious teams.",
   keywords: [
     "design agency",
     "web development studio",
@@ -72,8 +72,9 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       "An independent design & development studio building brands, websites, products and motion for ambitious teams.",
     logo: {
       "@type": "ImageObject",
-      url: `${siteUrl}/logo.svg`,
+      url: `${siteUrl}/wordmark.svg`,
     },
+    image: `${siteUrl}/header-logo.svg`,
     sameAs,
     address: {
       "@type": "PostalAddress",
@@ -87,6 +88,11 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${anton.variable} ${openSauce.variable} ${amsterdam.variable} antialiased`}
     >
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+      </head>
       <body className="min-h-screen bg-ink text-cream">
         <a
           href="#main"

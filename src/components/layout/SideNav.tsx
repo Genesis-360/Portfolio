@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSideNav } from "./SideNavContext";
 import { SideRail } from "./SideRail";
@@ -114,9 +115,15 @@ export function SideNavPanel({
             href="/"
             onClick={close}
             aria-label="OREENZA — homepage"
-            className="flex h-full w-16 items-center justify-center border-r border-cream/15 font-anton text-xl text-cream/90 transition-colors duration-200 hover:text-accent"
+            className="flex h-full w-16 items-center justify-center border-r border-cream/15 transition-colors duration-200 hover:text-accent"
           >
-            O
+            <Image
+              src="/header-logo.svg"
+              alt="OREENZA logo mark"
+              width={48}
+              height={48}
+              className="h-6 w-6 object-contain"
+            />
           </Link>
 
           <div className="flex h-full flex-1 items-center justify-end px-5 lg:px-6">
@@ -183,9 +190,6 @@ export function SideNavPanel({
             {/* Footer: socials */}
             {socials.length > 0 && (
               <footer className="shrink-0 border-t border-cream/10 px-5 py-7 lg:px-6">
-                <p className="mb-4 font-anton text-[10px] font-bold uppercase tracking-[0.28em] text-cream/30">
-                  Elsewhere
-                </p>
                 <ul className="flex flex-wrap gap-x-5 gap-y-2">
                   {socials.map((s) => (
                     <li key={s.label}>
@@ -193,7 +197,7 @@ export function SideNavPanel({
                         href={s.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-anton text-[11px] font-bold uppercase tracking-[0.16em] text-cream/60 transition-colors duration-200 hover:text-accent"
+                        className="text-[10px] uppercase tracking-[0.16em] text-cream/60 transition-colors duration-200 hover:text-accent"
                       >
                         {s.label}
                       </a>

@@ -1,20 +1,22 @@
 members:
-  - slug: siddhartha-kumar
-    name: Siddhartha Kumar
+  - slug: siddhartha-kunwar
+    name: Siddhartha Kunwar
     role: Founder & Creative Director
     bio: Leads creative strategy and client relationships. Shipped 40+ projects from brand identity to full web builds. Believes performance and aesthetics aren't opposites.
-    photo: "/ori-avatar.webp"
+    photo: ""
     order: 1
     socials:
       - platform: linkedin
-        url: "https://linkedin.com"
+        url: "https://www.linkedin.com/in/siddhartha-kunwar/"
       - platform: twitter
-        url: "https://twitter.com"
+        url: "https://x.com/x0lg0n"
       - platform: instagram
-        url: "https://instagram.com"
+        url: "https://instagram.com/siddhartha.builds"
+      - platform: link
+        url: "https://x0lg0n.framer.website/"
 
-  - slug: arjun-mehta
-    name: Arjun Mehta
+  - slug: janvi-singhal
+    name: Janvi Singhal
     role: Lead Front-End Engineer
     bio: Turns complex designs into pixel-perfect, accessible, and blazing-fast interfaces. Obsessed with Core Web Vitals and animation craft.
     photo: ""
@@ -25,8 +27,8 @@ members:
       - platform: github
         url: "https://github.com"
 
-  - slug: priya-sharma
-    name: Priya Sharma
+  - slug: Gunjan
+    name: Gunjan
     role: UX & Product Designer
     bio: Designs interfaces that don't need instructions. Background in cognitive psychology and systems thinking. She makes the complex feel obvious.
     photo: ""
@@ -37,8 +39,8 @@ members:
       - platform: dribbble
         url: "https://dribbble.com"
 
-  - slug: vikram-patel
-    name: Vikram Patel
+  - slug: manvi-singhal
+    name: Manvi Singhal
     role: Back-End & Performance Engineer
     bio: Architect behind OREENZA's technical stack. Specializes in Next.js, edge functions, and making sites load under 1 second on any device.
     photo: ""
@@ -49,8 +51,8 @@ members:
       - platform: github
         url: "https://github.com"
 
-  - slug: ananya-reddy
-    name: Ananya Reddy
+  - slug: shivani-garg
+    name: Shivani Garg
     role: Brand & Visual Designer
     bio: Creates brand identities that hold up at billboard scale and favicon scale. Every spacing decision is intentional.
     photo: ""

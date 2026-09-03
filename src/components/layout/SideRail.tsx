@@ -11,6 +11,7 @@ export function SideRail({ slotsOpen }: { slotsOpen: number }) {
       <p className="absolute left-1/2 top-18 -translate-x-1/2 -rotate-90 whitespace-nowrap font-body text-2xl tracking-tight text-cream/60">
         Oreenza
       </p>
+
       <div className="absolute left-1/2 bottom-[12%] flex -translate-x-1/2 flex-col items-center gap-3 pt-4">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -19,8 +20,7 @@ export function SideRail({ slotsOpen }: { slotsOpen: number }) {
         <div className="text-center">
           <p
             className="font-anton text-2xl leading-none text-cream"
-            aria-label={`${slotsOpen} project slots open`}
-          >
+            aria-label={`${slotsOpen} project slots open`}>
             {slotsOpen}
           </p>
           <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-cream/55">
@@ -41,7 +41,11 @@ export function SideRail({ slotsOpen }: { slotsOpen: number }) {
 export function SideRailMobile({ slotsOpen }: { slotsOpen: number }) {
   return (
     <div className="flex items-center justify-between px-5 py-4 lg:hidden">
-      <p className="font-body text-lg tracking-tight text-cream/60">Oreenza</p>
+      <img
+        src="/wordmark.svg"
+        alt="Oreenza wordmark"
+        className="h-auto w-[140px]"
+      />
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2.5">
           <span className="relative flex h-2 w-2">
@@ -51,8 +55,7 @@ export function SideRailMobile({ slotsOpen }: { slotsOpen: number }) {
           <div className="flex items-baseline gap-1.5">
             <p
               className="font-anton text-lg leading-none text-cream"
-              aria-label={`${slotsOpen} project slots open`}
-            >
+              aria-label={`${slotsOpen} project slots open`}>
               {slotsOpen}
             </p>
             <p className="text-[9px] uppercase tracking-[0.14em] text-cream/55">

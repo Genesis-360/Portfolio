@@ -1,21 +1,92 @@
-MIT License
+# Proprietary License — OREENZA Portfolio
 
-Copyright (c) 2026 Oreenza Agency
+**Copyright © 2026 OREENZA. All rights reserved.**
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## NOTICE
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+This software and codebase ("the Project") is proprietary property of OREENZA ("the Owner"). By accessing, copying, or using any part of this Project, you ("the User") agree to be bound by the terms of this license.
+
+---
+
+## 1. Proprietary Rights
+
+The Owner retains all proprietary rights, title, and interest in and to the Project, including without limitation all source code, design files, documentation, content, assets, branding, logos, trademarks, and all other materials and intellectual property contained therein.
+
+---
+
+## 2. Grant of License
+
+This license is **personal and non-transferable**. The Owner grants the User a limited, revocable, non-exclusive, non-sublicensable license solely to:
+
+- View the source code for the purpose of understanding the Owner's work
+- Run the Project locally for development or demonstration purposes
+- Deploy the Project as part of the Owner's own website
+
+This license is granted **only** to the Owner. Any third party is strictly prohibited from using, copying, modifying, or distributing any part of this Project without prior written consent.
+
+---
+
+## 3. Restrictions
+
+The User **SHALL NOT**:
+
+1. Copy, reproduce, duplicate, or replicate any part of this codebase
+2. Use any portion of this codebase as a template, starter, or boilerplate
+3. Create derivative works, remixes, or similar projects based on this codebase
+4. Extract, repurpose, or republish any design patterns, components, or architectural decisions
+5. Claim ownership or authorship of any part of this Project
+6. Remove, alter, or obscure any copyright notices, trademarks, or proprietary markings
+7. Use the Owner's branding, logos, trademarks, or visual identity without explicit written permission
+8. Distribute, sell, sublicense, or commercially exploit the Project or any derivative thereof
+9. Use the Project or any part of it in any manner that defames, disparages, or damages the Owner's reputation
+10. Submit the Project or any derivative work to:
+    - Template marketplaces (e.g., ThemeForest, TemplateMonster)
+    - AI training datasets or model training pipelines
+    - Public repositories without prior written consent
+
+---
+
+## 4. Attribution & References
+
+Referencing or linking to this Project is permitted **only** under the following conditions:
+
+- Clear and prominent attribution to OREENZA as the original creator
+- A nofollow attribute on any outbound links
+- No implication that the User owns, created, or is affiliated with the original Project
+
+---
+
+## 5. Disclaimer
+
+THE PROJECT IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+THE OWNER SHALL NOT BE LIABLE FOR ANY CLAIMS, DAMAGES, OR OTHER LIABILITY ARISING FROM OR RELATED TO THE PROJECT OR THIS LICENSE.
+
+---
+
+## 6. Termination
+
+This license is effective until terminated. The Owner reserves the right to terminate this license immediately and without notice if the User breaches any of its terms. Upon termination, the User must cease all use of the Project and destroy all copies in their possession.
+
+---
+
+## 7. Governing Law
+
+This license shall be governed by and construed in accordance with the laws of the jurisdiction in which OREENZA operates, without regard to its conflict of law provisions.
+
+---
+
+## 8. Contact
+
+For licensing inquiries, permissions, or legal matters:
+
+- **Email:** `hello@oreenza.com`
+- **Website:** `https://oreenza.com`
+
+---
+
+**By accessing this Project, you acknowledge that you have read, understood, and agree to be bound by all terms and conditions of this license.**
+
+© 2026 OREENZA. All rights reserved.

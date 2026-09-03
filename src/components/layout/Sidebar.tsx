@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import OptionWheel from "@/components/ui/OptionWheel";
@@ -406,8 +407,16 @@ export function Sidebar({
           href="/"
           aria-label="OREENZA — homepage"
           data-cursor="hover"
-          className="flex h-full w-16 items-center justify-center border-r border-cream/15 font-anton text-xl text-cream/90 transition-colors hover:text-accent">
-          O
+          className="flex h-full w-16 items-center justify-center border-r border-cream/15 transition-colors hover:text-accent"
+        >
+          <Image
+            src="/header-logo.svg"
+            alt="OREENZA logo mark"
+            width={48}
+            height={48}
+            className="h-6 w-6 object-contain"
+            priority
+          />
         </Link>
         <div className="flex h-full flex-1 items-center justify-end px-4">
           <SideNavTrigger />

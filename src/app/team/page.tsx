@@ -6,7 +6,7 @@ import { Footer } from "@/components/sections/Footer";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { TeamShowcase } from "@/components/ui/TeamShowcase";
 import { getSite, getTeam } from "@/lib/content";
-import { absoluteUrl, siteUrl } from "@/lib/url";
+import { siteUrl } from "@/lib/url";
 
 export const metadata: Metadata = {
   title: { absolute: "Team — The humans behind OREENZA" },
@@ -160,7 +160,7 @@ export default async function TeamPage() {
           <div className="container-edge mt-12 lg:mt-16">
             {team.length === 0 ? (
               <p className="py-20 text-center text-cream/40">
-                Team roster coming soon. Reach out at{" "}
+                No team members found. Reach out at{" "}
                 <a href={`mailto:${site.email}`} className="text-accent hover:underline">
                   {site.email}
                 </a>
