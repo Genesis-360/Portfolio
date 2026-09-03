@@ -89,14 +89,14 @@ export function CallToAction({
         {body}
       </p>
 
-      <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-        <Button href={primaryHref} variant="primary" cursorLabel="Book">
+      <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+        <Button href={primaryHref} variant="primary" cursorLabel="Book" className="w-full justify-center sm:w-auto">
           {primaryLabel}
-          <span aria-hidden><PiArrowRightBold className="ml-2 inline-block text-xl text-black" /></span>
+          <PiArrowRightBold className="ml-2 inline-block text-base" aria-hidden />
         </Button>
-        <Button href={secondaryHref} variant="outline">
+        <Button href={secondaryHref} variant="outline" className="w-full justify-center sm:w-auto">
           {secondaryLabel}
-          <span aria-hidden><PiArrowRightBold className="ml-2 inline-block text-xl text-cream/65 transition-colors duration-300 group-hover:text-accent" /></span>
+          <PiArrowRightBold className="ml-2 inline-block text-base" aria-hidden />
         </Button>
       </div>
     </div>

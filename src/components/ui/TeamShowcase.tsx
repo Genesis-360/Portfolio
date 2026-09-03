@@ -51,39 +51,39 @@ export function TeamShowcase({ members }: { members: TeamMember[] }) {
   const col3 = members.filter((_, i) => i % 3 === 2);
 
   return (
-    <div className="flex w-full max-w-6xl flex-col items-start gap-8 px-4 py-8 mx-auto md:flex-row md:gap-10 lg:gap-14 md:px-6">
-      {/* ── Left: photo grid (3 columns, staggered heights) ── */}
-      <div className="flex flex-shrink-0 gap-2 overflow-x-auto pb-1 md:gap-3 md:pb-0">
-        <div className="flex flex-col gap-2 md:gap-3">
+    <div className="flex w-full max-w-6xl flex-col items-start gap-8 px-4 py-8 mx-auto lg:flex-row lg:gap-10 lg:px-6">
+      {/* ── Left: photo grid (3 columns, staggered heights) — hidden on mobile ── */}
+      <div className="hidden lg:flex flex-shrink-0 gap-3">
+        <div className="flex flex-col gap-3">
           {col1.map((member) => (
             <PhotoCard
               key={member.slug}
               member={member}
-              className="w-[110px] h-[120px] sm:w-[130px] sm:h-[140px] md:w-[155px] md:h-[165px]"
+              className="w-[155px] h-[165px]"
               hoveredSlug={hoveredSlug}
               onHover={setHoveredSlug}
             />
           ))}
         </div>
 
-        <div className="flex flex-col gap-2 mt-12 md:gap-3 sm:mt-14 md:mt-[68px]">
+        <div className="flex flex-col gap-3 mt-[68px]">
           {col2.map((member) => (
             <PhotoCard
               key={member.slug}
               member={member}
-              className="w-[122px] h-[132px] sm:w-[145px] sm:h-[155px] md:w-[172px] md:h-[182px]"
+              className="w-[172px] h-[182px]"
               hoveredSlug={hoveredSlug}
               onHover={setHoveredSlug}
             />
           ))}
         </div>
 
-        <div className="flex flex-col gap-2 mt-6 md:gap-3 sm:mt-7 md:mt-8">
+        <div className="flex flex-col gap-3 mt-8">
           {col3.map((member) => (
             <PhotoCard
               key={member.slug}
               member={member}
-              className="w-[115px] h-[125px] sm:w-[136px] sm:h-[146px] md:w-[162px] md:h-[172px]"
+              className="w-[162px] h-[172px]"
               hoveredSlug={hoveredSlug}
               onHover={setHoveredSlug}
             />
@@ -92,7 +92,7 @@ export function TeamShowcase({ members }: { members: TeamMember[] }) {
       </div>
 
       {/* ── Right: member list ── */}
-      <div className="flex w-full flex-1 flex-col gap-4 pt-0 md:gap-5 md:pt-2 sm:grid sm:grid-cols-2 md:flex md:flex-col">
+      <div className="flex w-full flex-1 flex-col gap-4 lg:gap-5">
         {members.map((member) => (
           <MemberRow
             key={member.slug}
