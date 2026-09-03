@@ -52,58 +52,42 @@ export function TeamShowcase({ members }: { members: TeamMember[] }) {
 
   return (
     <div className="flex w-full max-w-6xl flex-col items-start gap-8 px-4 py-8 mx-auto lg:flex-row lg:gap-10 lg:px-6">
-      {/* ── Left: photo grid (3 columns, staggered heights) ── */}
-      <div className="flex flex-shrink-0 gap-3 lg:flex">
-        {/* Mobile: horizontal scroll row */}
-        <div className="flex gap-3 overflow-x-auto pb-2 lg:hidden">
-          {members.map((member) => (
+      {/* ── Left: photo grid (3 columns, staggered heights) — desktop only ── */}
+      <div className="hidden lg:flex flex-shrink-0 gap-3">
+        <div className="flex flex-col gap-3">
+          {col1.map((member) => (
             <PhotoCard
               key={member.slug}
               member={member}
-              className="w-[120px] h-[130px] shrink-0"
+              className="w-[155px] h-[165px]"
               hoveredSlug={hoveredSlug}
               onHover={setHoveredSlug}
             />
           ))}
         </div>
 
-        {/* Desktop: 3-column staggered grid */}
-        <div className="hidden lg:flex flex-shrink-0 gap-3">
-          <div className="flex flex-col gap-3">
-            {col1.map((member) => (
-              <PhotoCard
-                key={member.slug}
-                member={member}
-                className="w-[155px] h-[165px]"
-                hoveredSlug={hoveredSlug}
-                onHover={setHoveredSlug}
-              />
-            ))}
-          </div>
+        <div className="flex flex-col gap-3 mt-[68px]">
+          {col2.map((member) => (
+            <PhotoCard
+              key={member.slug}
+              member={member}
+              className="w-[172px] h-[182px]"
+              hoveredSlug={hoveredSlug}
+              onHover={setHoveredSlug}
+            />
+          ))}
+        </div>
 
-          <div className="flex flex-col gap-3 mt-[68px]">
-            {col2.map((member) => (
-              <PhotoCard
-                key={member.slug}
-                member={member}
-                className="w-[172px] h-[182px]"
-                hoveredSlug={hoveredSlug}
-                onHover={setHoveredSlug}
-              />
-            ))}
-          </div>
-
-          <div className="flex flex-col gap-3 mt-8">
-            {col3.map((member) => (
-              <PhotoCard
-                key={member.slug}
-                member={member}
-                className="w-[162px] h-[172px]"
-                hoveredSlug={hoveredSlug}
-                onHover={setHoveredSlug}
-              />
-            ))}
-          </div>
+        <div className="flex flex-col gap-3 mt-8">
+          {col3.map((member) => (
+            <PhotoCard
+              key={member.slug}
+              member={member}
+              className="w-[162px] h-[172px]"
+              hoveredSlug={hoveredSlug}
+              onHover={setHoveredSlug}
+            />
+          ))}
         </div>
       </div>
 
@@ -115,6 +99,7 @@ export function TeamShowcase({ members }: { members: TeamMember[] }) {
             member={member}
             hoveredSlug={hoveredSlug}
             onHover={setHoveredSlug}
+            isMobile
           />
         ))}
       </div>
@@ -178,10 +163,12 @@ function MemberRow({
   member,
   hoveredSlug,
   onHover,
+  isMobile = false,
 }: {
   member: TeamMember;
   hoveredSlug: string | null;
   onHover: (slug: string | null) => void;
+  isMobile?: boolean;
 }) {
   const isActive = hoveredSlug === member.slug;
   const isDimmed = hoveredSlug !== null && !isActive;
@@ -195,43 +182,63 @@ function MemberRow({
       onMouseEnter={() => onHover(member.slug)}
       onMouseLeave={() => onHover(null)}
     >
-      {/* Name + dot */}
-      <div className="flex items-center gap-2.5">
-        <span
-          className={`h-3 flex-shrink-0 rounded-[5px] transition-all duration-300 ${
-            isActive ? "w-5 bg-accent" : "w-4 bg-cream/25"
-          }`}
-        />
-        <span
-          className={`text-base font-semibold leading-none tracking-tight transition-colors duration-300 md:text-[18px] ${
-            isActive ? "text-accent" : "text-cream/80"
-          }`}
-        >
-          {member.name}
-        </span>
-
-        {/* Social icons — slide in on hover */}
-        {socials.length > 0 && (
-          <div
-            className={`ml-1 flex items-center gap-0.5 transition-all duration-200 ${
-              isActive
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-2 pointer-events-none opacity-0"
-            }`}
-          >
-            {socials.map((s) => (
-              <SocialIcon key={s.platform} platform={s.platform} url={s.url} />
-            ))}
+      <div className="flex items-center gap-3">
+        {/* Mobile: show photo to the left of name */}
+        {isMobile && member.photo && (
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md lg:hidden">
+            <Image
+              src={member.photo}
+              alt={member.name}
+              width={48}
+              height={48}
+              className="h-full w-full object-cover"
+            />
           </div>
         )}
-      </div>
 
-      {/* Role */}
-      {member.role && (
-        <p className="mt-1.5 pl-[27px] text-[7px] font-medium uppercase tracking-[0.2em] text-cream/35 md:text-[10px]">
-          {member.role}
-        </p>
-      )}
+        {/* Desktop: dot indicator */}
+        {!isMobile && (
+          <span
+            className={`h-3 flex-shrink-0 rounded-[5px] transition-all duration-300 ${
+              isActive ? "w-5 bg-accent" : "w-4 bg-cream/25"
+            }`}
+          />
+        )}
+
+        <div className="flex flex-col">
+          <div className="flex items-center gap-2.5">
+            <span
+              className={`text-base font-semibold leading-none tracking-tight transition-colors duration-300 md:text-[18px] ${
+                isActive ? "text-accent" : "text-cream/80"
+              }`}
+            >
+              {member.name}
+            </span>
+
+            {/* Social icons — slide in on hover */}
+            {socials.length > 0 && (
+              <div
+                className={`ml-1 flex items-center gap-0.5 transition-all duration-200 ${
+                  isActive
+                    ? "translate-x-0 opacity-100"
+                    : "-translate-x-2 pointer-events-none opacity-0"
+                }`}
+              >
+                {socials.map((s) => (
+                  <SocialIcon key={s.platform} platform={s.platform} url={s.url} />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Role */}
+          {member.role && (
+            <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.2em] text-cream/35">
+              {member.role}
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
