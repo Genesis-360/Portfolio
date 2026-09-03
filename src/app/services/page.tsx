@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PiArrowRightBold } from "react-icons/pi";
+import { PiArrowRightBold, PiArrowUpRightBold } from "react-icons/pi";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceIcon } from "@/components/ui/ServiceIcons";
@@ -205,11 +205,12 @@ function ServiceBlock({
             <Link
               href={`/services/${id}`}
               data-cursor="hover"
-              className="group mt-10 inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-cream/80 transition-colors hover:text-accent"
+              className="group mt-10 inline-flex items-center gap-3 rounded-sm border border-cream/20 bg-cream/[0.03] px-5 py-3 text-xs uppercase tracking-[0.18em] text-cream/70 transition-all hover:border-accent/50 hover:bg-accent/10 hover:text-accent"
             >
-              <span className="block h-px w-8 bg-current transition-all group-hover:w-12" />
-              Explore {service.title}
-              <PiArrowRightBold className="block transition-transform group-hover:translate-x-1" aria-hidden />
+              <span className="flex items-center gap-2">
+                Explore {service.title}
+                <PiArrowUpRightBold className="text-[12px] transition-transform group-hover:translate-x-0.5" aria-hidden />
+              </span>
             </Link>
           </div>
         </div>
