@@ -12,10 +12,6 @@ socials:
     href: https://linkedin.com/in/oreenza
   - label: X / Twitter
     href: https://x.com/oreenza
-# Generic industry placeholders used in the "Trusted-by" sidebar rail.
-# Replace these with real client names (and the actual logo SVGs in
-# public/logos/) before going live. Real trademarks displayed without
-# permission is a legal exposure.
 industries:
   - name: Hospitality
   - name: SaaS

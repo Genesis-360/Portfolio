@@ -7,12 +7,20 @@ import { PiArrowRightBold } from "react-icons/pi";
 const fieldCls =
   "w-full border-b border-cream/30 bg-transparent py-3 text-lg text-cream outline-none transition-colors duration-300 placeholder:text-cream/40 focus:border-accent";
 
+const BUDGET_OPTIONS = [
+  { value: "under-5k", label: "Under $5,000" },
+  { value: "5k-15k", label: "$5,000 – $15,000" },
+  { value: "15k-50k", label: "$15,000 – $50,000" },
+  { value: "50k-plus", label: "$50,000+" },
+];
+
 type Status = "idle" | "sending" | "ok" | "error";
 
 export function ContactForm({ email: siteEmail }: { email: string }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [budget, setBudget] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -29,6 +37,7 @@ export function ContactForm({ email: siteEmail }: { email: string }) {
           name,
           email,
           message,
+          budget,
           // Honeypot — empty for humans; bots fill it.
           company: "",
         }),
@@ -48,6 +57,7 @@ export function ContactForm({ email: siteEmail }: { email: string }) {
       setName("");
       setEmail("");
       setMessage("");
+      setBudget("");
     } catch {
       setStatus("error");
       setErrorMsg(`Network error. Email us at ${siteEmail}.`);
@@ -64,46 +74,74 @@ export function ContactForm({ email: siteEmail }: { email: string }) {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="flex flex-col gap-7"
     >
-      <div>
-        <label
-          htmlFor="contact-name"
-          className="mb-1 block text-[11px] uppercase tracking-[0.2em] text-cream/55"
-        >
-          Name
-        </label>
-        <input
-          id="contact-name"
-          name="name"
-          type="text"
-          autoComplete="name"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          disabled={status === "sending"}
-          className={fieldCls}
-          placeholder="Your name"
-        />
+      <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">
+        <div>
+          <label
+            htmlFor="contact-name"
+            className="mb-1 block text-[11px] uppercase tracking-[0.2em] text-cream/55"
+          >
+            Name
+          </label>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            disabled={status === "sending"}
+            className={fieldCls}
+            placeholder="Your name"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="contact-email"
+            className="mb-1 block text-[11px] uppercase tracking-[0.2em] text-cream/55"
+          >
+            Email
+          </label>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={status === "sending"}
+            className={fieldCls}
+            placeholder="you@company.com"
+          />
+        </div>
       </div>
 
       <div>
         <label
-          htmlFor="contact-email"
+          htmlFor="contact-budget"
           className="mb-1 block text-[11px] uppercase tracking-[0.2em] text-cream/55"
         >
-          Email
+          Estimated Budget
         </label>
-        <input
-          id="contact-email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+        <select
+          id="contact-budget"
+          name="budget"
+          value={budget}
+          onChange={(e) => setBudget(e.target.value)}
           disabled={status === "sending"}
-          className={fieldCls}
-          placeholder="you@company.com"
-        />
+          className={`${fieldCls} cursor-pointer appearance-none bg-transparent`}
+        >
+          <option value="" className="bg-ink text-cream/40">
+            Select a budget range
+          </option>
+          {BUDGET_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value} className="bg-ink text-cream">
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div>

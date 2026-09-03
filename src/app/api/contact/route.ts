@@ -5,6 +5,7 @@ type ContactPayload = {
   name?: unknown;
   email?: unknown;
   message?: unknown;
+  budget?: unknown;
   // Honeypot — must remain empty. Bots fill every field; humans don't see it.
   company?: unknown;
 };
@@ -12,6 +13,14 @@ type ContactPayload = {
 const MAX_FIELD_LENGTH = 5_000;
 const MAX_NAME_LENGTH = 200;
 const MAX_EMAIL_LENGTH = 320;
+const MAX_BUDGET_LENGTH = 50;
+
+const BUDGET_LABELS: Record<string, string> = {
+  "under-5k": "Under $5,000",
+  "5k-15k": "$5,000 – $15,000",
+  "15k-50k": "$15,000 – $50,000",
+  "50k-plus": "$50,000+",
+};
 
 function asTrimmedString(v: unknown, max: number): string {
   if (typeof v !== "string") return "";
@@ -43,6 +52,8 @@ export async function POST(request: Request) {
   const name = asTrimmedString(body.name, MAX_NAME_LENGTH);
   const email = asTrimmedString(body.email, MAX_EMAIL_LENGTH);
   const message = asTrimmedString(body.message, MAX_FIELD_LENGTH);
+  const budget = asTrimmedString(body.budget, MAX_BUDGET_LENGTH);
+  const budgetLabel = budget ? (BUDGET_LABELS[budget] ?? budget) : "Not specified";
 
   if (!name) {
     return NextResponse.json({ error: "Name is required" }, { status: 400 });
@@ -63,10 +74,11 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(apiKey);
-  const subject = `New project enquiry — ${name}`;
+  const subject = `New project enquiry — ${name}${budget ? ` (${budgetLabel})` : ""}`;
   const text = [
     `Name: ${name}`,
     `Email: ${email}`,
+    `Budget: ${budgetLabel}`,
     "",
     message,
     "",
