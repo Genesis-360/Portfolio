@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PiArrowRightBold } from "react-icons/pi";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceIcon } from "@/components/ui/ServiceIcons";
@@ -208,7 +209,7 @@ function ServiceBlock({
             >
               <span className="block h-px w-8 bg-current transition-all group-hover:w-12" />
               Explore {service.title}
-              <span className="block transition-transform group-hover:translate-x-1">→</span>
+              <PiArrowRightBold className="block transition-transform group-hover:translate-x-1" aria-hidden />
             </Link>
           </div>
         </div>
@@ -243,7 +244,7 @@ function ClosingCTA() {
             className="inline-flex items-center gap-2 bg-accent px-8 py-4 font-anton text-sm font-bold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-[#ff4f1a]"
           >
             Book a free call
-            <span aria-hidden>→</span>
+            <PiArrowRightBold className="text-[14px]" aria-hidden />
           </Link>
           <Link
             href="/"

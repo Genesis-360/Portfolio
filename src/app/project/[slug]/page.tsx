@@ -6,7 +6,7 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { Reveal, RevealMedia } from "@/components/ui/Reveal";
 import { CaseStudy } from "@/components/ui/CaseStudy";
 import { caseStudyMetadata } from "@/components/ui/caseStudyMetadata";
-import { CallToAction } from "@/components/sections/CallToAction";
+import { PiArrowRightBold } from "react-icons/pi";
 import { absoluteUrl } from "@/lib/url";
 
 export async function generateStaticParams() {
@@ -201,7 +201,7 @@ export default async function ProjectPage({
               <span className="ml-0.5 align-super font-body text-[0.5em] font-bold text-cream/50">
                 ™
               </span>{" "}
-              →
+              <PiArrowRightBold className="ml-2 inline-block text-xl text-cream/50 transition-colors duration-300 group-hover:text-accent" />
             </span>
           </Link>
         </main>

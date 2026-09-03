@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { PiArrowRightBold } from "react-icons/pi";
 
 const fieldCls =
   "w-full border-b border-cream/30 bg-transparent py-3 text-lg text-cream outline-none transition-colors duration-300 placeholder:text-cream/40 focus:border-accent";
@@ -147,7 +148,7 @@ export function ContactForm({ email: siteEmail }: { email: string }) {
           className="group inline-flex items-center gap-3 bg-accent px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-ink transition-transform duration-300 ease-smooth hover:scale-[1.03] disabled:opacity-60 disabled:hover:scale-100"
         >
           {status === "sending" ? "Sending…" : "Send enquiry"}
-          <span aria-hidden="true">→</span>
+          <PiArrowRightBold className="text-[14px] transition-transform group-hover:translate-x-1" aria-hidden />
         </button>
 
         <p

@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import { PiArrowRightBold } from "react-icons/pi";
 
 type Props = {
   /** Eyebrow line above the heading. Defaults to "Get started". */
@@ -91,11 +92,11 @@ export function CallToAction({
       <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
         <Button href={primaryHref} variant="primary" cursorLabel="Book">
           {primaryLabel}
-          <span aria-hidden>→</span>
+          <span aria-hidden><PiArrowRightBold className="ml-2 inline-block text-xl text-black" /></span>
         </Button>
         <Button href={secondaryHref} variant="outline">
           {secondaryLabel}
-          <span aria-hidden>→</span>
+          <span aria-hidden><PiArrowRightBold className="ml-2 inline-block text-xl text-cream/65 transition-colors duration-300 group-hover:text-accent" /></span>
         </Button>
       </div>
     </div>

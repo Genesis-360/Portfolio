@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { PiArrowRightBold } from "react-icons/pi";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import OptionWheel from "@/components/ui/OptionWheel";
@@ -175,9 +176,7 @@ function ContactContent({ data }: { data: SidebarData }) {
                 data-cursor="hover"
                 className="flex items-center justify-between bg-ink px-4 py-3 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:bg-cream/4 hover:text-cream">
                 {s.label}
-                <span className="text-cream/30 transition-transform group-hover:translate-x-0.5">
-                  ↗
-                </span>
+                <PiArrowRightBold className="text-[10px] text-cream/30 transition-transform group-hover:translate-x-0.5" aria-hidden />
               </a>
             </li>
           ))}
@@ -241,7 +240,7 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
           </span>
           Visit live site
-          <span aria-hidden>↗</span>
+          <PiArrowRightBold className="text-[12px]" aria-hidden />
         </a>
       )}
 

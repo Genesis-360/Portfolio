@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PiArrowRightBold } from "react-icons/pi";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MaskText, Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -230,7 +231,7 @@ export default async function ContactPage() {
                       rel="noopener noreferrer"
                       data-cursor="hover"
                       className="text-sm uppercase tracking-[0.12em] text-cream/55 transition-colors hover:text-accent">
-                      {s.label} ↗
+                      {s.label} <PiArrowRightBold className="text-cream/50 transition-colors" aria-hidden />
                     </a>
                   </li>
                 ))}
