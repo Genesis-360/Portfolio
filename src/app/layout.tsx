@@ -92,6 +92,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <meta name="p:domain_verify" content="ad8f627efe4acfa3feb2891b29709e0d"/>
       </head>
       <body className="min-h-screen bg-ink text-cream">
         <a
