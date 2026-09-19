@@ -219,7 +219,7 @@ export default async function BlogPostPage({
               eyebrow="Like this?"
               heading="Let's work together."
               body="We write about the work we do. Want us to do the work for you?"
-              primaryLabel="Book a call"
+              primaryLabel="Book a strategy call"
               secondaryLabel="See services"
             />
           </div>

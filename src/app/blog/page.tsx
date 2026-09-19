@@ -10,7 +10,7 @@ import { absoluteUrl, siteUrl } from "@/lib/url";
 export const metadata: Metadata = {
   title: { absolute: "Blog — Insights on design, performance & SEO | OREENZA" },
   description:
-    "Practical thinking on design, performance, and SEO from the OREENZA team — for founders, marketers, and design-curious humans.",
+    "Strategic perspectives on AI-powered SEO, performance optimization, and brand building from the OREENZA team.",
   keywords: [
     "design blog",
     "web performance",
@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "branding articles",
     "OREENZA blog",
     "design studio blog",
+    "AI SEO",
+    "performance optimization",
+    "brand building"
   ],
   alternates: { canonical: "/blog" },
   robots: {
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog — Insights on design, performance & SEO | OREENZA",
     description:
-      "Practical thinking on design, performance, and SEO from the OREENZA team.",
+      "Strategic perspectives on AI-powered SEO, performance optimization, and brand building from the OREENZA team.",
     url: "/blog",
     type: "website",
     siteName: "OREENZA",
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blog — Insights on design, performance & SEO | OREENZA",
-    description: "Practical thinking on design, performance, and SEO from the OREENZA team.",
+    description: "Strategic perspectives on AI-powered SEO, performance optimization, and brand building from the OREENZA team.",
   },
 };
 
@@ -48,7 +51,7 @@ export default async function BlogIndexPage() {
     "@type": "Blog",
     name: "OREENZA Blog",
     description:
-      "Practical thinking on design, performance, and SEO from the OREENZA team.",
+      "Strategic perspectives on AI-powered SEO, performance optimization, and brand building from the OREENZA team.",
     url: absoluteUrl("/blog"),
     publisher: {
       "@type": "Organization",
@@ -119,14 +122,13 @@ export default async function BlogIndexPage() {
           <header className="container-edge pt-12">
             <Reveal className="mb-6 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-cream/45">
               <span className="h-px w-10 bg-accent" />
-              Field notes
+              Digital expertise
             </Reveal>
             <h1 className="font-anton text-[clamp(2.4rem,9vw,6.5rem)] uppercase leading-[0.88] tracking-tight text-cream">
               Insights.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/60">
-              Practical thinking on design, performance, and SEO from the team
-              doing the work. No fluff, no filler.
+              Strategic perspectives on AI-powered SEO, performance optimization, and brand building — written by the team behind 40+ projects.
             </p>
           </header>
 
