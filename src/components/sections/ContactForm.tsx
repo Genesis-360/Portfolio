@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { PiArrowRightBold } from "react-icons/pi";
+import { PiArrowRightBold, PiCaretDownBold } from "react-icons/pi";
 
 const fieldCls =
   "w-full border-b border-cream/30 bg-transparent py-3 text-lg text-cream outline-none transition-colors duration-300 placeholder:text-cream/40 focus:border-accent";
 
 const BUDGET_OPTIONS = [
-  { value: "under-5k", label: "Under $5,000" },
-  { value: "5k-15k", label: "$5,000 – $15,000" },
-  { value: "15k-50k", label: "$15,000 – $50,000" },
-  { value: "50k-plus", label: "$50,000+" },
+  { value: "under-1k", label: "Under $1,000" },
+  { value: "1k-5k", label: "$1,000 – $5,000" },
+  { value: "5k-10k", label: "$5,000 – $10,000" },
+  { value: "10k-plus", label: "$10,000+" },
 ];
 
 type Status = "idle" | "sending" | "ok" | "error";
@@ -125,23 +125,32 @@ export function ContactForm({ email: siteEmail }: { email: string }) {
         >
           Estimated Budget
         </label>
-        <select
-          id="contact-budget"
-          name="budget"
-          value={budget}
-          onChange={(e) => setBudget(e.target.value)}
-          disabled={status === "sending"}
-          className={`${fieldCls} cursor-pointer appearance-none bg-transparent`}
-        >
-          <option value="">
-            Select a budget range
-          </option>
-          {BUDGET_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
+        <div className="relative">
+          <select
+            id="contact-budget"
+            name="budget"
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
+            disabled={status === "sending"}
+            className={`${fieldCls} cursor-pointer appearance-none border-b border-cream/30 pr-10`}
+            style={{
+              color: budget ? "#F5F5F5" : "rgba(245, 245, 245, 0.4)",
+            }}
+          >
+            <option value="" className="bg-ink text-cream">
+              Select a budget range
             </option>
-          ))}
-        </select>
+            {BUDGET_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value} className="bg-ink text-cream">
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <PiCaretDownBold
+            className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-sm text-cream/40"
+            aria-hidden
+          />
+        </div>
       </div>
 
       <div>
@@ -179,7 +188,7 @@ export function ContactForm({ email: siteEmail }: { email: string }) {
         />
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col items-center gap-4">
         <button
           type="submit"
           disabled={status === "sending"}
