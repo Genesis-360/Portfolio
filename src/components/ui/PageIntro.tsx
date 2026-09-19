@@ -70,9 +70,9 @@ export function PageIntro() {
             +91 94576 33238
           </p>
           <p className="hidden font-body text-right text-sm uppercase leading-[0.95] tracking-tight sm:block sm:text-[21px]">
-            OREENZA
+            AI-POWERED
             <br />
-            AGENCY
+            DESIGN &amp; DEV
           </p>
         </motion.div>
 
@@ -97,7 +97,7 @@ export function PageIntro() {
           </motion.p>
         </motion.div>
 
-        <p className="absolute left-[4%] top-[62%] hidden -translate-y-1/2 -rotate-90 sm:block font-body text-[18px] uppercase tracking-[0.04em] text-accent/95">
+        <p className="absolute left-[4%] top-[58%] hidden -translate-y-1/2 -rotate-90 sm:block font-body text-[18px] uppercase tracking-[0.04em] text-accent/95">
           OREENZA
         </p>
         <p className="absolute left-[4%] top-[28%] hidden -rotate-90 sm:block font-body text-[18px] uppercase tracking-[0.12em] text-accent/95 ">
@@ -106,7 +106,7 @@ export function PageIntro() {
         <p className="absolute right-[3%] top-[34%] hidden rotate-90 sm:block font-body text-[18px] uppercase tracking-[0.12em] text-accent/95 ">
           DESIGNING
         </p>
-        <p className="absolute right-[6.5%] top-[60%] hidden font-body sm:block text-[18px] uppercase tracking-[0.12em] text-accent/95">
+        <p className="absolute right-[6.5%] top-[56%] hidden font-body sm:block text-[18px] uppercase tracking-[0.12em] text-accent/95">
           WEBSITES
         </p>
 
@@ -115,7 +115,7 @@ export function PageIntro() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}>
-          THE COMPLETE DIGITAL STOREFRONT FOR RESTAURANTS &amp; CAFES
+          AI-POWERED DESIGN &amp; DEVELOPMENT AGENCY
         </motion.p>
         <motion.div
           className="absolute left-0 right-0 bottom-0 flex items-start justify-between px-6 pb-5 text-cream sm:px-10 sm:pt-8"
@@ -131,9 +131,9 @@ export function PageIntro() {
             hello@oreenza.com
           </p>
           <p className="hidden font-body text-right text-sm uppercase leading-[0.95] tracking-tight sm:block sm:text-[21px]">
-            OREENZA
+            AI-POWERED
             <br />
-            AGENCY
+            DESIGN &amp; DEV
           </p>
         </motion.div>
       </motion.div>
