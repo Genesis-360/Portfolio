@@ -9,15 +9,16 @@ import { getSite, getTeam } from "@/lib/content";
 import { siteUrl } from "@/lib/url";
 
 export const metadata: Metadata = {
-  title: { absolute: "Team — The humans behind OREENZA" },
+  title: { absolute: "Team — Elite specialists behind OREENZA" },
   description:
-    "Meet the senior team behind OREENZA — a small, focused group of designers, engineers, and writers. Small team. Big craft.",
+    "Cross-functional team of designers and web engineers building future-proof digital architectures for B2B, D2C, and tech brands.",
   keywords: [
     "OREENZA team",
     "design team",
     "creative agency team",
     "web development team",
     "brand agency",
+    "AI growth team",
   ],
   alternates: { canonical: "/team" },
   robots: {
@@ -26,9 +27,9 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   openGraph: {
-    title: "Team — The humans behind OREENZA",
+    title: "Team — Elite specialists behind OREENZA",
     description:
-      "Meet the senior team behind OREENZA — a small group of designers, engineers, and writers. Small team. Big craft.",
+      "Cross-functional team of designers and web engineers building future-proof digital architectures for B2B, D2C, and tech brands.",
     url: "/team",
     type: "profile",
     siteName: "OREENZA",
@@ -37,14 +38,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Team — OREENZA",
     description:
-      "Small team. Big craft. Meet the people behind OREENZA.",
+      "Cross-functional team of designers and web engineers building future-proof digital architectures.",
   },
 };
 
 const VALUES = [
   {
     title: "Craft over volume",
-    body: "We'd rather ship one excellent project than ten forgettable ones. Every line, every pixel, every word earns its place.",
+    body: "One excellent project beats ten forgettable ones. Every line, every pixel, every word earns its place.",
   },
   {
     title: "Performance is a feature",
@@ -83,12 +84,12 @@ export default async function TeamPage() {
           { "@type": "ListItem", position: 2, name: "Team", item: `${siteUrl}/team` },
         ],
       },
-      {
-        "@type": "AboutPage",
-        name: "Team — OREENZA",
-        description:
-          "Meet the senior team behind OREENZA — a small group of designers, engineers, and writers.",
-        publisher: {
+        {
+          "@type": "AboutPage",
+          name: "Team — OREENZA",
+          description:
+            "Cross-functional team of designers and web engineers building future-proof digital architectures.",
+          publisher: {
           "@type": "Organization",
           name: "OREENZA",
           logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
@@ -150,9 +151,9 @@ export default async function TeamPage() {
               Small team.<br />Big craft.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/60">
-              A senior group of {team.length} designers, engineers, and writers
-              who&apos;ve shipped for brands from cafés to SaaS. We work
-              remote-first, ship on time, and answer our emails.
+              A cross-functional team of {team.length} specialists building
+              future-proof digital architectures for market-leading B2B, D2C,
+              and tech brands.
             </p>
           </header>
 
@@ -207,7 +208,7 @@ export default async function TeamPage() {
               eyebrow="Work with us"
               heading="Want to work with us?"
               body="We take on a few projects each quarter. The earlier you reach out, the more time we can spend on yours."
-              primaryLabel="Book a free call"
+              primaryLabel="Book a strategy call"
               secondaryLabel="What we do"
               secondaryHref="/services"
             />
