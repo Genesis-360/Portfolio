@@ -7,6 +7,28 @@ import { usePathname } from "next/navigation";
 import { useSideNav } from "./SideNavContext";
 import { SideRail } from "./SideRail";
 import Text3DFlip from "@/components/ui/Text3DFlip";
+import {
+  FaInstagram,
+  FaDribbble,
+  FaLinkedin,
+  FaBehance,
+  FaYoutube,
+  FaGithub,
+  FaFacebook,
+  FaXTwitter,
+} from "react-icons/fa6";
+import { PiXBold } from "react-icons/pi";
+
+const SOCIAL_ICONS: Record<string, { icon: React.ReactNode; color: string }> = {
+  Instagram: { icon: <FaInstagram />, color: "#E4405F" },
+  Dribbble: { icon: <FaDribbble />, color: "#EA4C89" },
+  LinkedIn: { icon: <FaLinkedin />, color: "#0A66C2" },
+  "X / Twitter": { icon: <FaXTwitter />, color: "#F5F5F5" },
+  Behance: { icon: <FaBehance />, color: "#1769FF" },
+  YouTube: { icon: <FaYoutube />, color: "#FF0000" },
+  GitHub: { icon: <FaGithub />, color: "#F5F5F5" },
+  Facebook: { icon: <FaFacebook />, color: "#1877F2" },
+};
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -133,8 +155,8 @@ export function SideNavPanel({
               aria-label="Close menu"
               className="group inline-flex items-center gap-3 bg-transparent py-2 pl-1 text-sm font-bold uppercase tracking-[0.22em] text-cream/80 transition-colors duration-200 hover:text-accent"
             >
+              <PiXBold className="text-base" />
               <span className="leading-none">Close</span>
-              <MenuIcon open={true} />
             </button>
           </div>
         </header>
@@ -190,20 +212,26 @@ export function SideNavPanel({
             {/* Footer: socials */}
             {socials.length > 0 && (
               <footer className="shrink-0 border-t border-cream/10 px-5 py-7 lg:px-6">
-                <ul className="flex flex-wrap gap-x-5 gap-y-2">
-                  {socials.map((s) => (
-                    <li key={s.label}>
+                <div className="flex flex-wrap items-center justify-center gap-6">
+                  {socials.map((s) => {
+                    const iconData = SOCIAL_ICONS[s.label];
+                    return (
                       <a
+                        key={s.label}
                         href={s.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.16em] text-cream/60 transition-colors duration-200 hover:text-accent"
+                        title={s.label}
+                        className="flex items-center justify-center transition-all duration-200 hover:scale-110"
+                        style={{ color: iconData?.color || "#F5F5F5" }}
                       >
-                        {s.label}
+                        <span className="text-xl">
+                          {iconData?.icon || s.label.charAt(0)}
+                        </span>
                       </a>
-                    </li>
-                  ))}
-                </ul>
+                    );
+                  })}
+                </div>
               </footer>
             )}
           </div>

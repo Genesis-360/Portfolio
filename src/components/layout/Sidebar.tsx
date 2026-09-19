@@ -3,13 +3,34 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { PiArrowUpRightBold } from "react-icons/pi";
+import {
+  PiArrowUpRightBold,
+  PiInstagramLogo,
+  PiDribbbleLogo,
+  PiLinkedinLogo,
+  PiXLogo,
+  PiBehanceLogo,
+  PiYoutubeLogo,
+  PiGithubLogo,
+  PiFacebookLogo,
+} from "react-icons/pi";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import OptionWheel from "@/components/ui/OptionWheel";
 import { ServiceIcon } from "@/components/ui/ServiceIcons";
 import { SideRail, SideRailMobile } from "@/components/layout/SideRail";
 import { SideNavTrigger } from "@/components/layout/SideNav";
+
+const SOCIAL_ICONS: Record<string, React.ReactNode> = {
+  Instagram: <PiInstagramLogo />,
+  Dribbble: <PiDribbbleLogo />,
+  LinkedIn: <PiLinkedinLogo />,
+  "X / Twitter": <PiXLogo />,
+  Behance: <PiBehanceLogo />,
+  YouTube: <PiYoutubeLogo />,
+  GitHub: <PiGithubLogo />,
+  Facebook: <PiFacebookLogo />,
+};
 
 const BASE =
   "relative z-40 flex w-full flex-col overflow-hidden border-b border-cream/15 bg-ink lg:sticky lg:top-0 lg:h-screen lg:w-[30%] lg:max-w-[560px] lg:border-b-0 lg:border-r";
@@ -35,7 +56,7 @@ export type SidebarData = {
 
 type SidebarProps = {
   variant?: "home" | "sub";
-  content?: "home" | "contact" | "project" | "services" | "blog" | "team";
+  content?: "home" | "contact" | "project" | "services" | "blog" | "team" | "privacy" | "terms";
   project?: SidebarProject;
   data: SidebarData;
 };
@@ -52,13 +73,13 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
       </h1>
 
       <Button
-        href="/contact"
+        href="https://cal.com/oreenza/discovery-call"
         className="mt-8 self-start border-cream/20 bg-accent text-ink hover:bg-cream">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
         </span>
-        Book a strategy call
+        Book a discovery call
       </Button>
 
       <div aria-hidden className="min-h-12 flex-1" />
@@ -150,13 +171,13 @@ function ContactContent({ data }: { data: SidebarData }) {
 
       <div className="mt-10">
         <Button
-          href="/contact#book"
+          href="https://cal.com/oreenza/discovery-call"
           className="border-accent bg-accent text-ink hover:bg-cream">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Book a startegy call
+          Book a discovery call
         </Button>
       </div>
 
@@ -164,19 +185,19 @@ function ContactContent({ data }: { data: SidebarData }) {
         <p className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
           <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           <span className="h-px w-6 bg-cream/15" />
-          Elsewhere
+          Connect with us
         </p>
         <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-cream/15 bg-cream/10">
-          {data.socials.slice(0, 4).map((s) => (
+          {data.socials.slice(0, 8).map((s) => (
             <li key={s.label}>
               <a
                 href={s.href}
                 target="_blank"
                 rel="noreferrer noopener"
                 data-cursor="hover"
-                className="flex items-center justify-between bg-ink px-4 py-3 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:bg-cream/4 hover:text-cream">
+                className="flex items-center gap-2 bg-ink px-4 py-3 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:bg-cream/4 hover:text-cream">
+                <span className="text-sm">{SOCIAL_ICONS[s.label] || s.label.charAt(0)}</span>
                 {s.label}
-                <PiArrowUpRightBold className="text-[10px] text-cream/30 transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden />
               </a>
             </li>
           ))}
@@ -246,13 +267,13 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
 
       <div className="mt-10">
         <Button
-          href="/contact#book"
+          href="https://cal.com/oreenza/discovery-call"
           className="border-accent bg-accent text-ink hover:bg-cream">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Book a free strategy call
+          Book a discovery call
         </Button>
       </div>
     </div>
@@ -278,13 +299,13 @@ function ServicesContent() {
 
       <div className="mt-8">
         <Button
-          href="/contact#book"
+          href="https://cal.com/oreenza/discovery-call"
           className="border-accent bg-accent text-ink hover:bg-cream">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Book a strategy call
+          Book a discovery call
         </Button>
       </div>
     </div>
@@ -329,13 +350,13 @@ function TeamContent({ data }: { data: SidebarData }) {
 
       <div className="mt-7">
         <Button
-          href="/contact#book"
+          href="https://cal.com/oreenza/discovery-call"
           className="border-accent bg-accent text-ink hover:bg-cream">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Book a strategy call
+          Book a discovery call
         </Button>
       </div>
     </div>
@@ -419,7 +440,9 @@ export function Sidebar({
             height={48}
             className="h-6 w-6 object-contain"
             priority
+            fetchPriority="high"
           />
+          <span className="sr-only">OREENZA homepage</span>
         </Link>
         <div className="flex h-full flex-1 items-center justify-end px-4">
           <SideNavTrigger />
