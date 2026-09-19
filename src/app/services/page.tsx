@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PiArrowRightBold, PiArrowUpRightBold } from "react-icons/pi";
+import { PiArrowUpRightBold } from "react-icons/pi";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceIcon } from "@/components/ui/ServiceIcons";
@@ -13,14 +13,17 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://oreenza.com";
 export const metadata: Metadata = {
   title: "Services — OREENZA",
   description:
-    "Brand identity, web design, social media management, GBP management, app development, and SEO with AI. Performance-first — built to load fast, rank well, and convert.",
+    "Strategic brand architecture, high-speed web engineering, and advanced AI growth systems — built to load instantly, rank natively, and convert systematically.",
   keywords: [
     "brand identity agency",
-    "web design studio",
+    "web design agency",
     "social media management",
     "Google Business Profile",
     "app development",
     "SEO with AI",
+    "AI SEO",
+    "performance optimization",
+    "brand building",
     "performance web design",
     "creative agency",
   ],
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Services — OREENZA",
     description:
-      "Brand identity, web design, social media management, GBP management, app development, and SEO with AI — built to perform.",
+      "Strategic brand architecture, high-speed web engineering, and advanced AI growth systems — built to load instantly, rank natively, and convert systematically.",
     url: "/services",
     type: "website",
     siteName: "OREENZA",
@@ -42,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Services — OREENZA",
     description:
-      "Brand identity, web design, social media management, and SEO with AI. Built to load fast, rank well, and convert.",
+      "Strategic brand architecture, high-speed web engineering, and advanced AI growth systems — built to load instantly, rank natively, and convert systematically.",
   },
 };
 
@@ -117,9 +120,10 @@ function ServicesHero() {
 
       <div className="mt-10 grid grid-cols-1 gap-8 border-t border-cream/10 pt-10 md:grid-cols-3 lg:mt-12">
         <p className="max-w-lg text-base leading-relaxed text-cream/55 md:col-span-2 md:text-lg">
-          Every engagement starts with understanding the problem. Then we build
-          what actually solves it — no bloat, no filler, no template. Below: the
-          six things we do, written by the people who do them.
+          Strategic brand architecture, high-speed web engineering, and advanced
+          AI growth systems — built to load instantly, rank natively, and convert
+          systematically. Below: the six things we do, written by the people who
+          do them.
         </p>
         <div className="flex items-end justify-start gap-8 md:justify-end">
           <div>
@@ -262,7 +266,7 @@ export default async function ServicesPage() {
           <div className="container-edge mt-16 py-16 lg:py-24">
             <CallToAction
               heading="Not sure where to start?"
-              body="Most projects begin with a free 30-minute call. We figure out the right scope together — no pressure, no template proposals."
+              body="Most projects begin with a strategy call. We figure out the right scope together — no pressure, no template proposals."
               secondaryLabel="See our work"
               secondaryHref="/"
             />
