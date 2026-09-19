@@ -1,0 +1,19 @@
+title: Web Development
+order: 3
+intro: A website that loads slowly loses visitors before they read a word. We engineer high-performance web experiences that rank, convert, and scale — without the bloat that kills most sites.
+sections:
+  - heading: Next.js architecture
+    body: Server-rendered, statically generated, or hybrid — we pick the rendering strategy that matches your traffic pattern. Every build targets 95+ Lighthouse scores out of the box.
+  - heading: Headless CMS
+    body: We set up Keystatic or your preferred headless CMS with a content model your team can manage. Add blog posts, update pages, launch landing sites — no developer required.
+  - heading: Interactive experiences
+    body: Scroll-driven animations, micro-interactions, and dynamic content that feels alive. We use GSAP and Framer Motion to build experiences that engage without sacrificing speed.
+  - heading: API & backend
+    body: Custom APIs, payment integrations, authentication flows, and third-party connections. We build the invisible layer that makes your product actually work.
+faq:
+  - q: How fast will my site load?
+    a: Most client sites load in under 1.5 seconds on mobile. We optimize images, code-split aggressively, and cache everything possible.
+  - q: What CMS do you recommend?
+    a: Keystatic for content-heavy sites, Sanity for teams needing real-time collaboration, or headless WordPress if you already have content there. We pick what fits your workflow.
+  - q: Do you handle hosting?
+    a: We deploy on Vercel or Fly.io and set up CI/CD pipelines. Monthly retainers available for monitoring, updates, and performance optimization.
