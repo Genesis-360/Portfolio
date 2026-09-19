@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { SelectedWorks } from "@/components/sections/SelectedWorks";
 import { Footer } from "@/components/sections/Footer";
@@ -6,9 +7,9 @@ import { getProjects, getSite } from "@/lib/content";
 import { absoluteUrl, siteUrl } from "@/lib/url";
 
 export const metadata: Metadata = {
-  title: { absolute: "OREENZA — AI-powered design & development agency" },
+  title: { absolute: "OREENZA — AI-Powered Design & Development Agency for B2B, D2C Brands" },
   description:
-    "AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams worldwide.",
+    "AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams worldwide. Brand identity, web design, SEO, and motion.",
   keywords: [
     "design agency",
     "web development agency",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     "performance-first design",
     "brand identity agency",
     "web design agency",
-    "creative studio",
+    "creative agency",
     "Next.js development",
     "SEO with AI",
   ],
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   openGraph: {
-    title: "OREENZA — AI-powered design & development agency",
+    title: "OREENZA — AI-Powered Design & Development Agency for B2B, D2C Brands",
     description:
       "AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams worldwide.",
     url: "/",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OREENZA — AI-powered design & development agency",
+    title: "OREENZA — AI-Powered Design & Development Agency for B2B, D2C Brands",
     description:
       "AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams worldwide.",
   },
@@ -86,7 +87,7 @@ export default async function Home() {
         />
         <main id="main" className="w-full lg:w-[70%] lg:flex-1">
           <SelectedWorks projects={projects} />
-          <Footer socials={site.socials} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>

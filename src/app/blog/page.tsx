@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "SEO insights",
     "branding articles",
     "OREENZA blog",
-    "design studio blog",
+    "design agency blog",
     "AI SEO",
     "performance optimization",
     "brand building"
@@ -136,7 +136,7 @@ export default async function BlogIndexPage() {
             <BlogIndex posts={posts} />
           </div>
 
-          <Footer socials={site.socials} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>

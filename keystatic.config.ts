@@ -267,6 +267,26 @@ export default config({
           }),
           { label: "Socials", itemLabel: (props) => props.fields.label.value },
         ),
+        footerLinks: fields.array(
+          fields.object({
+            title: fields.text({ label: "Section title" }),
+            links: fields.array(
+              fields.object({
+                label: fields.text({ label: "Link label" }),
+                href: fields.url({ label: "URL" }),
+              }),
+              {
+                label: "Links",
+                itemLabel: (props) => props.fields.label.value,
+              },
+            ),
+          }),
+          {
+            label: "Footer links",
+            description: "Link sections shown in the footer",
+            itemLabel: (props) => props.fields.title.value,
+          },
+        ),
         industries: fields.array(
           fields.object({
             name: fields.text({ label: "Industry name" }),

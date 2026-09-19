@@ -9,9 +9,64 @@ socials:
   - label: Dribbble
     href: https://dribbble.com/oreenza
   - label: LinkedIn
-    href: https://linkedin.com/in/oreenza
+    href: https://www.linkedin.com/company/oreenza/
   - label: X / Twitter
     href: https://x.com/oreenza
+  - label: Behance
+    href: https://www.behance.net/oreenza_agency
+  - label: YouTube
+    href: https://www.youtube.com/@oreenza
+  - label: GitHub
+    href: https://github.com/Oreenza
+  - label: Facebook
+    href: https://www.facebook.com/Oreenza/
+footerLinks:
+  - title: Services
+    links:
+      - label: Brand Strategy
+        href: /services/brand-strategy-identity
+      - label: Web Design & UX
+        href: /services/web-design--ux
+      - label: Web Development
+        href: /services/web-development
+      - label: AI Automations
+        href: /services/ai-automations
+      - label: AI-Powered SEO
+        href: /services/ai-powered-seo
+      - label: AI Search Visibility
+        href: /services/ai-search-visibility
+  - title: Company
+    links:
+      - label: Home
+        href: /
+      - label: Services
+        href: /services
+      - label: Team
+        href: /team
+      - label: Blog
+        href: /blog
+      - label: Contact
+        href: /contact
+  - title: Resources
+    links:
+      - label: Privacy Policy
+        href: /privacy
+      - label: Terms of Service
+        href: /terms
+  - title: Socials
+    links:
+      - label: Instagram
+        href: https://instagram.com/oreenza_agency
+      - label: LinkedIn
+        href: https://www.linkedin.com/company/oreenza/
+      - label: X / Twitter
+        href: https://x.com/oreenza
+      - label: Behance
+        href: https://www.behance.net/oreenza_agency
+      - label: YouTube
+        href: https://www.youtube.com/@oreenza
+      - label: GitHub
+        href: https://github.com/Oreenza
 industries:
   - name: B2B
   - name: SaaS

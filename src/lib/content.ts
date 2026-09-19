@@ -35,6 +35,7 @@ export type Site = {
   calLink: string;
   calEmbedPath: string;
   socials: { label: string; href: string }[];
+  footerLinks: { title: string; links: { label: string; href: string }[] }[];
   industries: { name: string }[];
   services: { title: string; items: string[] }[];
 };
@@ -165,6 +166,18 @@ export async function getSite(): Promise<Site> {
   } catch (err) {
     console.warn("[cms] failed to read site settings:", err);
   }
+
+  // Read footerLinks directly from YAML (not in Keystatic schema)
+  let footerLinks: { title: string; links: { label: string; href: string }[] }[] = [];
+  try {
+    const filePath = join(process.cwd(), "src/content/site/index.yaml");
+    const raw = readFileSync(filePath, "utf-8");
+    const parsed = yaml(raw) as { footerLinks?: { title: string; links: { label: string; href: string }[] }[] };
+    footerLinks = parsed.footerLinks ?? [];
+  } catch (err) {
+    console.warn("[cms] failed to read footer links:", err);
+  }
+
   const s = site ?? {};
   return {
     email: s.email ?? "hello@oreenza.com",
@@ -175,6 +188,7 @@ export async function getSite(): Promise<Site> {
     socials: s.socials
       ? s.socials.map((x) => ({ label: x.label, href: x.href }))
       : [],
+    footerLinks,
     industries: (s.industries ?? []).map((i) => ({ name: i?.name ?? "" })),
     services: s.services
       ? s.services.map((x) => ({ title: x.title, items: [...x.items] }))
