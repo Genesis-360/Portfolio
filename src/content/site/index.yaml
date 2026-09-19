@@ -1,7 +1,7 @@
 email: hello@oreenza.com
 calLink: https://cal.com/oreenza/discovery-call
 calEmbedPath: oreenza/discovery-call
-phone: "+91 94576 33238"
+phone: "+91 94576-33238"
 slotsOpen: 4
 socials:
   - label: Instagram
@@ -13,46 +13,47 @@ socials:
   - label: X / Twitter
     href: https://x.com/oreenza
 industries:
-  - name: Hospitality
+  - name: B2B
   - name: SaaS
-  - name: Fintech
   - name: D2C
-  - name: Health & Wellness
-  - name: Real Estate
+  - name: E-commerce
+  - name: Wellness
+  - name: Beauty
+  - name: Fashion
 services:
-  - title: Brand Identity
+  - title: Brand Strategy & Identity
     items:
-      - Naming
-      - Logo Systems
-      - Guidelines
-      - Voice
-  - title: Web Design
+      - Brand Naming & Positioning
+      - Scalable Logo Systems
+      - Premium Brand Guidelines
+      - Brand Voice & Copywriting Style
+  - title: Web Design & UX
     items:
-      - UX/UI
-      - Design Systems
-      - Next.js
-      - CMS Setup
-  - title: Social Media Management
+      - Immersive UX/UI Design
+      - Component-Driven Design Systems
+      - Responsive Wireframing & Prototyping
+      - Conversion-Rate Optimization (CRO)
+  - title: Web Development
     items:
-      - Content Calendars
-      - Captions
-      - Community
-      - Analytics
-  - title: GBP Management
+      - High-Speed Next.js Architecture
+      - Headless CMS Setup & Integration
+      - Interactive Web Experiences & Animations
+      - Custom API & Web App Engineering
+  - title: AI Automations
     items:
-      - Profile Setup
-      - Weekly Posts
-      - Reviews
-      - Local SEO
-  - title: App Development
+      - AI Content Calendars
+      - On-Brand Captions & Creative
+      - Community Automation
+      - AI-Powered Analytics
+  - title: AI-Powered SEO
     items:
-      - iOS & Android
-      - React Native
-      - APIs
-      - Maintenance
-  - title: SEO With AI
+      - AI Keyword Engine Research
+      - Neural Content Optimization
+      - Technical SEO Audits
+      - AI Rank Tracking & Alerts
+  - title: AI Search Visibility
     items:
-      - AI Keyword Research
-      - Content Optimization
-      - Technical SEO
-      - Rank Tracking
+      - Google Business Profile Optimization
+      - Local SEO & Citations
+      - Maps Ranking Strategy
+      - Review Management & Responses
