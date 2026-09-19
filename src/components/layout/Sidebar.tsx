@@ -47,8 +47,8 @@ type SidebarProps = {
 function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
   return (
     <div className="flex h-full min-h-0 flex-col px-5 pt-8 pb-7 lg:px-7 lg:pt-10 lg:pb-8">
-      <h1 className="max-w-[15ch] font-body text-[clamp(1.9rem,2.6vw,3.4rem)] leading-[0.95] tracking-tight text-cream">
-        Performance-first creative agency for ambitious brands.
+      <h1 className="max-w-[15ch] font-body text-[clamp(2.1rem,1.5vw,2.5rem)] leading-[0.95] tracking-tight text-cream">
+      Engineering digital dominance for high-growth B2B and D2C brands.
       </h1>
 
       <Button
@@ -58,7 +58,7 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
         </span>
-        Book a free call
+        Book a strategy call
       </Button>
 
       <div aria-hidden className="min-h-12 flex-1" />
@@ -156,7 +156,7 @@ function ContactContent({ data }: { data: SidebarData }) {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Book a discovery call
+          Book a startegy call
         </Button>
       </div>
 
@@ -252,7 +252,7 @@ function ProjectContent({ project }: { project?: SidebarProject }) {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Book a 15-min call
+          Book a free strategy call
         </Button>
       </div>
     </div>
@@ -267,11 +267,13 @@ function ServicesContent() {
         <span className="h-px w-6 bg-cream/15" />
         What we do
       </p>
-      <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.9] tracking-tight text-cream">
+      <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.95] tracking-tight text-cream">
         Performance-first services.
       </h2>
       <p className="mt-4 text-[15px] leading-relaxed text-cream/65">
-        Brand, web, and growth — built to load fast, rank well, and convert.
+        Brand architecture, high-speed web engineering, and advanced AI growth
+        systems—built to load instantly, rank natively, and convert
+        systematically.
       </p>
 
       <div className="mt-8">
@@ -282,7 +284,7 @@ function ServicesContent() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Book a free call
+          Book a strategy call
         </Button>
       </div>
     </div>
@@ -298,11 +300,12 @@ function TeamContent({ data }: { data: SidebarData }) {
         Built by humans
       </p>
       <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.9] tracking-tight text-cream">
-        Small team. Big craft.
+        Elite execution, by team of specialists.
       </h2>
       <p className="mt-4 text-[15px] leading-relaxed text-cream/65">
-        A small group of designers, engineers and writers who&apos;ve shipped
-        for brands from cafés to SaaS.
+        A cross-functional group of designers and web engineers building
+        future-proof digital architectures for market-leading B2B, D2C, and tech
+        brands.
       </p>
 
       <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-cream/15 bg-cream/10">
@@ -318,7 +321,9 @@ function TeamContent({ data }: { data: SidebarData }) {
           data-cursor="hover"
           className="bg-ink p-4 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:text-accent">
           <p className="text-[9px] text-cream/40">Phone</p>
-          <p className="mt-1 normal-case tracking-normal">{data.phone ?? "—"}</p>
+          <p className="mt-1 normal-case tracking-normal">
+            {data.phone ?? "—"}
+          </p>
         </a>
       </div>
 
@@ -330,7 +335,7 @@ function TeamContent({ data }: { data: SidebarData }) {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Book a free call
+          Book a strategy call
         </Button>
       </div>
     </div>
@@ -343,14 +348,13 @@ function BlogContent() {
       <p className="mb-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
         <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
         <span className="h-px w-6 bg-cream/15" />
-        Field notes
+        Digital expertise
       </p>
       <h2 className="font-anton text-[clamp(2rem,3vw,3.2rem)] uppercase leading-[0.9] tracking-tight text-cream">
         Insights.
       </h2>
       <p className="mt-4 text-[15px] leading-relaxed text-cream/65">
-        Practical thinking on design, performance, and SEO — straight from
-        the people doing the work.
+        Strategic perspectives on AI-powered SEO, performance optimization, and brand building — written by the team behind 40+ projects.
       </p>
 
       <div className="mt-7">
@@ -361,7 +365,7 @@ function BlogContent() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
           </span>
-          Read the latest
+          Browse insights
         </Button>
       </div>
     </div>
