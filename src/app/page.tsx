@@ -6,12 +6,13 @@ import { getProjects, getSite } from "@/lib/content";
 import { absoluteUrl, siteUrl } from "@/lib/url";
 
 export const metadata: Metadata = {
-  title: { absolute: "OREENZA — Performance-first design & development studio" },
+  title: { absolute: "OREENZA — AI-powered design & development agency" },
   description:
-    "Independent design & development studio building performance-first brands, websites, and products for ambitious teams worldwide. Brand identity, web design, SEO, and motion.",
+    "AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams worldwide.",
   keywords: [
     "design agency",
-    "web development studio",
+    "web development agency",
+    "AI growth agency",
     "performance-first design",
     "brand identity agency",
     "web design agency",
@@ -26,18 +27,18 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   openGraph: {
-    title: "OREENZA — Performance-first design & development studio",
+    title: "OREENZA — AI-powered design & development agency",
     description:
-      "Independent design & development studio building performance-first brands, websites, and products for ambitious teams worldwide.",
+      "AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams worldwide.",
     url: "/",
     type: "website",
     siteName: "OREENZA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OREENZA — Performance-first design & development studio",
+    title: "OREENZA — AI-powered design & development agency",
     description:
-      "Independent design & development studio building performance-first brands, websites, and products for ambitious teams worldwide.",
+      "AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams worldwide.",
   },
 };
 
@@ -50,7 +51,7 @@ export default async function Home() {
     name: "OREENZA",
     url: absoluteUrl("/"),
     description:
-      "Independent design & development studio building performance-first brands, websites, and products.",
+      "AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams.",
     publisher: {
       "@type": "Organization",
       name: "OREENZA",
