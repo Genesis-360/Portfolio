@@ -12,11 +12,11 @@ import { absoluteUrl, siteUrl } from "@/lib/url";
 export const metadata: Metadata = {
   title: { absolute: "Contact — OREENZA" },
   description:
-    "Start a project with OREENZA. Book a free 15-minute call, send a message, or chat on WhatsApp. Independent design & development studio, working worldwide.",
+    "Start a project with OREENZA. Book a strategy call, send a message, or chat on WhatsApp. AI-powered design & development agency, working worldwide.",
   keywords: [
     "contact OREENZA",
     "hire design agency",
-    "book design call",
+    "book strategy call",
     "creative agency contact",
     "start a project",
   ],
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact — OREENZA",
     description:
-      "Start a project with OREENZA — an independent design & development studio, working worldwide.",
+      "Start a project with OREENZA — an AI-powered design & development agency, working worldwide.",
     url: "/contact",
     type: "website",
     siteName: "OREENZA",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Contact — OREENZA",
-    description: "Start a project with OREENZA. Book a free 15-minute call.",
+    description: "Start a project with OREENZA. Book a strategy call.",
   },
 };
 
@@ -63,7 +63,7 @@ export default async function ContactPage() {
         name: "Contact OREENZA",
         url: absoluteUrl("/contact"),
         description:
-          "Start a project with OREENZA. Book a free call, send a message, or chat on WhatsApp.",
+          "Start a project with OREENZA. Book a strategy call, send a message, or chat on WhatsApp.",
         publisher: {
           "@type": "Organization",
           name: "OREENZA",
@@ -217,7 +217,7 @@ export default async function ContactPage() {
                     />
                   </span>
                 </span>
-                Book a 15-min call
+                Book a strategy call
               </a>
             </Detail>
 
