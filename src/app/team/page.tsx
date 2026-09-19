@@ -208,13 +208,13 @@ export default async function TeamPage() {
               eyebrow="Work with us"
               heading="Want to work with us?"
               body="We take on a few projects each quarter. The earlier you reach out, the more time we can spend on yours."
-              primaryLabel="Book a strategy call"
+              primaryLabel="Book a discovery call"
               secondaryLabel="What we do"
               secondaryHref="/services"
             />
           </div>
 
-          <Footer socials={site.socials} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>

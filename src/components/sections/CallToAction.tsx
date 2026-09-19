@@ -10,9 +10,9 @@ type Props = {
   heading: string;
   /** Supporting paragraph below the heading. */
   body: string;
-  /** Primary CTA label. Defaults to "Book a free call". */
+  /** Primary CTA label. Defaults to "Book a discovery call". */
   primaryLabel?: string;
-  /** Primary CTA href. Defaults to the contact booking anchor. */
+  /** Primary CTA href. Defaults to Cal.com booking. */
   primaryHref?: string;
   /** Secondary CTA label. Defaults to "All services". */
   secondaryLabel?: string;
@@ -31,8 +31,8 @@ export function CallToAction({
   eyebrow = "Get started",
   heading,
   body,
-  primaryLabel = "Book a free call",
-  primaryHref = "/contact#book",
+  primaryLabel = "Book a discovery call",
+  primaryHref = "https://cal.com/oreenza/discovery-call",
   secondaryLabel = "All services",
   secondaryHref = "/services",
 }: Props) {

@@ -113,7 +113,7 @@ export function CaseStudy({ project }: CaseStudyProps) {
         heading="Ready for your own case study?"
         body="Every project at Oreenza starts with a conversation about the problem before we ever touch a design tool."
         primaryLabel="Book a discovery call"
-        primaryHref="/contact#book"
+        primaryHref="https://cal.com/oreenza/discovery-call"
         secondaryLabel="See what we do"
       />
     </section>

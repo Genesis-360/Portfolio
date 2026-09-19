@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PiArrowUpRightBold } from "react-icons/pi";
+import {
+  PiArrowUpRightBold,
+  PiInstagramLogo,
+  PiDribbbleLogo,
+  PiLinkedinLogo,
+  PiXLogo,
+  PiBehanceLogo,
+  PiYoutubeLogo,
+  PiGithubLogo,
+  PiFacebookLogo,
+} from "react-icons/pi";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MaskText, Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -9,14 +19,25 @@ import { CalInline } from "@/components/ui/CalInline";
 import { getSite } from "@/lib/content";
 import { absoluteUrl, siteUrl } from "@/lib/url";
 
+const SOCIAL_ICONS: Record<string, React.ReactNode> = {
+  Instagram: <PiInstagramLogo />,
+  Dribbble: <PiDribbbleLogo />,
+  LinkedIn: <PiLinkedinLogo />,
+  "X / Twitter": <PiXLogo />,
+  Behance: <PiBehanceLogo />,
+  YouTube: <PiYoutubeLogo />,
+  GitHub: <PiGithubLogo />,
+  Facebook: <PiFacebookLogo />,
+};
+
 export const metadata: Metadata = {
   title: { absolute: "Contact — OREENZA" },
   description:
-    "Start a project with OREENZA. Book a strategy call, send a message, or chat on WhatsApp. AI-powered design & development agency, working worldwide.",
+    "Start a project with OREENZA. Book a discovery call, send a message, or chat on WhatsApp. AI-powered design & development agency, working worldwide.",
   keywords: [
     "contact OREENZA",
     "hire design agency",
-    "book strategy call",
+    "book discovery call",
     "creative agency contact",
     "start a project",
   ],
@@ -37,7 +58,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Contact — OREENZA",
-    description: "Start a project with OREENZA. Book a strategy call.",
+    description: "Start a project with OREENZA. Book a discovery call.",
   },
 };
 
@@ -63,7 +84,7 @@ export default async function ContactPage() {
         name: "Contact OREENZA",
         url: absoluteUrl("/contact"),
         description:
-          "Start a project with OREENZA. Book a strategy call, send a message, or chat on WhatsApp.",
+          "Start a project with OREENZA. Book a discovery call, send a message, or chat on WhatsApp.",
         publisher: {
           "@type": "Organization",
           name: "OREENZA",
@@ -217,12 +238,12 @@ export default async function ContactPage() {
                     />
                   </span>
                 </span>
-                Book a strategy call
+                Book a discovery call
               </a>
             </Detail>
 
             <Detail label="Socials">
-              <ul className="flex flex-col gap-2">
+              <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-cream/15 bg-cream/10">
                 {site.socials.map((s) => (
                   <li key={s.label}>
                     <a
@@ -230,9 +251,9 @@ export default async function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-cursor="hover"
-                      className="group inline-flex items-center gap-1.5 text-sm uppercase tracking-[0.12em] text-cream/55 transition-colors hover:text-accent">
+                      className="flex items-center gap-2 bg-ink px-4 py-3 text-xs uppercase tracking-[0.14em] text-cream/70 transition-colors hover:bg-cream/4 hover:text-cream">
+                      <span className="text-sm">{SOCIAL_ICONS[s.label] || s.label.charAt(0)}</span>
                       {s.label}
-                      <PiArrowUpRightBold className="text-[12px] text-cream/50 transition-colors group-hover:text-accent" aria-hidden />
                     </a>
                   </li>
                 ))}
@@ -252,7 +273,7 @@ export default async function ContactPage() {
           </div>
         </section>
 
-        <Footer socials={site.socials} />
+        <Footer socials={site.socials} footerLinks={site.footerLinks} />
       </main>
     </div>
     </>

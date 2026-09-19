@@ -266,13 +266,13 @@ export default async function ServicesPage() {
           <div className="container-edge mt-16 py-16 lg:py-24">
             <CallToAction
               heading="Not sure where to start?"
-              body="Most projects begin with a strategy call. We figure out the right scope together — no pressure, no template proposals."
+              body="Most projects begin with a discovery call. We figure out the right scope together — no pressure, no template proposals."
               secondaryLabel="See our work"
               secondaryHref="/"
             />
           </div>
 
-          <Footer socials={site.socials} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>

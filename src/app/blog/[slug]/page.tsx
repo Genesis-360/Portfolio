@@ -6,7 +6,7 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { Reveal } from "@/components/ui/Reveal";
 import { Footer } from "@/components/sections/Footer";
 import { CallToAction } from "@/components/sections/CallToAction";
-import { getPost, getPosts, getSite } from "@/lib/content";
+import { getPost, getPosts, getSite, getTeam } from "@/lib/content";
 import { absoluteUrl, siteUrl } from "@/lib/url";
 
 export async function generateStaticParams() {
@@ -64,10 +64,11 @@ export default async function BlogPostPage({
   params,
 }: PageProps<"/blog/[slug]">) {
   const { slug } = await params;
-  const [post, site, allPosts] = await Promise.all([
+  const [post, site, allPosts, team] = await Promise.all([
     getPost(slug),
     getSite(),
     getPosts(),
+    getTeam(),
   ]);
   if (!post) notFound();
 
@@ -77,6 +78,11 @@ export default async function BlogPostPage({
   const recent = allPosts
     .filter((p) => p.slug !== post.slug)
     .slice(0, 2);
+
+  // Find author in team
+  const author = team.find(
+    (m) => m.name.toLowerCase() === post.author.toLowerCase()
+  );
 
   const articleJsonLd = {
     "@context": "https://schema.org" as const,
@@ -88,7 +94,12 @@ export default async function BlogPostPage({
       : undefined,
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Person", name: post.author },
+    author: {
+      "@type": "Person",
+      name: post.author,
+      jobTitle: author?.role,
+      url: author ? `${siteUrl}/team#${author.slug}` : undefined,
+    },
     publisher: {
       "@type": "Organization",
       name: "OREENZA",
@@ -169,7 +180,13 @@ export default async function BlogPostPage({
               {post.title}
             </h1>
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] uppercase tracking-[0.2em] text-cream/45">
-              <span>{post.author}</span>
+              {author ? (
+                <Link href={`/team#${author.slug}`} className="transition-colors hover:text-accent">
+                  {post.author} · {author.role}
+                </Link>
+              ) : (
+                <span>{post.author}</span>
+              )}
               <span>·</span>
               <span>
                 {post.date ? new Date(post.date).toLocaleDateString("en-GB", {
@@ -219,7 +236,7 @@ export default async function BlogPostPage({
               eyebrow="Like this?"
               heading="Let's work together."
               body="We write about the work we do. Want us to do the work for you?"
-              primaryLabel="Book a strategy call"
+              primaryLabel="Book a discovery call"
               secondaryLabel="See services"
             />
           </div>
@@ -252,7 +269,7 @@ export default async function BlogPostPage({
             </div>
           )}
 
-          <Footer socials={site.socials} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>

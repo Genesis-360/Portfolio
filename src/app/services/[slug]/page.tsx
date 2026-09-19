@@ -243,12 +243,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <div className="container-edge mt-16 py-16 lg:py-24">
             <CallToAction
               eyebrow="Get started"
-              heading="Start with a strategy call."
+              heading="Start with a discovery call."
               body={`We'll figure out if ${service.title.toLowerCase()} is the right starting point for where you are — no upsell if it isn't.`}
             />
           </div>
 
-          <Footer socials={site.socials} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>
