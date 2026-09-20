@@ -4,24 +4,16 @@ import Image from "next/image";
 
 /**
  * Vertical 64px rail used in the main sidebar AND inside the sidenav panel.
- * Shows: vertical "Oreenza" wordmark (top), slots counter (bottom-mid), equalizer (bottom).
+ * Shows: vertical "OREENZA" text (top), slots counter (bottom-mid), equalizer (bottom).
  * Hidden on small viewports — replaced by SideRailMobile in those cases.
  */
 export function SideRail({ slotsOpen, forceVisible = false }: { slotsOpen: number; forceVisible?: boolean }) {
   return (
     <div className={`relative w-16 shrink-0 border-r border-cream/15 ${forceVisible ? 'block' : 'hidden lg:block'}`}>
-      {/* Vertical wordmark */}
-      <div className="absolute left-1/2 top-18 -translate-x-1/2 -rotate-90">
-        <Image
-          src="/wordmark.svg"
-          alt="OREENZA"
-          width={240}
-          height={40}
-          priority
-          className="h-10 w-auto"
-          style={{ width: 'auto', height: '40px' }}
-        />
-      </div>
+      {/* Vertical text wordmark */}
+      <p className="absolute left-1/2 top-18 -translate-x-1/2 -rotate-90 whitespace-nowrap font-body text-2xl tracking-tight text-cream/60">
+        Oreenza
+      </p>
 
       <div className="absolute left-1/2 bottom-[12%] flex -translate-x-1/2 flex-col items-center gap-3 pt-4">
         <span className="relative flex h-2 w-2">
