@@ -150,7 +150,7 @@ export default async function ContactPage() {
 
             <Reveal className="flex-none">
               <Image
-                src="/whatsapp-qr.webp"
+                src="/whatsapp-qr.avif"
                 alt="WhatsApp QR code — scan to chat with Oreenza"
                 width={512}
                 height={512}
@@ -230,8 +230,8 @@ export default async function ContactPage() {
                   <span className="text-sm">+</span>
                   <span className="flex h-8 w-8 flex-none items-center justify-center overflow-hidden rounded-md border border-ink/25 bg-ink">
                     <Image
-                      src="/ori-avatar.webp"
-                      alt="Oreenza mascot"
+                      src="/team/siddhartha.avif"
+                      alt="Siddhartha Kunwar, Founder & Strategist"
                       width={32}
                       height={32}
                       className="h-full w-full object-cover"
