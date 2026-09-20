@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 /**
  * Vertical 64px rail used in the main sidebar AND inside the sidenav panel.
  * Shows: vertical "Oreenza" wordmark (top), slots counter (bottom-mid), equalizer (bottom).
@@ -8,9 +10,18 @@
 export function SideRail({ slotsOpen, forceVisible = false }: { slotsOpen: number; forceVisible?: boolean }) {
   return (
     <div className={`relative w-16 shrink-0 border-r border-cream/15 ${forceVisible ? 'block' : 'hidden lg:block'}`}>
-      <p className="absolute left-1/2 top-18 -translate-x-1/2 -rotate-90 whitespace-nowrap font-body text-2xl tracking-tight text-cream/60">
-        Oreenza
-      </p>
+      {/* Vertical wordmark */}
+      <div className="absolute left-1/2 top-18 -translate-x-1/2 -rotate-90">
+        <Image
+          src="/wordmark.svg"
+          alt="OREENZA"
+          width={120}
+          height={20}
+          priority
+          className="h-5 w-auto"
+          style={{ width: 'auto', height: '20px' }}
+        />
+      </div>
 
       <div className="absolute left-1/2 bottom-[12%] flex -translate-x-1/2 flex-col items-center gap-3 pt-4">
         <span className="relative flex h-2 w-2">
@@ -41,9 +52,15 @@ export function SideRail({ slotsOpen, forceVisible = false }: { slotsOpen: numbe
 export function SideRailMobile({ slotsOpen }: { slotsOpen: number }) {
   return (
     <div className="flex items-center justify-between px-5 py-4 lg:hidden">
-      <p className="font-body text-lg tracking-tight text-cream/60">
-        Oreenza
-      </p>
+      <Image
+        src="/wordmark.svg"
+        alt="OREENZA"
+        width={100}
+        height={18}
+        priority
+        className="h-[18px] w-auto"
+        style={{ width: 'auto', height: '18px' }}
+      />
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2.5">
           <span className="relative flex h-2 w-2">
