@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Reveal } from "@/components/ui/Reveal";
 import { Footer } from "@/components/sections/Footer";
-import { getSite, getPosts } from "@/lib/content";
+import { getSite, getPosts, getTeam } from "@/lib/content";
 import { BlogIndex } from "@/components/blog/BlogIndex";
 import { absoluteUrl, siteUrl } from "@/lib/url";
 
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogIndexPage() {
-  const [site, posts] = await Promise.all([getSite(), getPosts()]);
+  const [site, posts, team] = await Promise.all([getSite(), getPosts(), getTeam()]);
 
   const blogJsonLd = {
     "@context": "https://schema.org" as const,
@@ -133,7 +133,7 @@ export default async function BlogIndexPage() {
           </header>
 
           <div id="latest" className="container-edge mt-14 pb-10 lg:mt-20 lg:pb-18">
-            <BlogIndex posts={posts} />
+            <BlogIndex posts={posts} team={team} />
           </div>
 
           <Footer socials={site.socials} footerLinks={site.footerLinks} />
