@@ -15,11 +15,11 @@ export function SideRail({ slotsOpen, forceVisible = false }: { slotsOpen: numbe
         <Image
           src="/wordmark.svg"
           alt="OREENZA"
-          width={120}
-          height={20}
+          width={180}
+          height={30}
           priority
-          className="h-5 w-auto"
-          style={{ width: 'auto', height: '20px' }}
+          className="h-8 w-auto"
+          style={{ width: 'auto', height: '32px' }}
         />
       </div>
 
@@ -55,11 +55,11 @@ export function SideRailMobile({ slotsOpen }: { slotsOpen: number }) {
       <Image
         src="/wordmark.svg"
         alt="OREENZA"
-        width={100}
-        height={18}
+        width={140}
+        height={24}
         priority
-        className="h-[18px] w-auto"
-        style={{ width: 'auto', height: '18px' }}
+        className="h-6 w-auto"
+        style={{ width: 'auto', height: '24px' }}
       />
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2.5">
