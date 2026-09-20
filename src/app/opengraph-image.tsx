@@ -48,8 +48,21 @@ export default function OpengraphImage() {
             style={{
               display: "flex",
               flexDirection: "column",
-              fontSize: 14,
-              letterSpacing: 2,
+              fontSize: 32,
+              fontWeight: 800,
+              letterSpacing: -1,
+              lineHeight: 1,
+              textTransform: "uppercase",
+            }}
+          >
+            <span>+91 94576 33238</span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              fontSize: 16,
+              letterSpacing: 1,
               color: "rgba(245,245,245,0.9)",
               textTransform: "uppercase",
               textAlign: "right",
@@ -68,6 +81,7 @@ export default function OpengraphImage() {
             alignItems: "center",
             justifyContent: "center",
             flex: 1,
+            marginTop: -40,
           }}
         >
           <div
@@ -75,26 +89,28 @@ export default function OpengraphImage() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              position: "relative",
             }}
           >
             <div
               style={{
-                fontSize: 160,
+                fontSize: 180,
                 fontWeight: 900,
-                letterSpacing: -6,
-                lineHeight: 0.85,
+                letterSpacing: -8,
+                lineHeight: 0.78,
                 textTransform: "uppercase",
                 textAlign: "center",
+                color: "#F5F5F5",
               }}
             >
               OREENZA
             </div>
             <div
               style={{
-                fontSize: 72,
+                fontSize: 80,
                 fontWeight: 400,
                 fontStyle: "italic",
-                marginTop: -20,
+                marginTop: -10,
                 color: "#000000",
               }}
             >
@@ -103,17 +119,51 @@ export default function OpengraphImage() {
           </div>
         </div>
 
+        {/* Side labels */}
+        <div
+          style={{
+            position: "absolute",
+            left: 24,
+            top: "50%",
+            fontSize: 14,
+            letterSpacing: 4,
+            color: "rgba(245,245,245,0.8)",
+            textTransform: "uppercase",
+            whiteSpace: "nowrap",
+            transform: "rotate(-90deg) translateX(-50%)",
+            transformOrigin: "left center",
+          }}
+        >
+          OREENZA
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            right: 24,
+            top: "50%",
+            fontSize: 14,
+            letterSpacing: 4,
+            color: "rgba(245,245,245,0.8)",
+            textTransform: "uppercase",
+            whiteSpace: "nowrap",
+            transform: "rotate(90deg) translateX(50%)",
+            transformOrigin: "right center",
+          }}
+        >
+          DESIGNING WEBSITES
+        </div>
+
         {/* Bottom tagline */}
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            paddingBottom: 60,
+            paddingBottom: 70,
           }}
         >
           <div
             style={{
-              fontSize: 20,
+              fontSize: 24,
               fontWeight: 500,
               letterSpacing: 4,
               textTransform: "uppercase",
@@ -136,29 +186,43 @@ export default function OpengraphImage() {
           <div
             style={{
               display: "flex",
-              gap: 12,
-              fontSize: 14,
-              letterSpacing: 3,
-              color: "rgba(245,245,245,0.7)",
+              flexDirection: "column",
+              fontSize: 16,
+              fontWeight: 500,
+              letterSpacing: 1,
+              lineHeight: 1.2,
               textTransform: "uppercase",
             }}
           >
-            <span>Brand</span>
-            <span>·</span>
-            <span>Web</span>
-            <span>·</span>
-            <span>AI</span>
-            <span>·</span>
-            <span>SEO</span>
+            <span>OREENZA</span>
+            <span>AGENCY</span>
           </div>
           <div
             style={{
-              fontSize: 14,
-              fontWeight: 600,
-              letterSpacing: 1,
+              display: "flex",
+              flexDirection: "column",
+              fontSize: 32,
+              fontWeight: 800,
+              letterSpacing: -1,
+              lineHeight: 1,
+              textTransform: "uppercase",
             }}
           >
-            oreenza.com
+            <span>hello@oreenza.com</span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              fontSize: 16,
+              letterSpacing: 1,
+              color: "rgba(245,245,245,0.9)",
+              textTransform: "uppercase",
+              textAlign: "right",
+            }}
+          >
+            <span>AI-POWERED</span>
+            <span>DESIGN &amp; DEV</span>
           </div>
         </div>
       </div>
