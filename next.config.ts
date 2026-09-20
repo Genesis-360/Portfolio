@@ -34,7 +34,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   images: {
-    // All assets are local; the remotePatterns block was leftover scaffolding.
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [],
   },
   allowedDevOrigins: ["127.0.0.1", "localhost"],
