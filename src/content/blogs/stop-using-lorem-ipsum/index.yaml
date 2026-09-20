@@ -1,14 +1,46 @@
 title: Why We Stopped Using Lorem Ipsum (And What We Use Instead)
 excerpt: Placeholder copy trains your brain to ignore copy. Here's the system we use to write real content earlier, avoid expensive redesign cycles, and ship sites that actually sound like the brand.
+quickAnswer: Replace lorem ipsum with real content early in the design process. Use content-first wireframing to test hierarchy and layout before visual design commits you to a structure that doesn't fit the actual copy.
+keyTakeaways:
+  - Write real content before finalizing design
+  - Use content-first wireframing
+  - Run a 30-minute content workshop at project start
+  - Define voice and direction early
+  - Include a content brief deliverable
 date: 2026-06-18
-author: OREENZA
-category: Insights
+updatedAt: 2026-09-20
+author: Siddhartha Kunwar
+category: Web Design
+tags:
+  - content strategy
+  - design process
+  - UX writing
+  - copywriting
+searchIntent: lorem ipsum alternative design
 readingTime: 4 min read
 cover: ""
+oreenzaInsight: "Every project we've inherited that had a 'lorem ipsum problem' shared the same trajectory: design looks great with placeholder copy, client approves, real content arrives, design breaks, timeline explodes."
+relatedServices:
+  - Brand Strategy & Identity
+  - Web Design & UX
 content:
   - "Every project we've inherited that had a 'lorem ipsum problem' shared the same trajectory: design in Figma looks great with placeholder copy, client approves design, copywriter writes real content, content doesn't fit the design, design gets revised, copy gets revised to fit revised design, timeline explodes. Lorem ipsum defers the hard work and makes it more expensive when it finally arrives."
+  - "## The Problem with Placeholder Copy"
   - "The fix is to write real content before the design is finalised. Not perfect content — but real content. For a restaurant client, that means actual menu descriptions, real opening hours, genuine brand voice. For a SaaS client, that means actual feature descriptions written in the tone they'd use in a sales conversation, not marketing boilerplate."
+  - "## Content-First Wireframing"
   - "We use a technique we call 'content-first wireframing'. Before any visual design, we write the copy that needs to live on the page, then place it in a text-only wireframe to test hierarchy, length, and information architecture. The designer sees how the content actually reads — not how it looks — and can make structural decisions before any visual styling commits them."
+  - "## The 30-Minute Content Workshop"
   - "For client projects, we run a 30-minute content workshop at the start of every engagement. We ask three questions: Who are you talking to? What do they already know? What should they feel after reading this? The answers become the content brief. The brief becomes the copy. The copy becomes the design constraint. This is faster than the traditional flow and produces better results."
+  - "## Handling the 'We Don't Know What to Say Yet' Objection"
   - "The biggest objection is usually 'but we don't know what to say yet'. That's fine. The exercise isn't to finalise copy — it's to establish voice and direction so that when the final copy arrives, it fits the design rather than fighting it. A first draft written in a workshop is infinitely more useful than Lorem ipsum for making design decisions."
+  - "## The Content Brief Deliverable"
   - "We now include a content brief deliverable in every web design project scope. It's a two-page document that defines the voice, tone, content hierarchy, and key messages for each page. It's the document that makes copywriter handoffs smooth and prevents the final copy surprise that derails most redesigns."
+faq:
+  - q: Why is lorem ipsum bad for web design?
+    a: "Lorem ipsum trains your brain to ignore content. When real content arrives, it rarely fits the design, leading to expensive revision cycles."
+  - q: What should I use instead of lorem ipsum?
+    a: "Use real content early — even drafts. Write actual headlines, descriptions, and CTAs. They don't need to be perfect, but they need to be real."
+  - q: How does content-first wireframing work?
+    a: "Write the copy first, then place it in a text-only wireframe. This reveals how content actually reads and helps make structural decisions."
+  - q: What is a content brief?
+    a: "A 1-2 page document defining voice, tone, content hierarchy, and key messages for each page. It ensures copywriters and designers align."

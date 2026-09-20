@@ -1,15 +1,48 @@
 title: The Local SEO Checklist We Run for Every New Hospitality Client
 excerpt: Before we ever touch a design tool, we run this checklist. It's the foundation that determines whether the website we're building will actually get found.
+quickAnswer: Local SEO for hospitality requires claiming your Google Business Profile, ensuring NAP consistency across directories, adding schema markup, and fixing technical SEO fundamentals before designing the website.
+keyTakeaways:
+  - Claim and optimize Google Business Profile first
+  - Ensure NAP consistency across all directories
+  - Add LocalBusiness schema markup
+  - Fix Core Web Vitals before launch
+  - Submit XML sitemap to Google Search Console
+  - Respond to reviews within 24 hours
 date: 2026-05-30
-author: OREENZA
-category: SEO
+updatedAt: 2026-09-20
+author: Shivani Garg
+category: Website Performance
+tags:
+  - local SEO
+  - hospitality
+  - Google Business Profile
+  - schema markup
+  - technical SEO
+searchIntent: local seo checklist hospitality
 readingTime: 8 min read
 cover: ""
+oreenzaInsight: Most hospitality businesses don't have an SEO problem — they have an SEO foundations problem. The website is beautiful, and nobody can find it. We run this checklist before writing a single line of code.
+relatedServices:
+  - AI-Powered SEO
+  - AI Search Visibility
 content:
   - "Most hospitality businesses don't have an SEO problem — they have an SEO foundations problem. They haven't claimed their Google Business Profile correctly. Their NAP (Name, Address, Phone) is inconsistent across directories. They have no schema markup. They've never asked for a review. The website is beautiful, and nobody can find it."
-  - "We run this checklist before writing a single line of code. It's the work that determines whether the website we're building will be found — because a beautifully designed 404 page for a site nobody can find is not a business outcome."
-  - "Google Business Profile first. Claim it. Verify it. Fill in every field — not just the ones Google marks as required. Photos uploaded weekly. Posts every seven to ten days. Q&A populated with real questions and real answers. Reviews responded to within 24 hours. This is the foundation of local search visibility. If this is broken, nothing else matters."
-  - "NAP consistency is the second check. We audit every directory, citation, and social profile where the business name appears and verify that Name, Address, and Phone are identical in every instance. Even minor variations ('St.' vs 'Street', different phone number formats) dilute local ranking signals. This is tedious work. It's also the work that moves local rankings."
-  - "Schema markup is third. For restaurants, that means LocalBusiness schema with full address, opening hours, price range, and service options. For service-area businesses, that means Service schema with geographic coverage. For e-commerce, that means Product schema. Schema doesn't make pages rank — it helps search engines understand what the pages are about, which supports the signals that do rank them."
-  - "Technical SEO follows: Core Web Vitals (LCP under 2.5s, CLS under 0.1, INP under 200ms), HTTPS everywhere, XML sitemap submitted to Google Search Console, robots.txt not blocking important pages, canonical tags correct, hreflang correct if multi-language, and structured data validating without errors. These are table stakes — but they're more often missing than present on hospitality sites."
+  - "## Google Business Profile"
+  - "Claim it. Verify it. Fill in every field — not just the ones Google marks as required. Photos uploaded weekly. Posts every seven to ten days. Q&A populated with real questions and real answers. Reviews responded to within 24 hours. This is the foundation of local search visibility. If this is broken, nothing else matters."
+  - "## NAP Consistency"
+  - "We audit every directory, citation, and social profile where the business name appears and verify that Name, Address, and Phone are identical in every instance. Even minor variations ('St.' vs 'Street', different phone number formats) dilute local ranking signals. This is tedious work. It's also the work that moves local rankings."
+  - "## Schema Markup"
+  - "For restaurants, that means LocalBusiness schema with full address, opening hours, price range, and service options. For service-area businesses, that means Service schema with geographic coverage. Schema doesn't make pages rank — it helps search engines understand what the pages are about, which supports the signals that do rank them."
+  - "## Technical SEO"
+  - "Core Web Vitals (LCP under 2.5s, CLS under 0.1, INP under 200ms), HTTPS everywhere, XML sitemap submitted to Google Search Console, robots.txt not blocking important pages, canonical tags correct, hreflang correct if multi-language, and structured data validating without errors. These are table stakes — but they're more often missing than present on hospitality sites."
+  - "## The Foundation Before Design"
   - "Only after all of this is verified do we start designing. The website is the destination. Local SEO is the road that gets people there. Building the destination before building the road means you have a beautiful building that nobody can reach."
+faq:
+  - q: What is local SEO for hospitality?
+    a: "Local SEO optimizes your online presence to attract customers from local searches. For hospitality, this means appearing when people search for restaurants, cafes, or hotels near them."
+  - q: How important is Google Business Profile?
+    a: "It's the foundation of local search visibility. An optimized GBP with complete information, regular posts, and responsive review management is essential."
+  - q: What is NAP consistency?
+    a: "NAP stands for Name, Address, Phone. These must be identical across all online directories and citations."
+  - q: How long does local SEO take to show results?
+    a: "Initial improvements can appear in 2-4 weeks. Significant ranking improvements typically take 3-6 months."
