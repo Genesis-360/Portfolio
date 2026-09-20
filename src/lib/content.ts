@@ -53,12 +53,20 @@ export type BlogPost = {
   slug: string;
   title: string;
   excerpt: string;
+  quickAnswer: string;
+  keyTakeaways: string[];
   date: string;
+  updatedAt: string;
   author: string;
   category: string;
+  tags: string[];
+  searchIntent: string;
   readingTime: string;
   cover: string;
   content: string[];
+  oreenzaInsight: string;
+  relatedServices: string[];
+  faq: { q: string; a: string }[];
 };
 
 export type TeamMember = {
@@ -132,12 +140,20 @@ export async function getPosts(): Promise<BlogPost[]> {
       slug,
       title: post.title,
       excerpt: post.excerpt ?? "",
+      quickAnswer: post.quickAnswer ?? "",
+      keyTakeaways: [...(post.keyTakeaways ?? [])],
       date: post.date ?? "",
+      updatedAt: post.updatedAt ?? "",
       author: post.author ?? "OREENZA",
       category: post.category ?? "Insights",
+      tags: [...(post.tags ?? [])],
+      searchIntent: post.searchIntent ?? "",
       readingTime: post.readingTime ?? "5 min read",
       cover: post.cover ?? "",
       content: [...(post.content ?? [])],
+      oreenzaInsight: post.oreenzaInsight ?? "",
+      relatedServices: [...(post.relatedServices ?? [])],
+      faq: (post.faq ?? []).map((f) => ({ q: f.q, a: f.a })),
     }))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }

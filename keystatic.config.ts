@@ -131,9 +131,26 @@ export default config({
           multiline: true,
           description: "Shown on the blog index and in OG meta (1-2 sentences)",
         }),
+        quickAnswer: fields.text({
+          label: "Quick Answer",
+          multiline: true,
+          description: "2-4 sentence direct answer to the main query (shown at top)",
+        }),
+        keyTakeaways: fields.array(
+          fields.text({ label: "Takeaway" }),
+          {
+            label: "Key Takeaways",
+            description: "3-7 bullet points summarizing the article",
+            itemLabel: (props) => `${props.value.slice(0, 50)}…`,
+          },
+        ),
         date: fields.date({
           label: "Publish date",
           description: "Used to sort posts on the index",
+        }),
+        updatedAt: fields.date({
+          label: "Last updated date",
+          description: "Shows 'Updated' date if different from publish date",
         }),
         author: fields.text({
           label: "Author",
@@ -141,8 +158,20 @@ export default config({
         }),
         category: fields.text({
           label: "Category",
-          description: "e.g. 'Design', 'SEO', 'Performance', 'Insights'",
+          description: "e.g. 'Website Performance', 'Web Design', 'AI & Design', 'Development', 'Business'",
           defaultValue: "Insights",
+        }),
+        tags: fields.array(
+          fields.text({ label: "Tag" }),
+          {
+            label: "Tags",
+            description: "For internal content organization",
+            itemLabel: (props) => props.value,
+          },
+        ),
+        searchIntent: fields.text({
+          label: "Primary search intent",
+          description: "The main query this article targets, e.g. 'how to reduce bounce rate'",
         }),
         readingTime: fields.text({
           label: "Reading time",
@@ -158,8 +187,35 @@ export default config({
           fields.text({ label: "Paragraph", multiline: true }),
           {
             label: "Content",
-            description: "Each entry is a paragraph. Rendered verbatim on the post page.",
+            description: "Each entry is a paragraph. Use ## for H2, ### for H3, - for bullet points.",
             itemLabel: (props) => `${props.value.slice(0, 60)}…`,
+          },
+        ),
+        oreenzaInsight: fields.text({
+          label: "OREENZA Insight",
+          multiline: true,
+          description: "A key insight or opinion from OREENZA (shown in a highlight box)",
+        }),
+        relatedServices: fields.array(
+          fields.text({ label: "Service" }),
+          {
+            label: "Related services",
+            description: "Services to link to from this article",
+            itemLabel: (props) => props.value,
+          },
+        ),
+        faq: fields.array(
+          fields.object({
+            q: fields.text({ label: "Question" }),
+            a: fields.text({
+              label: "Answer",
+              multiline: true,
+            }),
+          }),
+          {
+            label: "FAQ",
+            description: "Optional — each Q&A is rendered as a collapsible item and emitted as FAQPage JSON-LD",
+            itemLabel: (props) => props.fields.q.value,
           },
         ),
       },
