@@ -47,5 +47,5 @@ services:
   - Brand Identity
   - Packaging
   - Web Design
-cover: /projects/sakura/sakura_home.webp
+cover: /projects/sakura/sakura_home.avif
 gallery: [/projects/sakura/sakura01.webp, /projects/sakura/sakura03.webp, /projects/sakura/sakura04.webp, /projects/sakura/sakura05.webp, /projects/sakura/sakura06.webp, /projects/sakura/sakura07.webp]
