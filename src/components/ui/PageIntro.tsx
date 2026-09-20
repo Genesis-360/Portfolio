@@ -17,7 +17,7 @@ export function PageIntro() {
     window.addEventListener("touchstart", skip, opts);
     // Hard fallback: guarantees the splash is removed even if rAF-driven
     // animation callbacks are throttled (background tabs, some headless runs).
-    const fallback = setTimeout(() => setDone(true), 1000);
+    const fallback = setTimeout(() => setDone(true), 2500);
     return () => {
       window.removeEventListener("pointerdown", skip);
       window.removeEventListener("keydown", skip);
@@ -50,7 +50,7 @@ export function PageIntro() {
         window.dispatchEvent(new CustomEvent("oreenza:intro-done"));
         setDone(true);
       }}
-      transition={{ duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 0.2 }}>
+      transition={{ duration: 0.5, ease: [0.83, 0, 0.17, 1], delay: 1.5 }}>
       <motion.div
         className="relative h-full w-full"
         initial={{ opacity: 0, scale: 0.992 }}
@@ -106,7 +106,7 @@ export function PageIntro() {
         <p className="absolute right-[3%] top-[34%] hidden rotate-90 sm:block font-body text-[18px] uppercase tracking-[0.12em] text-accent/95 ">
           DESIGNING
         </p>
-        <p className="absolute right-[6.5%] top-[56%] hidden font-body sm:block text-[18px] uppercase tracking-[0.12em] text-accent/95">
+        <p className="absolute right-[6.5%] top-[60%] hidden font-body sm:block text-[18px] uppercase tracking-[0.12em] text-accent/95">
           WEBSITES
         </p>
 
