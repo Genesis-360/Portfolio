@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Footer } from "@/components/sections/Footer";
 import { ServiceIcon } from "@/components/ui/ServiceIcons";
 import { CallToAction } from "@/components/sections/CallToAction";
+import { FaqSection } from "@/components/ui/FaqSection";
 import {
   getProjects,
   getService,
@@ -64,11 +65,13 @@ function ServiceDetailJsonLd({
   serviceName,
   description,
   sections,
+  faq,
 }: {
   slug: string;
   serviceName: string;
   description: string;
   sections: { heading: string; body: string }[];
+  faq: { q: string; a: string }[];
 }) {
   const url = `${siteUrl}/services/${slug}`;
 
@@ -104,6 +107,21 @@ function ServiceDetailJsonLd({
     },
   ];
 
+  // Add FAQ schema if FAQs exist
+  if (faq.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    });
+  }
+
   return (
     <script
       type="application/ld+json"
@@ -137,6 +155,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         serviceName={service.title}
         description={service.intro}
         sections={service.sections}
+        faq={service.faq ?? []}
       />
 
       <div className="lg:flex lg:items-start">
@@ -236,6 +255,21 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   </li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {/* FAQ Section */}
+          {service.faq && service.faq.length > 0 && (
+            <div className="container-edge">
+              <FaqSection
+                heading="Frequently asked questions"
+                description={`Everything you need to know about ${service.title.toLowerCase()}. Can't find the answer here? Reach out and we'll help.`}
+                faqs={service.faq.map((item, i) => ({
+                  id: `faq-${i}`,
+                  q: item.q,
+                  a: item.a,
+                }))}
+              />
             </div>
           )}
 
