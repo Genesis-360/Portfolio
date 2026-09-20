@@ -108,6 +108,10 @@ export function SideNavPanel({
     return () => {
       document.body.style.overflow = prev;
       document.removeEventListener("keydown", onKey);
+      // Blur any focused element inside the panel to avoid aria-hidden warning
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
     };
   }, [isOpen, close]);
 
@@ -164,7 +168,7 @@ export function SideNavPanel({
         {/* Body: [64px side rail | main nav + footer] */}
         <div className="flex flex-1 overflow-hidden">
           {/* Vertical side rail */}
-          <SideRail slotsOpen={slotsOpen} />
+          <SideRail slotsOpen={slotsOpen} forceVisible />
 
           {/* Nav + footer column */}
           <div className="flex min-w-0 flex-1 flex-col">

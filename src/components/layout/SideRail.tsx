@@ -5,9 +5,9 @@
  * Shows: vertical "Oreenza" wordmark (top), slots counter (bottom-mid), equalizer (bottom).
  * Hidden on small viewports — replaced by SideRailMobile in those cases.
  */
-export function SideRail({ slotsOpen }: { slotsOpen: number }) {
+export function SideRail({ slotsOpen, forceVisible = false }: { slotsOpen: number; forceVisible?: boolean }) {
   return (
-    <div className="relative hidden w-16 shrink-0 border-r border-cream/15 lg:block">
+    <div className={`relative w-16 shrink-0 border-r border-cream/15 ${forceVisible ? 'block' : 'hidden lg:block'}`}>
       <p className="absolute left-1/2 top-18 -translate-x-1/2 -rotate-90 whitespace-nowrap font-body text-2xl tracking-tight text-cream/60">
         Oreenza
       </p>
