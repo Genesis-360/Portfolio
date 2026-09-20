@@ -3,7 +3,7 @@ members:
     name: Siddhartha Kunwar
     role: Founder & Strategist
     bio: Leads creative strategy and client relationships. Shipped 40+ projects from brand identity to full web builds. Believes performance and aesthetics aren't opposites.
-    photo: ""
+    photo: "/team/siddhartha.avif"
     order: 1
     socials:
       - platform: linkedin
@@ -19,7 +19,7 @@ members:
     name: Janvi Singhal
     role: Co-Founder & Creative Head
     bio: Turns complex designs into pixel-perfect, accessible, and blazing-fast interfaces. Obsessed with Core Web Vitals and animation craft.
-    photo: ""
+    photo: "/team/janvi.avif"
     order: 2
     socials:
       - platform: linkedin
@@ -31,7 +31,7 @@ members:
     name: Gunjan
     role: Marketing & Finance Lead
     bio: Manages marketing campaigns and financial operations. Skilled in digital marketing, budgeting, and financial analysis. Ensures the agency's growth and profitability.
-    photo: ""
+    photo: "/team/gunjan.avif"
     order: 3
     socials:
       - platform: linkedin
@@ -55,7 +55,7 @@ members:
     name: Shivani Garg
     role: Senior SEO & Content Strategist
     bio: Creates brand identities that hold up at billboard scale and favicon scale. Every spacing decision is intentional.
-    photo: ""
+    photo: "/team/shivani.avif"
     order: 5
     socials:
       - platform: linkedin
@@ -69,7 +69,7 @@ members:
     name: Harsh Kunwar
     role: Motion Designer & 3D Animator
     bio: Bridges design and engineering through motion. Builds scroll-driven animations, micro-interactions, and GSAP sequences that make interfaces feel alive.
-    photo: ""
+    photo: "/team/harsh.avif"
     order: 6
     socials:
       - platform: linkedin

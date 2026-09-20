@@ -152,7 +152,11 @@ export async function getTeam(): Promise<TeamMember[]> {
     const filePath = join(process.cwd(), "src/content/team/index.yaml");
     const raw = readFileSync(filePath, "utf-8");
     const parsed = yaml(raw) as { members?: TeamMember[] };
-    return (parsed.members ?? []).sort((a, b) => a.order - b.order);
+    return (parsed.members ?? []).map((m) => ({
+      ...m,
+      // Normalize photo path: "./team/x.png" → "/team/x.png"
+      photo: m.photo ? m.photo.replace(/^\.\//, "/") : "",
+    })).sort((a, b) => a.order - b.order);
   } catch (err) {
     console.warn("[cms] failed to read team:", err);
     return [];

@@ -131,7 +131,7 @@ function PhotoCard({
       onMouseEnter={() => onHover(member.slug)}
       onMouseLeave={() => onHover(null)}
     >
-      {member.photo ? (
+      {member.photo && member.photo.trim() !== "" ? (
         <Image
           src={member.photo}
           alt={member.name}
@@ -192,7 +192,7 @@ function MemberRow({
         {/* Mobile: show avatar (photo or initials) to the left of name */}
         {isMobile && (
           <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md bg-cream/10 lg:hidden">
-            {member.photo ? (
+            {member.photo && member.photo.trim() !== "" ? (
               <Image
                 src={member.photo}
                 alt={member.name}
