@@ -30,6 +30,11 @@ function isValidEmail(s: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s) && s.length <= MAX_EMAIL_LENGTH;
 }
 
+function siteUrl(path: string): string {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://oreenza.com";
+  return `${base}${path}`;
+}
+
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL ?? "hello@oreenza.com";
@@ -74,84 +79,203 @@ export async function POST(request: Request) {
   const referer = request.headers.get("referer") ?? "oreenza.com";
   const ip = request.headers.get("x-forwarded-for") ?? "unknown";
   const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+  const wordmarkUrl = siteUrl("/wordmark.svg");
 
-  // Internal notification email
+  // ─── Internal notification email ───
   const internalHtml = `
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#f5f5f5;font-family:system-ui,-apple-system,sans-serif;">
-  <div style="max-width:600px;margin:40px auto;background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-    <div style="background:#F58327;padding:24px 32px;">
-      <h1 style="margin:0;color:#ffffff;font-size:20px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">New Project Enquiry</h1>
-    </div>
-    <div style="padding:32px;">
-      <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
-        <tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#666;font-size:13px;text-transform:uppercase;letter-spacing:1px;width:100px;">Name</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#000;font-size:15px;font-weight:600;">${name}</td></tr>
-        <tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#666;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Email</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#000;font-size:15px;"><a href="mailto:${email}" style="color:#F58327;text-decoration:none;">${email}</a></td></tr>
-        <tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#666;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Budget</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#000;font-size:15px;font-weight:600;">${budgetLabel}</td></tr>
-        <tr><td style="padding:12px 0;color:#666;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Date</td><td style="padding:12px 0;color:#000;font-size:15px;">${timestamp}</td></tr>
-      </table>
-      <h2 style="margin:0 0 12px 0;color:#333;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Message</h2>
-      <div style="padding:16px;background:#f9f9f9;border-radius:6px;border-left:3px solid #F58327;color:#333;font-size:15px;line-height:1.6;white-space:pre-wrap;">${message}</div>
-      <div style="margin-top:24px;padding-top:16px;border-top:1px solid #f0f0f0;font-size:12px;color:#999;">
-        <p style="margin:0 0 4px 0;">Page: ${referer}</p><p style="margin:0;">IP: ${ip}</p>
-      </div>
-    </div>
-    <div style="padding:16px 32px;background:#f9f9f9;text-align:center;">
-      <p style="margin:0;font-size:11px;color:#999;text-transform:uppercase;letter-spacing:1px;">Reply to this email to respond directly to ${name}</p>
-    </div>
-  </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>New Project Enquiry</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F5F5F5;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F5F5F5;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
+          
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#000000;padding:28px 32px;text-align:center;">
+              <img src="${wordmarkUrl}" alt="OREENZA" width="160" style="display:block;margin:0 auto 12px auto;height:24px;width:auto;" />
+              <p style="margin:0;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F58327;">New Project Enquiry</p>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td style="padding:32px;">
+              
+              <!-- Info Grid -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+                <tr>
+                  <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;width:90px;vertical-align:top;">Name</td>
+                  <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:15px;font-weight:600;color:#000000;">${name}</td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;vertical-align:top;">Email</td>
+                  <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:15px;"><a href="mailto:${email}" style="color:#F58327;text-decoration:none;font-weight:500;">${email}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;vertical-align:top;">Budget</td>
+                  <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:15px;font-weight:600;color:#000000;">${budgetLabel}</td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;vertical-align:top;">Date</td>
+                  <td style="padding:14px 0;font-size:15px;color:#333333;">${timestamp}</td>
+                </tr>
+              </table>
+
+              <!-- Message -->
+              <p style="margin:0 0 12px 0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;">Message</p>
+              <div style="padding:20px;background-color:#F5F5F5;border-radius:8px;border-left:3px solid #F58327;font-size:15px;line-height:1.7;color:#333333;white-space:pre-wrap;">${message}</div>
+
+              <!-- Meta -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:28px;padding-top:20px;border-top:1px solid #f0f0f0;">
+                <tr>
+                  <td style="font-size:12px;color:#999999;">Page: ${referer}</td>
+                  <td align="right" style="font-size:12px;color:#999999;">IP: ${ip}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#000000;padding:24px 32px;text-align:center;">
+              <p style="margin:0 0 8px 0;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F5F5F5;">Reply to respond to ${name}</p>
+              <p style="margin:0;font-size:10px;letter-spacing:1px;color:#F58327;">OREENZA · AI-Powered Design & Development</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>`;
 
-  // Auto-reply to customer
+  // ─── Auto-reply to customer ───
   const autoReplyHtml = `
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#f5f5f5;font-family:system-ui,-apple-system,sans-serif;">
-  <div style="max-width:600px;margin:40px auto;background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-    <div style="background:#F58327;padding:24px 32px;">
-      <h1 style="margin:0;color:#ffffff;font-size:20px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">We Got Your Message</h1>
-    </div>
-    <div style="padding:32px;">
-      <p style="margin:0 0 16px 0;color:#333;font-size:16px;line-height:1.6;">Hi <strong>${name}</strong>,</p>
-      <p style="margin:0 0 16px 0;color:#333;font-size:16px;line-height:1.6;">Thanks for reaching out to OREENZA. We've received your enquiry and our team will review it shortly.</p>
-      <p style="margin:0 0 24px 0;color:#333;font-size:16px;line-height:1.6;">We aim to respond within <strong>24 hours</strong> during business days. In the meantime, feel free to:</p>
-      
-      <div style="margin-bottom:24px;">
-        <a href="https://oreenza.com/book" style="display:inline-block;background:#F58327;color:#000000;text-decoration:none;padding:12px 24px;border-radius:6px;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Book a Discovery Call</a>
-      </div>
-      
-      <p style="margin:0 0 8px 0;color:#666;font-size:14px;line-height:1.6;">Your enquiry details:</p>
-      <div style="padding:16px;background:#f9f9f9;border-radius:6px;border-left:3px solid #F58327;color:#333;font-size:14px;line-height:1.6;">
-        <p style="margin:0 0 8px 0;"><strong>Budget:</strong> ${budgetLabel}</p>
-        <p style="margin:0;white-space:pre-wrap;">${message.slice(0, 200)}${message.length > 200 ? "..." : ""}</p>
-      </div>
-    </div>
-    <div style="padding:24px 32px;background:#f9f9f9;text-align:center;">
-      <p style="margin:0 0 8px 0;font-size:14px;color:#333;font-weight:600;">OREENZA</p>
-      <p style="margin:0 0 16px 0;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:1px;">AI-Powered Design & Development Agency</p>
-      <p style="margin:0;font-size:11px;color:#999;">hello@oreenza.com · oreenza.com</p>
-    </div>
-  </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>We received your enquiry</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F5F5F5;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F5F5F5;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
+          
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#000000;padding:32px;text-align:center;">
+              <img src="${wordmarkUrl}" alt="OREENZA" width="180" style="display:block;margin:0 auto;height:28px;width:auto;" />
+            </td>
+          </tr>
+
+          <!-- Accent Bar -->
+          <tr>
+            <td style="background-color:#F58327;height:4px;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td style="padding:40px 32px;">
+              
+              <p style="margin:0 0 20px 0;font-size:17px;line-height:1.7;color:#333333;">Hi <strong style="color:#000000;">${name}</strong>,</p>
+              
+              <p style="margin:0 0 20px 0;font-size:17px;line-height:1.7;color:#333333;">Thanks for reaching out to OREENZA. We've received your enquiry and our team will review it shortly.</p>
+              
+              <p style="margin:0 0 32px 0;font-size:17px;line-height:1.7;color:#333333;">We aim to respond within <strong style="color:#000000;">24 hours</strong> during business days.</p>
+
+              <!-- CTA Button -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 32px auto;">
+                <tr>
+                  <td style="background-color:#F58327;border-radius:8px;">
+                    <a href="${siteUrl("/book")}" target="_blank" style="display:inline-block;padding:16px 36px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#000000;text-decoration:none;">Book a Discovery Call</a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Divider -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+                <tr><td style="border-top:1px solid #f0f0f0;font-size:0;line-height:0;height:1px;">&nbsp;</td></tr>
+              </table>
+
+              <!-- Enquiry Summary -->
+              <p style="margin:0 0 12px 0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;">Your enquiry</p>
+              <div style="padding:20px;background-color:#F5F5F5;border-radius:8px;border-left:3px solid #F58327;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td style="padding:0 0 10px 0;font-size:13px;color:#999999;letter-spacing:1px;text-transform:uppercase;">Budget</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:0 0 14px 0;font-size:15px;font-weight:600;color:#000000;">${budgetLabel}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:0 0 10px 0;font-size:13px;color:#999999;letter-spacing:1px;text-transform:uppercase;">Message</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:15px;line-height:1.7;color:#333333;white-space:pre-wrap;">${message.slice(0, 300)}${message.length > 300 ? "..." : ""}</td>
+                  </tr>
+                </table>
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#000000;padding:32px;text-align:center;">
+              <img src="${wordmarkUrl}" alt="OREENZA" width="120" style="display:block;margin:0 auto 16px auto;height:18px;width:auto;opacity:0.9;" />
+              <p style="margin:0 0 8px 0;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F5F5F5;">AI-Powered Design & Development</p>
+              <p style="margin:0 0 20px 0;font-size:13px;color:#F58327;">
+                <a href="mailto:hello@oreenza.com" style="color:#F58327;text-decoration:none;">hello@oreenza.com</a>
+                <span style="color:#F5F5F5;margin:0 8px;">·</span>
+                <a href="${siteUrl("/")}" style="color:#F58327;text-decoration:none;">oreenza.com</a>
+              </p>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+                <tr>
+                  <td style="padding:0 6px;"><a href="https://instagram.com/oreenza" target="_blank" style="color:#F5F5F5;text-decoration:none;font-size:12px;">Instagram</a></td>
+                  <td style="color:#F5F5F5;font-size:12px;">·</td>
+                  <td style="padding:0 6px;"><a href="https://linkedin.com/company/oreenza" target="_blank" style="color:#F5F5F5;text-decoration:none;font-size:12px;">LinkedIn</a></td>
+                  <td style="color:#F5F5F5;font-size:12px;">·</td>
+                  <td style="padding:0 6px;"><a href="https://x.com/oreenza" target="_blank" style="color:#F5F5F5;text-decoration:none;font-size:12px;">Twitter</a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>`;
 
   const autoReplyText = [
-    `Hi ${name},`,
+    "Hi " + name + ",",
     "",
     "Thanks for reaching out to OREENZA. We've received your enquiry and our team will review it shortly.",
     "",
     "We aim to respond within 24 hours during business days.",
     "",
-    "Book a discovery call: https://oreenza.com/book",
+    "Book a discovery call: " + siteUrl("/book"),
     "",
-    "Your enquiry details:",
-    `Budget: ${budgetLabel}`,
+    "Your enquiry:",
+    "Budget: " + budgetLabel,
     "",
-    message.slice(0, 200) + (message.length > 200 ? "..." : ""),
+    message.slice(0, 300) + (message.length > 300 ? "..." : ""),
     "",
     "—",
     "OREENZA",
@@ -159,7 +283,6 @@ export async function POST(request: Request) {
     "hello@oreenza.com · oreenza.com",
   ].join("\n");
 
-  // Send internal notification
   const { error: internalError } = await resend.emails.send({
     from,
     to,
@@ -168,7 +291,6 @@ export async function POST(request: Request) {
     html: internalHtml,
   });
 
-  // Send auto-reply to customer
   await resend.emails.send({
     from,
     to: email,
