@@ -102,7 +102,7 @@ export async function POST(request: Request) {
           <tr>
             <td style="background-color:#000000;padding:28px 32px;text-align:center;">
               <img src="${wordmarkUrl}" alt="OREENZA" width="160" style="display:block;margin:0 auto 12px auto;height:24px;width:auto;" />
-              <p style="margin:0;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F58327;">New Project Enquiry</p>
+              <p style="margin:0;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#f63b05;">New Project Enquiry</p>
             </td>
           </tr>
 
@@ -118,7 +118,7 @@ export async function POST(request: Request) {
                 </tr>
                 <tr>
                   <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;vertical-align:top;">Email</td>
-                  <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:15px;"><a href="mailto:${email}" style="color:#F58327;text-decoration:none;font-weight:500;">${email}</a></td>
+                  <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:15px;"><a href="mailto:${email}" style="color:#f63b05;text-decoration:none;font-weight:500;">${email}</a></td>
                 </tr>
                 <tr>
                   <td style="padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;vertical-align:top;">Budget</td>
@@ -148,7 +148,7 @@ export async function POST(request: Request) {
           <tr>
             <td style="background-color:#000000;padding:24px 32px;text-align:center;">
               <p style="margin:0 0 8px 0;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F5F5F5;">Reply to respond to ${name}</p>
-              <p style="margin:0;font-size:10px;letter-spacing:1px;color:#F58327;">OREENZA · AI-Powered Design & Development</p>
+              <p style="margin:0;font-size:10px;letter-spacing:1px;color:#f63b05;">OREENZA · Performance-first Creative Agency</p>
             </td>
           </tr>
 
@@ -185,7 +185,7 @@ export async function POST(request: Request) {
 
           <!-- Accent Bar -->
           <tr>
-            <td style="background-color:#F58327;height:4px;font-size:0;line-height:0;">&nbsp;</td>
+            <td style="background-color:#f63b05;height:4px;font-size:0;line-height:0;">&nbsp;</td>
           </tr>
 
           <!-- Content -->
@@ -201,8 +201,8 @@ export async function POST(request: Request) {
               <!-- CTA Button -->
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 32px auto;">
                 <tr>
-                  <td style="background-color:#F58327;border-radius:8px;">
-                    <a href="${siteUrl("/book")}" target="_blank" style="display:inline-block;padding:16px 36px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#000000;text-decoration:none;">Book a Discovery Call</a>
+                  <td style="background-color:#f63b05;border-radius:8px;">
+                    <a href="https://cal.com/oreenza/discovery-call" target="_blank" style="display:inline-block;padding:16px 36px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#000000;text-decoration:none;">Book a Discovery Call</a>
                   </td>
                 </tr>
               </table>
@@ -214,19 +214,19 @@ export async function POST(request: Request) {
 
               <!-- Enquiry Summary -->
               <p style="margin:0 0 12px 0;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999999;">Your enquiry</p>
-              <div style="padding:20px;background-color:#F5F5F5;border-radius:8px;border-left:3px solid #F58327;">
+              <div style="padding:20px;background-color:#F5F5F5;border-radius:8px;border-left:3px solid #f63b05;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td style="padding:0 0 10px 0;font-size:13px;color:#999999;letter-spacing:1px;text-transform:uppercase;">Budget</td>
                   </tr>
                   <tr>
-                    <td style="padding:0 0 14px 0;font-size:15px;font-weight:600;color:#000000;">${budgetLabel}</td>
+                    <td style="padding:0 0 14px 0;font-size:15px;font-weight:600;color:#fffae5;">${budgetLabel}</td>
                   </tr>
                   <tr>
                     <td style="padding:0 0 10px 0;font-size:13px;color:#999999;letter-spacing:1px;text-transform:uppercase;">Message</td>
                   </tr>
                   <tr>
-                    <td style="font-size:15px;line-height:1.7;color:#333333;white-space:pre-wrap;">${message.slice(0, 300)}${message.length > 300 ? "..." : ""}</td>
+                    <td style="font-size:15px;line-height:1.7;color:#fffae5;white-space:pre-wrap;">${message.slice(0, 300)}${message.length > 300 ? "..." : ""}</td>
                   </tr>
                 </table>
               </div>
@@ -234,23 +234,28 @@ export async function POST(request: Request) {
             </td>
           </tr>
 
+          <!-- Accent Bar -->
+          <tr>
+            <td style="background-color:#f63b05;height:4px;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+
           <!-- Footer -->
           <tr>
             <td style="background-color:#000000;padding:32px;text-align:center;">
               <img src="${wordmarkUrl}" alt="OREENZA" width="120" style="display:block;margin:0 auto 16px auto;height:18px;width:auto;opacity:0.9;" />
-              <p style="margin:0 0 8px 0;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F5F5F5;">AI-Powered Design & Development</p>
-              <p style="margin:0 0 20px 0;font-size:13px;color:#F58327;">
-                <a href="mailto:hello@oreenza.com" style="color:#F58327;text-decoration:none;">hello@oreenza.com</a>
-                <span style="color:#F5F5F5;margin:0 8px;">·</span>
-                <a href="${siteUrl("/")}" style="color:#F58327;text-decoration:none;">oreenza.com</a>
+              <p style="margin:0 0 8px 0;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fffae5;">Performance-first Creative Agency</p>
+              <p style="margin:0 0 20px 0;font-size:13px;color:#f63b05;">
+                <a href="mailto:hello@oreenza.com" style="color:#f63b05;text-decoration:none;">hello@oreenza.com</a>
+                <span style="color:#fffae5;margin:0 8px;">·</span>
+                <a href="${siteUrl("/")}" style="color:#f63b05;text-decoration:none;">oreenza.com</a>
               </p>
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
                 <tr>
-                  <td style="padding:0 6px;"><a href="https://instagram.com/oreenza" target="_blank" style="color:#F5F5F5;text-decoration:none;font-size:12px;">Instagram</a></td>
-                  <td style="color:#F5F5F5;font-size:12px;">·</td>
-                  <td style="padding:0 6px;"><a href="https://linkedin.com/company/oreenza" target="_blank" style="color:#F5F5F5;text-decoration:none;font-size:12px;">LinkedIn</a></td>
-                  <td style="color:#F5F5F5;font-size:12px;">·</td>
-                  <td style="padding:0 6px;"><a href="https://x.com/oreenza" target="_blank" style="color:#F5F5F5;text-decoration:none;font-size:12px;">Twitter</a></td>
+                  <td style="padding:0 6px;"><a href="https://instagram.com/oreenza_agency" target="_blank" style="color:#fffae5;text-decoration:none;font-size:12px;">Instagram</a></td>
+                  <td style="color:#fffae5;font-size:12px;">·</td>
+                  <td style="padding:0 6px;"><a href="https://linkedin.com/company/oreenza" target="_blank" style="color:#fffae5;text-decoration:none;font-size:12px;">LinkedIn</a></td>
+                  <td style="color:#fffae5;font-size:12px;">·</td>
+                  <td style="padding:0 6px;"><a href="https://x.com/oreenza" target="_blank" style="color:#fffae5;text-decoration:none;font-size:12px;">Twitter</a></td>
                 </tr>
               </table>
             </td>
@@ -270,7 +275,7 @@ export async function POST(request: Request) {
     "",
     "We aim to respond within 24 hours during business days.",
     "",
-    "Book a discovery call: " + siteUrl("/book"),
+    "Book a discovery call: https://cal.com/oreenza/discovery-call",
     "",
     "Your enquiry:",
     "Budget: " + budgetLabel,
@@ -279,8 +284,8 @@ export async function POST(request: Request) {
     "",
     "—",
     "OREENZA",
-    "AI-Powered Design & Development Agency",
-    "hello@oreenza.com · oreenza.com",
+    "Performance-first Creative Agency",
+    "hello@oreenza.com · https://oreenza.com",
   ].join("\n");
 
   const { error: internalError } = await resend.emails.send({
