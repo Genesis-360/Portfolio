@@ -73,7 +73,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     email: site.email,
     telephone: site.phone,
     description:
-      "An independent design & development studio building brands, websites, products and motion for ambitious teams.",
+      "An AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams.",
     logo: {
       "@type": "ImageObject",
       url: `${siteUrl}/wordmark.svg`,

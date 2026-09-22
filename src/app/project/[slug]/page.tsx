@@ -43,7 +43,7 @@ export async function generateMetadata({
       type: "article",
       images: [
         {
-          url: project.cover,
+          url: absoluteUrl(project.cover),
           width: 1200,
           height: 630,
           alt: `${project.title} — case study cover`,
@@ -54,6 +54,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${project.title} case study`,
       description: caseDescription,
+      images: [absoluteUrl(project.cover)],
     },
   };
 }

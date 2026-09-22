@@ -23,9 +23,13 @@ members:
     order: 2
     socials:
       - platform: linkedin
-        url: "https://linkedin.com"
-      - platform: github
-        url: "https://github.com"
+        url: "https://www.linkedin.com/in/janvibuilds/"
+      - platform: twitter
+        url: "https://x.com/janvibuilds"
+      - platform: instagram
+        url: "https://instagram.com/janvibuilds"
+      - platform: link
+        url: "https://x0lg0n.framer.website/"
 
   - slug: Gunjan
     name: Gunjan

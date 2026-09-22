@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { absoluteUrl } from "@/lib/url";
 
 type ProjectMeta = {
   slug: string;
@@ -38,7 +39,7 @@ export function caseStudyMetadata(project: ProjectMeta): Metadata {
       siteName: "OREENZA",
       images: [
         {
-          url: project.cover,
+          url: absoluteUrl(project.cover),
           width: 1200,
           height: 630,
           alt: `${project.title} — case study cover`,
@@ -49,7 +50,7 @@ export function caseStudyMetadata(project: ProjectMeta): Metadata {
       card: "summary_large_image",
       title: `${project.title} case study`,
       description: fullDescription,
-      images: [project.cover],
+      images: [absoluteUrl(project.cover)],
     },
   };
 }
