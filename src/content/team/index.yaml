@@ -43,7 +43,7 @@ members:
     name: Manvi Singhal
     role: Senior Digital Marketing & SEO Specialist
     bio: Optimizes websites for search engines and users. Specializes in technical SEO, content strategy, and analytics. She ensures that websites rank high and perform well.
-    photo: ""
+    photo: "/team/manvi.avif"
     order: 4
     socials:
       - platform: linkedin
