@@ -36,6 +36,15 @@ metrics:
   - label: Sessions per user per week
     value: +95%
     context: average weekly active sessions in the first 90 days
+testimonial:
+  quote: >-
+    Users were arriving, tapping a few things, and leaving — retention was
+    under 12% and nobody understood what to do next. OREENZA redesigned
+    the whole experience around explore and share, and suddenly people
+    come back on their own. Day-30 retention is up 340%, and the product
+    finally feels as alive as the community around it.
+  author: Alex Rivera
+  role: Co-Founder
 intro: >-
   A vibrant and engaging platform for food enthusiasts to discover and share culinary experiences.
 description:

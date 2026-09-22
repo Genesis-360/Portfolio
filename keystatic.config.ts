@@ -87,6 +87,25 @@ export default config({
             itemLabel: (props) => props.fields.label.value,
           },
         ),
+        testimonial: fields.object(
+          {
+            quote: fields.text({
+              label: "Quote",
+              multiline: true,
+              description: "What the project owner says about working with OREENZA on this project",
+            }),
+            author: fields.text({ label: "Author name" }),
+            role: fields.text({
+              label: "Role",
+              description: "e.g. Founder, Owner, CEO",
+            }),
+          },
+          {
+            label: "Client testimonial",
+            description:
+              "Optional — one quote from the project owner, shown after measurable results. Company name uses the Client field.",
+          },
+        ),
         intro: fields.text({
           label: "Intro",
           multiline: true,

@@ -36,6 +36,15 @@ metrics:
   - label: Brand search volume
     value: +85%
     context: branded Google searches in the first 90 days
+testimonial:
+  quote: >-
+    We went from a single static page with no reservations to a site that
+    books tables for us every night. OREENZA understood that our craft had
+    to show up online before anyone walks in — the reservation requests
+    tripled in the first 60 days, and guests now arrive already knowing
+    what makes us different.
+  author: Yuki Tanaka
+  role: Owner
 intro: >-
   A modern sushi experience with a focus on quality and authenticity.
 description:

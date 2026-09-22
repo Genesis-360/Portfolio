@@ -34,6 +34,15 @@ metrics:
   - label: Repeat customer rate
     value: 68%
     context: customers who ordered more than once in 60 days post-launch
+testimonial:
+  quote: >-
+    We were losing dinner orders to the big delivery apps with a
+    three-year-old chalkboard menu. OREENZA gave us a voice people
+    remember and a site that gets out of the way of the food — direct
+    orders jumped 220% in the first month, and we finally own the
+    relationship with our regulars again.
+  author: James Walker
+  role: Owner
 intro: >-
   A warm, appetite-first rebrand for a neighbourhood favourite.
 description:

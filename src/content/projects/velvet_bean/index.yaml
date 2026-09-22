@@ -34,6 +34,15 @@ metrics:
   - label: Average order value
     value: +35%
     context: direct site orders vs. prior wholesale-only revenue
+testimonial:
+  quote: >-
+    We had no direct-to-consumer channel and packaging that looked like every
+    other roaster. OREENZA built a brand world that tells our farm-to-cup
+    story at a glance and a site that actually sells subscriptions —
+    signups grew over 4× in 90 days, and wholesale partners started
+    reaching out to us for a change.
+  author: Emma Hartley
+  role: Founder
 intro: >-
   A quiet, grounded brand world for a specialty coffee roastery.
 description:

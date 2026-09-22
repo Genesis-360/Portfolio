@@ -35,6 +35,15 @@ metrics:
   - label: Direct and branded search traffic
     value: +310%
     context: organic visits from branded queries in 90 days post-launch
+testimonial:
+  quote: >-
+    We were paying three times the industry average for ads because our
+    old Shopify theme made us look like every other supplement brand.
+    OREENZA shaped a calm, confident identity and a site that earns trust
+    before asking for anything — bounce rate dropped 44%, and branded
+    search is up over 300% because people finally remember us.
+  author: Claire Donovan
+  role: Founder
 intro: >-
   A confident identity and website for a modern wellness brand finding its
   voice.
