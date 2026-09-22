@@ -7,12 +7,14 @@ import { Footer } from "@/components/sections/Footer";
 import { ServiceIcon } from "@/components/ui/ServiceIcons";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { FaqSection } from "@/components/ui/FaqSection";
+import TestimonialsEditorial from "@/components/ui/TestimonialsEditorial";
 import {
   getProjects,
   getService,
   getServices,
   getSite,
 } from "@/lib/content";
+import { getServiceTestimonials } from "@/lib/service-testimonials";
 import { siteUrl } from "@/lib/url";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -257,6 +259,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </ul>
             </div>
           )}
+
+          {/* Testimonials — service-relevant social proof */}
+          <div className="container-edge mt-16 lg:mt-24">
+            <TestimonialsEditorial
+              testimonials={getServiceTestimonials(slug)}
+              heading="Clients who shipped with us."
+              description={`Real outcomes from teams that trusted OREENZA for ${service.title.toLowerCase()}.`}
+            />
+          </div>
 
           {/* FAQ Section */}
           {service.faq && service.faq.length > 0 && (
