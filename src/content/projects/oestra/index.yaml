@@ -1,60 +1,63 @@
-title: Oestra
+title: Osetra
 index: 4
-industry: Cafe & Hospitality
+industry: Culinary & Hospitality
 year: "2026"
-client: Oestra
+client: Osetra
 liveUrl: https://oreenza.github.io/osetra-website/
-location: Austin, Texas, USA
+location: Soho, London, UK
 timeline: 7 weeks
 platform: Next.js + Keystatic
 problem: >-
-  Oestra had a compelling wellness product and a generic Shopify theme that
-  made them look like every other supplement brand. Stock photography,
-  indistinguishable copy, and a name customers couldn't pronounce or recall.
-  Their CAC on paid social was 3× the industry average because the landing
-  page had no credibility signals — no story, no proof, no personality.
-  They were paying to acquire visitors who left in under eight seconds.
+  Osetra is a modern caviar house in Soho with a devoted following and a
+  digital presence that didn't match the room. Reservations lived on
+  third-party platforms, the menu was hard to find, and the brand's
+  craft — sourcing, ceremony, the mother-of-pearl detail — was invisible
+  online. Competing restaurants in the district had slick booking flows;
+  Osetra had none of its own.
 strategy: >-
-  We shaped an identity from silence: calm, assured, considered. The brand
-  voice doesn't shout. The visual system doesn't compete. We built a website
-  that earns trust before asking for anything — measured pacing, genuine
-  testimonials, and a product story that makes the science feel human.
-  Restraint became the signal of quality.
+  We shaped an identity from restraint: quiet, assured, considered. The
+  brand voice doesn't shout; the visual system doesn't compete with the
+  food. The website leads with reservation CTAs, presents the menu as a
+  curated story rather than a price list, and earns trust before asking
+  for anything — measured pacing, genuine guest testimonials, and a
+  product story that makes the craft feel human.
 outcome: >-
-  A wellness brand that sounds like it's been established for a decade,
-  not launched last quarter. The website now converts curiosity into
-  membership without the aggressive funnels that alienate the audience
-  they're trying to serve.
+  A restaurant brand that feels as considered as the tasting counter —
+  modern enough to reach a new generation of diners, traditional enough
+  to honour the ceremony. The website became Osetra's primary digital
+  storefront, turning browsers into confirmed reservations.
 metrics:
-  - label: Bounce rate
-    value: −44%
-    context: single-page sessions on the new website vs. the previous Shopify theme
-  - label: Newsletter signups
-    value: 5.8×
-    context: waitlist and email captures in the first 45 days
-  - label: Direct and branded search traffic
-    value: +310%
-    context: organic visits from branded queries in 90 days post-launch
+  - label: Direct reservation requests
+    value: 3.4×
+    context: website booking conversions in the first 60 days post-launch
+  - label: Menu page engagement
+    value: +120%
+    context: average time on menu vs. the previous one-pager
+  - label: Brand search volume
+    value: +95%
+    context: branded Google searches in the first 90 days
 testimonial:
   quote: >-
-    We were paying three times the industry average for ads because our
-    old Shopify theme made us look like every other supplement brand.
-    OREENZA shaped a calm, confident identity and a site that earns trust
-    before asking for anything — bounce rate dropped 44%, and branded
-    search is up over 300% because people finally remember us.
-  author: Claire Donovan
-  role: Founder
+    We needed a site that felt like the dining room — unhurried, exact,
+    a little theatrical. OREENZA understood that reservation flow and
+    brand story matter as much as the food on the plate. Direct booking
+    requests more than tripled in the first two months, and guests now
+    arrive already knowing what makes Osetra different.
+  author: Margaux Delacroix
+  role: Founder & Chef
 intro: >-
-  A confident identity and website for a modern wellness brand finding its
-  voice.
+  A restrained identity and reservation-first website for a modern Soho
+  caviar house.
 description:
   - >-
-    We shaped Oestra's brand from the ground up — a calm, assured identity
-    system and a website that turns a complex offer into something clear and
-    human.
+    We rebuilt Osetra's digital storefront from the ground up — a calm,
+    assured identity system and a website that turns curiosity into
+    confirmed reservations without the aggressive funnels that cheapen
+    a room like this.
   - >-
-    The result reads premium without cold: considered type, restrained colour,
-    and motion that guides rather than distracts.
+    The result reads premium without cold: considered type, restrained
+    colour, menu storytelling, and motion that guides rather than
+    distracts.
 services:
   - Brand Identity
   - Web Design

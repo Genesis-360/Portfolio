@@ -1,7 +1,5 @@
 "use client";
 
-import { CallToAction } from "@/components/sections/CallToAction";
-
 type CaseStudyProps = {
   project: {
     client: string;
@@ -56,7 +54,7 @@ export function CaseStudy({ project }: CaseStudyProps) {
         <div className="rounded-sm border border-cream/10 bg-cream/3 p-5">
           <p className="text-[0.65rem] uppercase tracking-[0.25em] text-cream/45">Services</p>
           <p className="mt-1 font-body text-lg font-bold text-cream leading-tight">
-            {services.slice(0, 2).join(", ")}
+            {services.join(", ")}
           </p>
         </div>
       </div>
@@ -155,16 +153,6 @@ export function CaseStudy({ project }: CaseStudyProps) {
           </div>
         </figure>
       )}
-
-      {/* ── CTA ── */}
-      <CallToAction
-        eyebrow="Your move"
-        heading="Ready for your own case study?"
-        body="Every project at Oreenza starts with a conversation about the problem before we ever touch a design tool."
-        primaryLabel="Book a discovery call"
-        primaryHref="https://cal.com/oreenza/discovery-call"
-        secondaryLabel="See what we do"
-      />
     </section>
   );
 }

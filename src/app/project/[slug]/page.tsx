@@ -5,6 +5,7 @@ import { getNextProject, getProject, getProjects, getSite } from "@/lib/content"
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Reveal, RevealMedia } from "@/components/ui/Reveal";
 import { CaseStudy } from "@/components/ui/CaseStudy";
+import { CallToAction } from "@/components/sections/CallToAction";
 import { caseStudyMetadata } from "@/components/ui/caseStudyMetadata";
 import { PiArrowRightBold } from "react-icons/pi";
 import { absoluteUrl } from "@/lib/url";
@@ -77,8 +78,8 @@ export default async function ProjectPage({
     headline: project.title,
     description: project.intro?.trim() || project.description.join(" ").slice(0, 160),
     image: [
-      project.cover,
-      ...(project.gallery ?? []),
+      absoluteUrl(project.cover),
+      ...project.gallery.map((src) => absoluteUrl(src)),
     ],
     datePublished,
     dateModified: datePublished,
@@ -88,7 +89,7 @@ export default async function ProjectPage({
     publisher: {
       "@type": "Organization",
       name: "OREENZA",
-      logo: { "@type": "ImageObject", url: "/logo.svg" },
+      logo: { "@type": "ImageObject", url: absoluteUrl("/logo.svg") },
     },
     about: {
       "@type": "Service",
@@ -186,6 +187,18 @@ export default async function ProjectPage({
             ))}
           </div>
 
+          {/* CTA — after the work, before next project */}
+          <div className="container-edge mt-10 py-10 lg:py-14">
+            <CallToAction
+              eyebrow="Your move"
+              heading="Ready for your own case study?"
+              body="Every project at Oreenza starts with a conversation about the problem before we ever touch a design tool."
+              primaryLabel="Book a discovery call"
+              primaryHref="https://cal.com/oreenza/discovery-call"
+              secondaryLabel="See what we do"
+            />
+          </div>
+
           {/* Next project */}
           <Link
             href={`/project/${next.slug}`}
@@ -197,10 +210,7 @@ export default async function ProjectPage({
               Next project
             </span>
             <span className="font-anton text-xl uppercase tracking-[0.04em] text-cream transition-colors duration-300 group-hover:text-accent">
-              {next.title}
-              <span className="ml-0.5 align-super font-body text-[0.5em] font-bold text-cream/50">
-                ™
-              </span>{" "}
+              {next.title}{" "}
               <PiArrowRightBold className="ml-2 inline-block text-xl text-cream/50 transition-colors duration-300 group-hover:text-accent" />
             </span>
           </Link>
