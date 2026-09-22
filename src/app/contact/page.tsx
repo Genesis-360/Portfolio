@@ -182,15 +182,16 @@ export default async function ContactPage() {
         {/* Form + details */}
         <section className="container-edge grid grid-cols-1 gap-12 border-t border-cream/10 pb-20 pt-16 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
-            <Reveal className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-cream/45">
+            <Reveal className="mb-8 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.3em] text-cream/45">
               <span className="h-px w-10 bg-accent" />
-              Prefer to write?
+              Start a project
+              <span className="h-px w-10 bg-accent" />
             </Reveal>
 
             <MaskText
               as="h2"
-              className="font-anton text-[clamp(2rem,5vw,3.6rem)] uppercase leading-[0.9] tracking-tight text-cream">
-              Send a message.
+              className="text-center font-anton text-[clamp(2rem,5vw,3.6rem)] uppercase leading-[0.9] tracking-tight text-cream">
+              Tell us what you&apos;re building.
             </MaskText>
 
             <div className="mt-10">
