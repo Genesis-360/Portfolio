@@ -87,7 +87,7 @@ export default async function Home() {
         />
         <main id="main" className="w-full lg:w-[70%] lg:flex-1">
           <SelectedWorks projects={projects} />
-          <Footer socials={site.socials} footerLinks={site.footerLinks} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} foundedYear={site.foundedYear} />
         </main>
       </div>
     </>

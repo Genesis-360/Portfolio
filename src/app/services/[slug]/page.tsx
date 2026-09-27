@@ -293,7 +293,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             />
           </div>
 
-          <Footer socials={site.socials} footerLinks={site.footerLinks} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} foundedYear={site.foundedYear} />
         </main>
       </div>
     </>

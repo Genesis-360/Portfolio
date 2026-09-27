@@ -330,6 +330,10 @@ export default config({
           label: "Slots open",
           description: "Number shown in the sidebar 'Slots open' indicator",
         }),
+        foundedYear: fields.integer({
+          label: "Founding year",
+          description: "Shown in the footer copyright, e.g. © 2024 OREENZA",
+        }),
         calLink: fields.url({ label: "Cal.com link" }),
         calEmbedPath: fields.text({
           label: "Cal.com embed path",

@@ -71,6 +71,7 @@ const FOOTER_LINKS = [
 type FooterProps = {
   socials: { label: string; href: string }[];
   footerLinks?: { title: string; links: { label: string; href: string }[] }[];
+  foundedYear?: number;
 };
 
 const containerVariants: Variants = {
@@ -96,8 +97,7 @@ const itemVariants: Variants = {
   },
 };
 
-export function Footer({ socials, footerLinks = [] }: FooterProps) {
-  const year = new Date().getFullYear();
+export function Footer({ socials, footerLinks = [], foundedYear }: FooterProps) {
   const links = footerLinks.length > 0 ? footerLinks : FOOTER_LINKS;
 
   return (
@@ -174,7 +174,7 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
               </div>
 
               <p className="text-xs text-cream/60">
-                &copy; {year} OREENZA, All rights reserved
+                &copy; {foundedYear ?? 2024} OREENZA, All rights reserved
               </p>
             </div>
           </motion.div>

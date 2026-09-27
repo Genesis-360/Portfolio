@@ -33,6 +33,7 @@ export type Site = {
   email: string;
   phone: string;
   slotsOpen: number;
+  foundedYear: number;
   calLink: string;
   calEmbedPath: string;
   socials: { label: string; href: string }[];
@@ -211,6 +212,7 @@ export async function getSite(): Promise<Site> {
     email: s.email ?? "hello@oreenza.com",
     phone: s.phone ?? "+91 94576 33238",
     slotsOpen: s.slotsOpen ?? 4,
+    foundedYear: s.foundedYear ?? 2024,
     calLink: s.calLink ?? "https://cal.com/oreenza/discovery-call",
     calEmbedPath: s.calEmbedPath ?? "oreenza/discovery-call",
     socials: s.socials
