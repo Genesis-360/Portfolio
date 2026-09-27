@@ -128,6 +128,7 @@ export default async function BlogPostPage({
       "@type": "Organization",
       name: "OREENZA",
       logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
+      foundingDate: String(site.foundedYear),
     },
     mainEntityOfPage: {
       "@type": "WebPage",

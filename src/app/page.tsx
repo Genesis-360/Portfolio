@@ -57,6 +57,7 @@ export default async function Home() {
       "@type": "Organization",
       name: "OREENZA",
       logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
+      foundingDate: String(site.foundedYear),
     },
     potentialAction: {
       "@type": "SearchAction",

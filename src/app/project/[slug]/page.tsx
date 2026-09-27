@@ -86,16 +86,17 @@ export default async function ProjectPage({
     dateModified: datePublished,
     keywords: project.services.join(", "),
     url: absoluteUrl(`/project/${project.slug}`),
-    author: { "@type": "Organization", name: "OREENZA" },
+    author: { "@type": "Organization", name: "OREENZA", foundingDate: String(site.foundedYear) },
     publisher: {
       "@type": "Organization",
       name: "OREENZA",
       logo: { "@type": "ImageObject", url: absoluteUrl("/logo.svg") },
+      foundingDate: String(site.foundedYear),
     },
     about: {
       "@type": "Service",
       serviceType: project.services.join(", "),
-      provider: { "@type": "Organization", name: "OREENZA" },
+      provider: { "@type": "Organization", name: "OREENZA", foundingDate: String(site.foundedYear) },
     },
     inLanguage: "en",
   };

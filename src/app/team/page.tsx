@@ -71,6 +71,7 @@ export default async function TeamPage() {
       "@type": "Organization",
       name: "OREENZA",
       url: siteUrl,
+      foundingDate: String(site.foundedYear),
     },
   }));
 
@@ -94,6 +95,7 @@ export default async function TeamPage() {
           name: "OREENZA",
           logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
           sameAs: site.socials.map((s) => s.href),
+          foundingDate: String(site.foundedYear),
         },
         mainEntity: personSchema,
       },

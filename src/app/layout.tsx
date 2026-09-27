@@ -79,6 +79,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       url: `${siteUrl}/wordmark.svg`,
     },
     image: `${siteUrl}/header-logo.svg`,
+    foundingDate: String(site.foundedYear),
     sameAs,
     address: {
       "@type": "PostalAddress",
@@ -97,6 +98,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     email: site.email,
     telephone: site.phone,
     priceRange: "$$$$",
+    foundingDate: String(site.foundedYear),
     serviceType: [
       "Brand Identity",
       "Web Design",

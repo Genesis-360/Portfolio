@@ -58,6 +58,7 @@ export default async function BlogIndexPage() {
       name: "OREENZA",
       logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
       sameAs: site.socials.map((s) => s.href),
+      foundingDate: String(site.foundedYear),
     },
     blogPost: posts.map((p) => ({
       "@type": "BlogPosting" as const,

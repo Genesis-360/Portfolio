@@ -68,12 +68,14 @@ function ServiceDetailJsonLd({
   description,
   sections,
   faq,
+  foundedYear,
 }: {
   slug: string;
   serviceName: string;
   description: string;
   sections: { heading: string; body: string }[];
   faq: { q: string; a: string }[];
+  foundedYear: number;
 }) {
   const url = `${siteUrl}/services/${slug}`;
 
@@ -96,6 +98,7 @@ function ServiceDetailJsonLd({
         name: "OREENZA",
         url: siteUrl,
         logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
+        foundingDate: String(foundedYear),
       },
       hasOfferCatalog: {
         "@type": "OfferCatalog",
@@ -158,6 +161,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         description={service.intro}
         sections={service.sections}
         faq={service.faq ?? []}
+        foundedYear={site.foundedYear}
       />
 
       <div className="lg:flex lg:items-start">

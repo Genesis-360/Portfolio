@@ -88,6 +88,7 @@ export default async function ContactPage() {
           "@type": "Organization",
           name: "OREENZA",
           logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
+          foundingDate: String(site.foundedYear),
         },
         inLanguage: "en",
       },

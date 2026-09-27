@@ -30,6 +30,8 @@ async function homeMarkdown(): Promise<string> {
     "",
     "Performance-first creative agency for ambitious brands.",
     "",
+    `Founded: ${site.foundedYear}`,
+    "",
     "## Services",
     bullets(site.services.map((s) => s.title)),
     "",

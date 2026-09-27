@@ -58,7 +58,7 @@ function slugify(s: string) {
 }
 
 /* ── JSON-LD ──────────────────────────────────────────────── */
-export function ServicesJsonLd({ services }: { services: { title: string }[] }) {
+export function ServicesJsonLd({ services, foundedYear }: { services: { title: string }[]; foundedYear: number }) {
   const serviceList = services.map((s, i) => ({
     "@type": "Offer",
     position: i + 1,
@@ -90,6 +90,7 @@ export function ServicesJsonLd({ services }: { services: { title: string }[] }) 
                 name: "OREENZA",
                 url: SITE_URL,
                 logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.svg` },
+                foundingDate: String(foundedYear),
               },
               areaServed: "Worldwide",
               hasOfferCatalog: {
@@ -229,7 +230,7 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <ServicesJsonLd services={services} />
+      <ServicesJsonLd services={services} foundedYear={site.foundedYear} />
 
       <div className="lg:flex lg:items-start">
         <Sidebar
