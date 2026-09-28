@@ -8,7 +8,7 @@ export type ServiceTestimonial = {
 };
 
 const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
-  "brand-strategy-identity": [
+"brand-strategy-identity": [
     {
       id: 1,
       quote:
@@ -16,7 +16,7 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       author: "Priya Malhotra",
       role: "Founder",
       company: "Kora Skincare",
-      image: "/team/janvi.avif",
+      image: "/clients/Priya Malhotra.avif",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       author: "Arjun Mehta",
       role: "Marketing Lead",
       company: "Fieldwork Coffee",
-      image: "/team/siddhartha.avif",
+      image: "/clients/Arjun Mehta.avif",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       author: "Nisha Kapoor",
       role: "Co-Founder",
       company: "Orbit Finance",
-      image: "/team/gunjan.avif",
+      image: "/clients/Nisha Kapoor.avif",
     },
   ],
   "web-design--ux": [
@@ -42,28 +42,28 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       id: 1,
       quote:
         "They redesigned our checkout flow and conversion jumped 34% in the first month. Every decision traced back to a real user need, not a Dribbble trend.",
-      author: "Rohan Desai",
+      author: "Sofia Andersson",
       role: "Head of Product",
       company: "Cartly",
-      image: "/team/siddhartha.avif",
+      image: "/clients/Sofia Andersson.avif",
     },
     {
       id: 2,
       quote:
         "The component library they handed off let our engineers ship three new landing pages without redesigning anything. That alone paid for the project.",
-      author: "Sana Iqbal",
-      role: "Design Director",
-      company: "Northline",
-      image: "/team/janvi.avif",
+      author: "Marcus Webb",
+      role: "Head of Design",
+      company: "Minimal Co",
+      image: "/clients/Marcus Webb.avif",
     },
     {
       id: 3,
       quote:
         "Wireframes before pixels, always. The site feels considered — not assembled from a template. Mobile scores are the best we've ever had.",
-      author: "Kabir Shah",
+      author: "James Walker",
       role: "Founder",
       company: "Maison Atelier",
-      image: "/team/harsh.avif",
+      image: "/clients/James Walker.avif",
     },
   ],
   "web-development": [
@@ -71,19 +71,19 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       id: 1,
       quote:
         "95+ Lighthouse on mobile out of the box. Our previous site was at 42. Organic traffic climbed within weeks of the migration.",
-      author: "Dev Patel",
+      author: "Emma Hartley",
       role: "CTO",
       company: "Stackform",
-      image: "/team/siddhartha.avif",
+      image: "/clients/Emma Hartley.avif",
     },
     {
       id: 2,
       quote:
         "They set up Keystatic, trained our content team, and left documentation. We publish blog posts weekly without touching a developer.",
-      author: "Meera Joshi",
+      author: "Thomas Mueller",
       role: "Content Lead",
       company: "Brightpath",
-      image: "/team/shivani.avif",
+      image: "/clients/Thomas Mueller.avif",
     },
     {
       id: 3,
@@ -92,7 +92,7 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       author: "Tanvi Rao",
       role: "Product Manager",
       company: "Lumen Health",
-      image: "/team/janvi.avif",
+      image: "/clients/Tanvi Rao.avif",
     },
   ],
   "ai-automations": [
@@ -100,19 +100,19 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       id: 1,
       quote:
         "We reclaimed roughly 18 hours a week on captions and scheduling. The AI drafts still sound like us — because they trained it on our voice.",
-      author: "Ishaan Verma",
+      author: "Freya Johansson",
       role: "Social Media Manager",
       company: "Bloom Retail",
-      image: "/team/gunjan.avif",
+      image: "/clients/Freya Johansson.avif",
     },
     {
       id: 2,
       quote:
         "The 30-day content calendar aligns with our product drops perfectly. It's not generic filler — it maps to our actual launch cycle.",
-      author: "Ritika Nair",
+      author: "Mateo Rossi",
       role: "Brand Manager",
       company: "Nova Athletics",
-      image: "/team/janvi.avif",
+      image: "/clients/Mateo Rossi.avif",
     },
     {
       id: 3,
@@ -121,7 +121,7 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       author: "Aditya Bose",
       role: "Community Lead",
       company: "Thread & Co",
-      image: "/team/siddhartha.avif",
+      image: "/clients/Aditya Bose.avif",
     },
   ],
   "ai-powered-seo": [
@@ -132,25 +132,25 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       author: "Farah Khan",
       role: "Growth Lead",
       company: "Vantage SaaS",
-      image: "/team/shivani.avif",
+      image: "/clients/Farah Khan.avif",
     },
     {
       id: 2,
       quote:
         "Technical fixes landed in three weeks and Core Web Vitals went green. Content rankings followed around month four, exactly as they predicted.",
-      author: "Nikhil Arora",
+      author: "Yuki Tanaka",
       role: "Marketing Director",
       company: "Helio Finance",
-      image: "/team/siddhartha.avif",
+      image: "/clients/Yuki Tanaka.avif",
     },
     {
       id: 3,
       quote:
         "Weekly rank tracking with alerts means we catch drops before traffic collapses. Transparent reporting on every change — no black box.",
-      author: "Ananya Reddy",
+      author: "Rashid Al-Mansour",
       role: "Head of SEO",
       company: "ParcelPro",
-      image: "/team/gunjan.avif",
+      image: "/clients/Rashid Al-Mansour.avif",
     },
   ],
   "ai-search-visibility": [
@@ -158,10 +158,10 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       id: 1,
       quote:
         "Our Google Business Profile was half-empty. They filled every field, fixed categories, and we hit the map pack for our main keyword in six weeks.",
-      author: "Vikram Singh",
+      author: "Marcus Chen",
       role: "Owner",
       company: "UrbanNest Interiors",
-      image: "/team/siddhartha.avif",
+      image: "/clients/Marcus Chen.avif",
     },
     {
       id: 2,
@@ -170,7 +170,7 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       author: "Deepa Menon",
       role: "Practice Manager",
       company: "CareFirst Dental",
-      image: "/team/gunjan.avif",
+      image: "/clients/Deepa Menon.avif",
     },
     {
       id: 3,
@@ -179,7 +179,7 @@ const serviceTestimonials: Record<string, ServiceTestimonial[]> = {
       author: "Rahul Trivedi",
       role: "Regional Director",
       company: "ClearView Optics",
-      image: "/team/harsh.avif",
+      image: "/clients/Rahul Trivedi.avif",
     },
   ],
 };
@@ -189,28 +189,28 @@ export const defaultTestimonials: ServiceTestimonial[] = [
     id: 1,
     quote:
       "The attention to detail and creative vision transformed our brand identity completely.",
-    author: "Sarah Chen",
+    author: "Ingrid Nilsson",
     role: "Creative Director",
     company: "Studio Forma",
-    image: "/team/siddhartha.avif",
+    image: "/clients/Ingrid Nilsson.avif",
   },
   {
     id: 2,
     quote:
       "Working with them felt like a true creative partnership from day one.",
     author: "Marcus Webb",
-    role: "Head of Design",
-    company: "Minimal Co",
-    image: "/team/janvi.avif",
+      role: "Head of Design",
+      company: "Minimal Co",
+      image: "/clients/Marcus Webb.avif",
   },
   {
     id: 3,
     quote:
       "They understand that great design is invisible yet unforgettable.",
-    author: "Elena Voss",
+    author: "Lars Voss",
     role: "Art Director",
     company: "Pixel & Co",
-    image: "/team/gunjan.avif",
+    image: "/clients/Lars Voss.avif",
   },
 ];
 
