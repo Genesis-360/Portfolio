@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type CaseStudyProps = {
   project: {
     client: string;
@@ -129,15 +131,26 @@ export function CaseStudy({ project }: CaseStudyProps) {
                 &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full ring-2 ring-cream/10">
-                  <span className="font-body text-sm font-bold uppercase tracking-wider text-accent">
-                    {testimonial.author
-                      .split(" ")
-                      .map((w) => w[0])
-                      .slice(0, 2)
-                      .join("")}
-                  </span>
-                </div>
+                {testimonial.image ? (
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full ring-2 ring-cream/10">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full ring-2 ring-cream/10">
+                    <span className="font-body text-sm font-bold uppercase tracking-wider text-accent">
+                      {testimonial.author
+                        .split(" ")
+                        .map((w) => w[0])
+                        .slice(0, 2)
+                        .join("")}
+                    </span>
+                  </div>
+                )}
                 <div>
                   <p className="font-body font-medium text-cream">
                     {testimonial.author}
