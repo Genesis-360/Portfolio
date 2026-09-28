@@ -99,6 +99,12 @@ export default config({
               label: "Role",
               description: "e.g. Founder, Owner, CEO",
             }),
+            image: fields.image({
+              label: "Client photo",
+              directory: "public/clients",
+              publicPath: "/clients/",
+              description: "Photo of the client for the testimonial avatar",
+            }),
           },
           {
             label: "Client testimonial",
