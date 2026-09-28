@@ -21,7 +21,7 @@ export type Project = {
   strategy: string;
   outcome: string;
   metrics: { label: string; value: string; context: string }[];
-  testimonial?: { quote: string; author: string; role: string };
+  testimonial?: { quote: string; author: string; role: string; image?: string };
   intro: string;
   description: string[];
   services: string[];
@@ -114,6 +114,7 @@ export async function getProjects(): Promise<Project[]> {
             quote: project.testimonial.quote ?? "",
             author: project.testimonial.author ?? "",
             role: project.testimonial.role ?? "",
+            image: project.testimonial.image ?? "",
           }
         : undefined,
       intro: project.intro,
