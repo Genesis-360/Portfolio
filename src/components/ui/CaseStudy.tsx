@@ -13,7 +13,7 @@ type CaseStudyProps = {
     strategy: string;
     outcome: string;
     metrics: { label: string; value: string; context: string }[];
-    testimonial?: { quote: string; author: string; role: string };
+    testimonial?: { quote: string; author: string; role: string; image?: string };
   };
 };
 
