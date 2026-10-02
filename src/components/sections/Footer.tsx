@@ -173,7 +173,7 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
               </div>
 
               <p className="text-xs text-cream/60">
-                &copy; 2024&ndash;{new Date().getFullYear()} OREENZA, All rights reserved
+                &copy; {new Date().getFullYear()} OREENZA, All rights reserved
               </p>
             </div>
           </motion.div>

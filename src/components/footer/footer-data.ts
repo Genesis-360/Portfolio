@@ -71,5 +71,5 @@ export const footerData: FooterData = {
     { label: "X", href: "https://x.com/oreenza" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/oreenza/" },
   ],
-  copyright: `\u00A9 2024\u2013${new Date().getFullYear()} OREENZA. All rights reserved.`,
+  copyright: `\u00A9 ${new Date().getFullYear()} OREENZA. All rights reserved.`,
 };
