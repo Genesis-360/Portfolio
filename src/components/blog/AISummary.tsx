@@ -7,11 +7,10 @@ import {
 } from "react-icons/pi";
 
 type AISummaryProps = {
-  title: string;
   url: string;
 };
 
-export function AISummary({ title, url }: AISummaryProps) {
+export function AISummary({ url }: AISummaryProps) {
   const fullUrl = `https://oreenza.com${url}`;
   const prompt = encodeURIComponent(`Summarize this article for me: ${fullUrl}`);
 

@@ -127,6 +127,12 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${anton.variable} ${openSauce.variable} ${amsterdam.variable} antialiased`}
     >
       <head>
+        <link rel="preconnect" href="https://oreenza.com" />
+        <link rel="dns-prefetch" href="https://oreenza.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/avif" sizes="32x32" href="/favicon-32x32.avif" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />

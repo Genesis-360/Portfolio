@@ -7,35 +7,30 @@ Founded: 2024
 
 ## Services
 OREENZA offers six core services:
-- Brand Identity: Naming, logo systems, visual guidelines, brand voice
-- Web Design: UX/UI, design systems, Next.js builds, CMS setup (Keystatic)
-- Social Media Management: Content calendars, captions, community engagement, analytics
-- GBP Management: Profile setup, weekly posts, review responses, local SEO
-- App Development: iOS, Android, React Native, API integrations
-- AI-powered SEO: AI keyword research, content optimization, technical SEO audits, rank tracking
+- [Brand Identity](/services/brand-strategy-identity): Naming, logo systems, visual guidelines, brand voice
+- [Web Design & UX](/services/web-design--ux): UX/UI, design systems, Next.js builds, CMS setup (Keystatic)
+- [Web Development](/services/web-development): Next.js, React, TypeScript, performance optimization
+- [AI Automations](/services/ai-automations): Content calendars, captions, community engagement, analytics
+- [AI-Powered SEO](/services/ai-powered-seo): AI keyword research, content optimization, technical SEO audits, rank tracking
+- [AI Search Visibility](/services/ai-search-visibility): GBP Management, profile setup, weekly posts, review responses, local SEO
 
 ## Work
 OREENZA has shipped projects across industries including SaaS, retail, food & beverage, finance, architecture, travel, healthcare, and beauty. Case studies available at /project/[slug].
+
+## Projects
+- [Sakura Sushi Bar](/project/sakura) — Modern sushi experience with reservation-first website
+- [Velvet Bean](/project/velvet_bean) — Specialty coffee roaster brand & subscription platform
+- [Pizza House](/project/pizza_house) — Neighbourhood pizzeria rebrand & direct-order website
+- [Osetra](/project/oestra) — Modern Soho caviar house with reservation-first website
+- [TasteIt](/project/tasteit) — Food discovery platform with explore & share loop
 
 ## Team
 OREENZA is a small senior team of designers, engineers, and writers who ship for clients from cafés to SaaS companies.
 
 ## Contact
-- Email: hello@oreenza.com
-- Phone: Available on request
-- Cal.com: Available at /contact#book
-- WhatsApp QR: Available on /contact page
-
-## Pages
-- / : Homepage with selected works
-- /services : Full service index with editorial magazine layout
-- /services/[slug] : Individual service detail pages with long-form content
-- /work : Project portfolio (redirects to /)
-- /project/[slug] : Case study pages for each project
-- /blog : Insights blog with articles on design, performance, and SEO
-- /blog/[slug] : Individual blog posts
-- /team : Team page
-- /contact : Contact form, Cal.com booking, WhatsApp QR, email, phone
+- Email: [hello@oreenza.com](mailto:hello@oreenza.com)
+- [Book a discovery call](https://cal.com/oreenza/discovery-call)
+- WhatsApp QR: Available on [/contact](/contact) page
 
 ## Technology
 - Built with Next.js 16 (App Router)
@@ -46,7 +41,7 @@ OREENZA is a small senior team of designers, engineers, and writers who ship for
 - Deploys on Vercel
 
 ## Socials
-Available at /contact and linked in the site footer.
+Available at [/contact](/contact) and linked in the site footer.
 
 ## Availability
 OREENZA takes on a limited number of projects per quarter. Contact to check current availability.

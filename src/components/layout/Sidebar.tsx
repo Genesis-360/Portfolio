@@ -85,18 +85,18 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
       <div aria-hidden className="min-h-12 flex-1" />
 
       <section className="border-t border-cream/15 pt-6">
-        <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
+        <h2 className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
           <span className="relative flex h-2 w-2">
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <span className="h-px w-6 bg-cream/15" />
           Industries we serve
-        </p>
+        </h2>
         <ul className="mt-4 flex flex-wrap gap-2" aria-label="Industries we serve">
           {data.industries.map((i) => (
             <li
               key={i.name}
-              className="rounded-full border border-cream/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-cream/65"
+              className="rounded-full border border-cream/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-cream/80"
             >
               {i.name}
             </li>
@@ -105,13 +105,13 @@ function HomeContent({ data }: { isHome: boolean; data: SidebarData }) {
       </section>
 
       <section className="mt-7 border-t border-cream/15 pt-6">
-        <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
+        <h2 className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-cream/55">
           <span className="relative flex h-2 w-2">
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <span className="h-px w-6 bg-cream/15" />
           Services we offer
-        </p>
+        </h2>
         <div className="mt-3 h-48 sm:h-52 [@media(min-height:900px)]:h-64 [@media(min-height:1050px)]:h-72">
           <OptionWheel
             items={data.serviceTitles.map((title) => ({

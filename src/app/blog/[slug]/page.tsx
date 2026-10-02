@@ -3,9 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Sidebar } from "@/components/layout/Sidebar";
-import { Reveal } from "@/components/ui/Reveal";
 import { Footer } from "@/components/sections/Footer";
-import { CallToAction } from "@/components/sections/CallToAction";
 import { FaqSection } from "@/components/ui/FaqSection";
 import { getPost, getPosts, getSite, getTeam } from "@/lib/content";
 import { absoluteUrl, siteUrl } from "@/lib/url";
@@ -15,10 +13,7 @@ import { RelatedBlogs } from "@/components/blog/RelatedBlogs";
 import { ShareButtons } from "@/components/blog/ShareButtons";
 import { AISummary } from "@/components/blog/AISummary";
 import { Newsletter } from "@/components/blog/Newsletter";
-import { QuickAnswer } from "@/components/blog/QuickAnswer";
-import { KeyTakeaways } from "@/components/blog/KeyTakeaways";
 import { OreenzaInsight } from "@/components/blog/OreenzaInsight";
-import { RelatedServices } from "@/components/blog/RelatedServices";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -380,7 +375,6 @@ export default async function BlogPostPage({
 
                   {/* AI Summary */}
                   <AISummary
-                    title={post.title}
                     url={`/blog/${post.slug}`}
                   />
 

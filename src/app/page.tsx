@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { SelectedWorks } from "@/components/sections/SelectedWorks";
 import { Footer } from "@/components/sections/Footer";

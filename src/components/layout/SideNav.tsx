@@ -130,7 +130,7 @@ export function SideNavPanel({
       <aside
         id="sidenav-panel"
         aria-label="Navigation menu"
-        aria-hidden={!isOpen}
+        inert={!isOpen}
         className={`fixed inset-y-0 left-0 z-60 flex w-full flex-col overflow-hidden bg-ink transition-transform duration-400 ease-[cubic-bezier(0.7,0,0.2,1)] lg:w-[30%] lg:max-w-[560px] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}

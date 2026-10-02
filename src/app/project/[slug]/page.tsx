@@ -177,6 +177,7 @@ export default async function ProjectPage({
               src={project.cover}
               alt={`${project.title} — cover`}
               priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="aspect-video"
             />
             {project.gallery.map((src, i) => (

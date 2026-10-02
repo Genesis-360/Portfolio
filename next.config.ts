@@ -37,6 +37,27 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [],
   },
+  experimental: {
+    inlineCss: true,
+    optimizeCss: true,
+  },
+  turbopack: {},
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: "all",
+        minSize: 20000,
+        maxSize: 70000,
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          commons: { name: "commons", chunks: "all", minChunks: 2 },
+          lib: { test: /[\\/]node_modules[\\/]/, name: "lib", chunks: "all" },
+        }
+      };
+    }
+    return config;
+  },
   allowedDevOrigins: ["127.0.0.1", "localhost"],
   async headers() {
     return [

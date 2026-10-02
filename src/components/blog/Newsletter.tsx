@@ -7,7 +7,6 @@ import { PiCheckBold, PiPaperPlaneTiltBold } from "react-icons/pi";
 export function Newsletter() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [hovered, setHovered] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,11 +17,7 @@ export function Newsletter() {
   };
 
   return (
-    <div
-      className="relative overflow-hidden rounded-lg border border-cream/10 bg-cream/2 p-5"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div className="relative overflow-hidden rounded-lg border border-cream/10 bg-cream/2 p-5">
       <h4 className="text-lg text-cream">Newsletter</h4>
       <p className="mt-1 text-sm text-cream/40">Weekly insights. No spam.</p>
 
