@@ -400,7 +400,7 @@ export default async function BlogPostPage({
             />
           </div>
 
-          <Footer socials={site.socials} footerLinks={site.footerLinks} foundedYear={site.foundedYear} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>

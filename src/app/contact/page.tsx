@@ -274,7 +274,7 @@ export default async function ContactPage() {
           </div>
         </section>
 
-        <Footer socials={site.socials} footerLinks={site.footerLinks} foundedYear={site.foundedYear} />
+        <Footer socials={site.socials} footerLinks={site.footerLinks} />
       </main>
     </div>
     </>

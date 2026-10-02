@@ -148,7 +148,7 @@ export default function FooterSection4() {
               </h3>
               <SocialCloud className="gap-4 text-ink/80" />
               <p className="text-xs text-ink/60">
-                &copy; 2024 OREENZA, All rights reserved
+                &copy; 2024&ndash;{new Date().getFullYear()} OREENZA, All rights reserved
               </p>
             </div>
           </motion.div>

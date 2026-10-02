@@ -216,7 +216,7 @@ export default async function TeamPage() {
             />
           </div>
 
-          <Footer socials={site.socials} footerLinks={site.footerLinks} foundedYear={site.foundedYear} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>

@@ -212,7 +212,7 @@ export default async function PrivacyPage() {
             </div>
           </article>
 
-          <Footer socials={site.socials} footerLinks={site.footerLinks} foundedYear={site.foundedYear} />
+          <Footer socials={site.socials} footerLinks={site.footerLinks} />
         </main>
       </div>
     </>
