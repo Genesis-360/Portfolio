@@ -37,7 +37,7 @@ export async function generateMetadata({
     ...base,
     openGraph: {
       ...base.openGraph,
-      title: `${project.title} — ${project.client} Case Study | Oreenza`,
+      title: `${project.title} case study — ${project.client} | OREENZA`,
       description: caseDescription,
       url: `/project/${project.slug}`,
       type: "article",

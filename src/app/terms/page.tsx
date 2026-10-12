@@ -6,7 +6,7 @@ import { Footer } from "@/components/sections/Footer";
 import { getSite } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — OREENZA",
+  title: "Terms of Service",
   description:
     "Terms of Service for OREENZA. Read the terms and conditions governing your use of our website and services.",
   alternates: { canonical: "/terms" },

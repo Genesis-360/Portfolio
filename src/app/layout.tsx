@@ -16,8 +16,8 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "OREENZA — AI-Powered Design & Development Agency",
-    template: "%s — OREENZA",
+    default: "AI-Powered Design & Development Agency",
+    template: "%s | OREENZA",
   },
   description:
     "OREENZA is an AI-powered design & development agency building performance-first brands, websites, and products for ambitious B2B, D2C, and tech teams.",

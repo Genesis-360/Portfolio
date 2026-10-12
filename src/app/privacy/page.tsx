@@ -6,7 +6,7 @@ import { Footer } from "@/components/sections/Footer";
 import { getSite } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — OREENZA",
+  title: "Privacy Policy",
   description:
     "Privacy Policy for OREENZA. Learn how we collect, use, and protect your personal information when you use our services.",
   alternates: { canonical: "/privacy" },

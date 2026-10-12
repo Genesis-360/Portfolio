@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Service not found", robots: { index: false, follow: false } };
   }
 
-  const title = `${service.title} — Services | OREENZA`;
+  const title = `${service.title} — Services`;
   const description = service.intro || `${service.title} by OREENZA.`;
   const url = `${siteUrl}/services/${slug}`;
 

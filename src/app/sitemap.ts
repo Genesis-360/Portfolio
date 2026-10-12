@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getPosts, getProjects, getServices } from "@/lib/content";
-import { absoluteUrl } from "@/lib/url";
+import { absoluteUrl, siteUrl } from "@/lib/url";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [projects, services, posts] = await Promise.all([
@@ -11,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   return [
     {
-      url: absoluteUrl("/"),
+      url: siteUrl,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1,

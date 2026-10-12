@@ -22,7 +22,7 @@ export function caseStudyMetadata(project: ProjectMeta): Metadata {
     .slice(0, 160);
 
   return {
-    title: `${project.title} case study — ${project.client} | OREENZA`,
+    title: `${project.title} case study — ${project.client}`,
     description: fullDescription,
     keywords: [project.industry, project.client, ...project.services, "case study"],
     alternates: { canonical: `/project/${project.slug}` },

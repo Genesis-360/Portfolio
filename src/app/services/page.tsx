@@ -11,7 +11,7 @@ import { getSite, getServices } from "@/lib/content";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://oreenza.com";
 
 export const metadata: Metadata = {
-  title: "Services — OREENZA",
+  title: "Services",
   description:
     "Strategic brand architecture, high-speed web engineering, and advanced AI growth systems — built to load instantly, rank natively, and convert systematically.",
   keywords: [
