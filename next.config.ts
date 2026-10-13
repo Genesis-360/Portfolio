@@ -11,9 +11,9 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://app.cal.com`,
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://app.cal.com https://images.dmca.com`,
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob:",
+      "img-src 'self' data: blob: https://images.dmca.com",
       "font-src 'self' data:",
       "connect-src 'self' https://app.cal.com https://api.cal.com",
       "frame-src https://cal.com https://app.cal.com",
@@ -35,7 +35,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.dmca.com" },
+    ],
   },
   experimental: {
     inlineCss: true,

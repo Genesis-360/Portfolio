@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import { motion, type Variants } from "framer-motion";
 import {
   FaInstagram,
@@ -66,6 +67,25 @@ const FOOTER_LINKS = [
       { label: "GitHub", href: "https://github.com/Oreenza" },
     ],
   },
+];
+
+const PROOF_BADGES: {
+  name: string;
+  href: string;
+  src: string;
+  width: number;
+  height: number;
+}[] = [
+  {
+    name: "DMCA.com Protection Status",
+    href: "https://www.dmca.com/Protection/Status.aspx?ID=171d1955-ac83-4880-83f8-f3c1d00eed42",
+    src: "https://images.dmca.com/Badges/dmca-badge-w150-5x1-06.png?ID=171d1955-ac83-4880-83f8-f3c1d00eed42",
+    width: 150,
+    height: 30,
+  },
+  // Add Framer Expert / Shopify Partner badges here once assets are provided:
+  // { name: "Framer Expert", href: "...", src: "/badges/framer-expert.png", width: 150, height: 30 },
+  // { name: "Shopify Partner", href: "...", src: "/badges/shopify-partner.png", width: 150, height: 30 },
 ];
 
 type FooterProps = {
@@ -206,18 +226,54 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
               ))}
             </div>
 
-            {/* Bottom Newsletter */}
-            <div className="mt-12 space-y-4 border-t border-cream/10 pt-8 md:mt-0">
-              <h4 className="text-lg text-cream">Newsletter</h4>
-              <div className="flex w-full max-w-md flex-col gap-4 sm:flex-row">
-                <input
-                  type="email"
-                  placeholder="Enter Your Email"
-                  className="flex-1 rounded-md border border-cream/20 bg-transparent px-4 py-3 text-sm text-cream placeholder:text-cream/40 focus:outline-none focus:ring-1 focus:ring-cream"
+            {/* Proof badges + Newsletter */}
+            <div className="mt-12 space-y-8 border-t border-cream/10 pt-8 md:mt-0">
+              {/* Proof / partner badges */}
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-cream/40">
+                  Certified &amp; Verified
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-4">
+                  {PROOF_BADGES.map((badge) => (
+                    <a
+                      key={badge.name}
+                      href={badge.href}
+                      title={badge.name}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-block transition-opacity hover:opacity-80 ${
+                        badge.href.includes("dmca.com") ? "dmca-badge" : ""
+                      }`}
+                    >
+                      <Image
+                        src={badge.src}
+                        alt={badge.name}
+                        width={badge.width}
+                        height={badge.height}
+                        className="h-auto w-[150px]"
+                      />
+                    </a>
+                  ))}
+                </div>
+                <Script
+                  src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"
+                  strategy="afterInteractive"
                 />
-                <button className="rounded-md bg-cream px-8 py-3 text-sm text-ink transition-opacity hover:opacity-90">
-                  Submit
-                </button>
+              </div>
+
+              {/* Newsletter */}
+              <div className="space-y-4">
+                <h4 className="text-lg text-cream">Newsletter</h4>
+                <div className="flex w-full max-w-md flex-col gap-4 sm:flex-row">
+                  <input
+                    type="email"
+                    placeholder="Enter Your Email"
+                    className="flex-1 rounded-md border border-cream/20 bg-transparent px-4 py-3 text-sm text-cream placeholder:text-cream/40 focus:outline-none focus:ring-1 focus:ring-cream"
+                  />
+                  <button className="rounded-md bg-cream px-8 py-3 text-sm text-ink transition-opacity hover:opacity-90">
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
