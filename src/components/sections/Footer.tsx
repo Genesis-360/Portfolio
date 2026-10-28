@@ -126,19 +126,16 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
+        variants={containerVariants}>
         <div className="flex flex-col gap-4 md:flex-row">
           {/* Left Card — Accent */}
           <motion.div
             className="relative flex min-h-75 w-full flex-col justify-between overflow-hidden rounded-2xl bg-accent p-5 md:min-h-150 md:w-1/3 md:p-6"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             {/* Noise overlay */}
             <svg
               className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-90 mix-blend-multiply"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+              xmlns="http://www.w3.org/2000/svg">
               <filter id="noiseFilter">
                 <feTurbulence
                   type="fractalNoise"
@@ -152,7 +149,9 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
 
             {/* Top — Logo */}
             <div className="relative z-10">
-              <Link href="/" className="flex w-full items-center justify-center rounded-xl bg-ink p-4">
+              <Link
+                href="/"
+                className="flex w-full items-center justify-center rounded-xl bg-ink p-4">
                 <Image
                   src="/wordmark.svg"
                   alt="OREENZA"
@@ -182,8 +181,7 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
                       rel="noopener noreferrer"
                       title={s.label}
                       className="flex items-center justify-center transition-all duration-200 hover:scale-110"
-                      style={{ color: iconData?.color || "#F5F5F5" }}
-                    >
+                      style={{ color: iconData?.color || "#F5F5F5" }}>
                       <span className="text-2xl">
                         {iconData?.icon || s.label.charAt(0)}
                       </span>
@@ -201,22 +199,18 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
           {/* Right Card — Dark */}
           <motion.div
             className="flex w-full flex-col justify-between rounded-2xl border border-cream/10 bg-ink p-5 md:min-h-150 md:w-2/3 md:p-6"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             {/* Links Grid — 4 columns */}
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10 pb-10">
               {links.map((section, idx) => (
                 <div key={idx} className="flex flex-col space-y-6">
-                  <h4 className="text-lg text-cream">
-                    {section.title}
-                  </h4>
+                  <h4 className="text-lg text-cream">{section.title}</h4>
                   <ul className="flex flex-col space-y-3 text-cream/50">
                     {section.links.map((link, linkIdx) => (
                       <li key={linkIdx}>
                         <Link
                           href={link.href}
-                          className="transition-colors hover:text-cream"
-                        >
+                          className="transition-colors hover:text-cream">
                           {link.label}
                         </Link>
                       </li>
@@ -224,15 +218,8 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
                   </ul>
                 </div>
               ))}
-            </div>
-
-            {/* Proof badges + Newsletter */}
-            <div className="mt-12 space-y-8 border-t border-cream/10 pt-8 md:mt-0">
               {/* Proof / partner badges */}
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-cream/40">
-                  Certified &amp; Verified
-                </p>
+              <div className="col-span-2 flex flex-col items-start justify-between gap-4 md:col-span-1">
                 <div className="mt-4 flex flex-wrap items-center gap-4">
                   {PROOF_BADGES.map((badge) => (
                     <a
@@ -243,8 +230,7 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
                       rel="noopener noreferrer"
                       className={`inline-block transition-opacity hover:opacity-80 ${
                         badge.href.includes("dmca.com") ? "dmca-badge" : ""
-                      }`}
-                    >
+                      }`}>
                       <Image
                         src={badge.src}
                         alt={badge.name}
@@ -260,7 +246,10 @@ export function Footer({ socials, footerLinks = [] }: FooterProps) {
                   strategy="afterInteractive"
                 />
               </div>
+            </div>
 
+            {/* Proof badges + Newsletter */}
+            <div className="mt-12 space-y-8 border-t border-cream/10 pt-8 md:mt-0">
               {/* Newsletter */}
               <div className="space-y-4">
                 <h4 className="text-lg text-cream">Newsletter</h4>
